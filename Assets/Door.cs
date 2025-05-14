@@ -6,8 +6,22 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private bool active = true;
+    [SerializeField] private bool showDoorSprite = true;
     [SerializeField] private Door otherDoor;
     [SerializeField] private Transform teleportPoint;
+    private SpriteRenderer mDoorSprite;
+
+    void Awake()
+    {
+        mDoorSprite = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+        if (!showDoorSprite) {
+            mDoorSprite.gameObject.SetActive(false);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
