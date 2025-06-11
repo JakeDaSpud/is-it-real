@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,19 +8,28 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private bool active = true;
     [SerializeField] private bool showDoorSprite = true;
+    [SerializeField] private bool isSideDoor = false;
     [SerializeField] private Door otherDoor;
     [SerializeField] private Transform teleportPoint;
+    [SerializeField] private Sprite[] sprites;
     private SpriteRenderer mDoorSprite;
 
     void Awake()
     {
         mDoorSprite = GetComponentInChildren<SpriteRenderer>();
+        mDoorSprite.sprite = sprites[0];
     }
 
     void Start()
     {
-        if (!showDoorSprite) {
+        if (!showDoorSprite)
+        {
             mDoorSprite.gameObject.SetActive(false);
+        }
+
+        if (isSideDoor)
+        {
+            mDoorSprite.sprite = sprites[1];
         }
     }
 

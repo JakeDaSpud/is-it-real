@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3940050184491565046}
   - component: {fileID: 2493901356379194616}
   m_Layer: 0
-  m_Name: door_0
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,8 +135,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   showDoorSprite: 1
+  isSideDoor: 0
   otherDoor: {fileID: 0}
   teleportPoint: {fileID: 5708275899196606222}
+  sprites:
+  - {fileID: -7341407202210888751, guid: a8fff64d9e2751045998ef3e27852a35, type: 3}
+  - {fileID: -2311580382600401949, guid: d787d6fe86470374981b9331cdc9711a, type: 3}
 --- !u!61 &712446600579621124
 BoxCollider2D:
   m_ObjectHideFlags: 0
