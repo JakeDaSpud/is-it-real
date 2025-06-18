@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Object : MonoBehaviour
+public class HauntableObject : MonoBehaviour
 {
 	[Header("Basic Info")]
 	[SerializeField] private string objectName = "Unnamed_Hauntable_Object";

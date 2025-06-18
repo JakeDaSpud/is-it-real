@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,16 +13,11 @@ public class GameManager : MonoBehaviour
 
     // Non-Variable Arrays
     [SerializeField] private GameObject[] allObjects;
-    [SerializeField] private GameObject[] allAnomalies;
-    //[SerializeField] private Anomaly[] allAnomalies;
-
-    // To-Do
-    // Uncomment these newer Variables when you create the Anomaly class
+    [SerializeField] private Anomaly[] allAnomalies;
 
     // Variable Arrays 
     private List<GameObject> suspectObjects = new List<GameObject>();
-    private List<GameObject> currentAnomalies = new List<GameObject>();
-    //private List<Anomaly> currentAnomalies = new List<Anomaly>();
+    private List<Anomaly> currentAnomalies = new List<Anomaly>();
 
     // Day Variables
     private int currentDay = 0;
@@ -66,24 +62,32 @@ public class GameManager : MonoBehaviour
     private void GenerateAnomaliesForDay(int day)
     {
         int anomalyCount = UnityEngine.Random.Range(0, 4);
+        List<Anomaly> pool = allAnomalies.ToList();
 
         for (int i = 0; i < anomalyCount; i++)
         {
-            //Anomaly anomaly = allAnomalies[UnityEngine.Random.Range(0, allAnomalies.Length)]; 
-            var anomaly = allAnomalies[UnityEngine.Random.Range(0, allAnomalies.Length)];
+            int index = UnityEngine.Random.Range(0, pool.Count);
+            Anomaly anomaly = pool[index];
+            pool.RemoveAt(index);
 
-            //anomaly.ExecuteHaunt();
+            anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);
         }
     }
 
-    public void MarkObject(GameObject obj)
+    public void ToggleMarkObject(GameObject obj)
     {
         if (!suspectObjects.Contains(obj))
         {
             suspectObjects.Add(obj);
             Debug.Log($"Marked {obj.name} as suspect.");
+        }
+
+        else
+        {
+            suspectObjects.Remove(obj);
+            Debug.Log($"Unmarked {obj.name} as suspect.");
         }
     }
 
