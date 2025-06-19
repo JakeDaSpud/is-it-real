@@ -13,7 +13,16 @@ public class PathAnomaly : Anomaly
     // The amount by which the PathAnomaly's position has to be within to be considered "at" the next point
     [SerializeField] const float EPSILON = 0.1f;
 
-    public void Start()
+    private void Awake()
+    {
+        if (pathPoints.Length < 1)
+        {
+            Debug.LogError($"No Transforms in [{this}]'s pathPoints[]");
+            return;
+        }
+    }
+
+    private void Start()
     {
         this.currentPathPoint = pathPoints[index];
     }
@@ -27,7 +36,7 @@ public class PathAnomaly : Anomaly
 
         else
         {
-            this.transform.position += 
+            MoveTowards(currentPathPoint);
         }
     }
 
@@ -57,8 +66,18 @@ public class PathAnomaly : Anomaly
         currentPathPoint = pathPoints[index];
     }
 
+    private void MoveTowards(Transform target)
+    {
+        this.transform.position += ((target.position - this.transform.position).normalized * moveSpeed) * Time.deltaTime;
+        // normalize(Target Pos - My Pos) * speed
+    }
+
     public override void ExecuteHaunt(HauntableObject hauntableObject = null)
     {
+        // Spawn pathPoints
 
+        // Spawn HauntableObject representation of Anomaly (i.e. FloatingSkullSprite, EnemyLookingGuySprite)
+
+        // Start() can continue?
     }
 }
