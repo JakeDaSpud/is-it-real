@@ -8,12 +8,12 @@ public abstract class Anomaly : MonoBehaviour
     public HauntableObject[] hauntableObjects;
     protected HauntableObject currentHauntedObject;
 
-    public void HauntRandom()
+    public bool HauntRandom()
     {
         if (hauntableObjects.Length == 0 || hauntableObjects == null)
         {
             Debug.Log($"[{name} has no HauntableObjects to choose from!]");
-            return;
+            return false;
         }
 
         List<HauntableObject> availableObjects = new List<HauntableObject>();
@@ -29,12 +29,13 @@ public abstract class Anomaly : MonoBehaviour
         if (availableObjects.Count == 0)
         {
             Debug.Log($"[{name}] could not find any unoccupied HauntableObjects.");
-            return;
+            return false;
         }
 
         int index = UnityEngine.Random.Range(0, hauntableObjects.Length);
         currentHauntedObject = availableObjects[index];
-        currentHauntedObject.hauntingAnomaly = this.gameObject;
+        currentHauntedObject.hauntingAnomaly = this;
+        return true;
     }
 
     /// <summary>

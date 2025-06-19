@@ -24,7 +24,7 @@ public class HauntableObject : MonoBehaviour
 
 	[Header("Haunting")]
 	public bool canBeHaunted = false;
-	public GameObject hauntingAnomaly; // null unless haunted!
+	public Anomaly hauntingAnomaly; // null unless haunted!
 
 	[Header("Hovering")]
 	private bool isHovered = false;
