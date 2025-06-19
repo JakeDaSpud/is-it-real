@@ -70,6 +70,17 @@ public class GameManager : MonoBehaviour
             Anomaly anomaly = pool[index];
             pool.RemoveAt(index);
 
+            // TODO
+            // - [ ] uhhh refactor / fix ALL of this Anomaly adding logic
+            // - [ ] highlight proper setup
+            // - [ ] select proper setup
+            // - [ ] detect hover on object
+            // - [ ] add AddSuspect(HaunatbleObject HO)
+            // - [ ] add RemoveSuspect(HaunatbleObject HO)
+
+            // FIXME
+            // IMPORTANT: - [ ] use if (Anomaly.HauntRandom) to check!!!!!!!!!!!
+
             anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);

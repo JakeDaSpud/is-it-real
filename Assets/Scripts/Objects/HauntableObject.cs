@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -31,12 +32,27 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[SerializeField] private SpriteUpdateMode updateMode = SpriteUpdateMode.NONE;
 	private int currentSpriteIndex = 0;
 
-	void Awake()
+	// Selectable Fields
+	protected Material m_Original_Material { get; set; }
+
+    public bool IsSelected { get; set ; }
+    public bool IsHighlighted { get; set; }
+
+    void Awake()
 	{
 		if (!isActive)
 		{
 			this.gameObject.SetActive(false);
 			return;
+		}
+
+		if (hasSprite)
+		{
+			m_Original_Material = spriteRenderer.material;
+			// TODO
+			// - [ ] Have GameManager store the Highlighted and Selected Materials
+			/*m_Highlighted_Material = GameManager.Instance.Highlighted_Material;
+			m_Selected_Material = GameManager.Instance.Selected_Material;*/
 		}
 
 		if (hasSprite && showSprite)
@@ -111,26 +127,54 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		}
 	}
 
-	// Called by Hover System (doesn't exist yet)
-	public void SetHover(bool hover)
+	public void BecomeOriginal()
 	{
-		isHovered = hover;
-		// Change material / shader here
-		// Glow effect?
+		// Bool setting
+		this.IsHighlighted = false;
+		this.IsSelected = false;
+
+		// Set Material
+		this.spriteRenderer.SetMaterials(new List<Material> { this.m_Original_Material });
     }
 
-    public void Select()
-    {
-        if (!isHovered) return;
+	public void BecomeHighlighted()
+	{
+		// Bool setting
+		this.IsHighlighted = true;
+		Debug.Log($"[{objectName}] highlighted by player.");
 
-        isSelected = true;
-        Debug.Log($"[{objectName}] selected by player.");
+		// Set Material
+		// FIXME
+		// Global GameManager Material
+		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Highlighted_Material });
+    }
+
+    public void BecomeSelected()
+    {
+		// Bool setting
+		if (!this.IsHighlighted)
+		{
+        	Debug.LogError($"[{objectName}] NOT highlighted by player, but tried to BecomeSelected().");
+			return;
+		}
+		else
+		{
+			this.IsSelected = true;
+			Debug.Log($"[{objectName}] selected by player.");
+		}
+
+		// Set Material
+		// FIXME
+		// Global GameManager Material
+		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Selected_Material });
 
 		if (hauntingAnomaly != null)
 		{
 			Debug.LogWarning($"[{objectName}] is haunted by [{hauntingAnomaly.name}]!");
-        }
+		}
 
+		// TODO
+		// - [ ] Add me to GameManager.Instance.SuspectedObjects[]
 		Debug.Log($"This is where [{objectName}] tries to get added to the end-day bestiary to check if it's haunted!");
     }
 }

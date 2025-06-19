@@ -3,10 +3,6 @@ using UnityEngine;
 
 public interface ISelectable
 {
-    protected Material m_Original_Material { get; set; }
-    protected Material m_Highlighted_Material { get; set; }
-    protected Material m_Selected_Material { get; set; }
-
     public bool IsSelected { get; set; }
     public bool IsHighlighted { get; set; }
 
