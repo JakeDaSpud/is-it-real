@@ -49,10 +49,18 @@ public class PlayerMovement : MonoBehaviour
         Vector2 move = m_movementInput.normalized * m_moveSpeed * Time.fixedDeltaTime;
 
         // Flipping Sprite
-        if (move.x < 0)
-            m_spriteTransform.transform.localScale = new Vector3(-1, 1, 1);
-        else if (move.x > 0)
-            m_spriteTransform.transform.localScale = new Vector3(1, 1, 1);
+        if (move.x < 0 && m_spriteTransform.transform.localScale.x < 0)
+        {
+            Vector3 scale = m_spriteTransform.transform.localScale;
+            scale.x *= -1;
+            m_spriteTransform.transform.localScale = scale;
+        }
+        else if (move.x > 0 && m_spriteTransform.transform.localScale.x > 0)
+        {
+            Vector3 scale = m_spriteTransform.transform.localScale;
+            scale.x *= -1;
+            m_spriteTransform.transform.localScale = scale;
+        }
 
         // Move using Rigidbody2D (has collision)
         m_rb.MovePosition(m_rb.position + move);
