@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class HauntableObject : MonoBehaviour
+public class HauntableObject : MonoBehaviour, ISelectable
 {
 	[Header("Basic Info")]
-	[SerializeField] private string objectName = "Unnamed_Hauntable_Object";
-	[SerializeField] private bool isActive = true;
+	[SerializeField] protected string objectName = "Unnamed_Hauntable_Object";
+	[SerializeField] protected bool isActive = true;
 
 	[Header("Visuals")]
 	[SerializeField] private bool hasSprite = true;
@@ -17,24 +17,19 @@ public class HauntableObject : MonoBehaviour
 
 	[Header("Collision")]
 	[Tooltip("The Collider of the Object, where the Player can't walk.")]
-	[SerializeField] private Collider2D hitBox;
+	[SerializeField] protected Collider2D hitBox;
 
 	[Tooltip("The Collider that the Player can interact with.")]
-	[SerializeField] private Collider2D interactBox;
+	[SerializeField] protected Collider2D interactBox;
 
 	[Header("Haunting")]
 	public bool canBeHaunted = false;
 	public Anomaly hauntingAnomaly; // null unless haunted!
 
-	[Header("Hovering")]
-	private bool isHovered = false;
-	private bool isSelected = false;
-
 	private enum SpriteUpdateMode { NONE, PROGRESS, RANDOM_CHANGE }
 	[Tooltip("NONE: Sprite will not update. PROGRESS: Sprite will update at the start of each day to the next Sprite. RANDOM_CHANGE: Randomly swap to a DIFFERENT Sprite.")]
 	[SerializeField] private SpriteUpdateMode updateMode = SpriteUpdateMode.NONE;
 	private int currentSpriteIndex = 0;
-
 
 	void Awake()
 	{
