@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     private int failedDays = 0;
     private const int maxFailedDays = 3;
 
+    // Materials
+    [SerializeField] Material Highlighted_Material;
+    [SerializeField] Material Selected_Material;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
