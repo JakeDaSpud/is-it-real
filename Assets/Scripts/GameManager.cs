@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject player;
-    [SerializeField] private bool InHighlightMode = false;
+    [SerializeField] public bool InHighlightMode = false;
 
     // Non-Variable Arrays
     [SerializeField] private GameObject[] allObjects;
@@ -26,8 +26,10 @@ public class GameManager : MonoBehaviour
     private const int maxFailedDays = 3;
 
     // Materials
-    [SerializeField] Material Highlighted_Material;
-    [SerializeField] Material Selected_Material;
+    [SerializeField] public Material Highlighted_Material;
+    [SerializeField] public Material Selected_Material;
+    [SerializeField] public Color Highlighted_Colour;
+    [SerializeField] public Color Selected_Colour;
 
     void Awake()
     {

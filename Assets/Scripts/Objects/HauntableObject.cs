@@ -34,6 +34,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	// Selectable Fields
 	protected Material m_Original_Material { get; set; }
+	protected Color m_Original_Colour { get; set; }
 
     public bool IsSelected { get; set ; }
     public bool IsHighlighted { get; set; }
@@ -49,6 +50,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		if (hasSprite)
 		{
 			m_Original_Material = spriteRenderer.material;
+			m_Original_Colour = spriteRenderer.color;
 			// TODO
 			// - [ ] Have GameManager store the Highlighted and Selected Materials
 			/*m_Highlighted_Material = GameManager.Instance.Highlighted_Material;
@@ -127,6 +129,22 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		}
 	}
 
+	public void OnMouseEnter()
+	{
+		if (GameManager.Instance.InHighlightMode)
+		{
+			BecomeHighlighted();
+		}
+	}
+
+	public void OnMouseExit()
+	{
+		if (GameManager.Instance.InHighlightMode)
+		{
+			BecomeOriginal();
+		}
+	}
+
 	public void BecomeOriginal()
 	{
 		// Bool setting
@@ -134,7 +152,8 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		this.IsSelected = false;
 
 		// Set Material
-		this.spriteRenderer.SetMaterials(new List<Material> { this.m_Original_Material });
+		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Original_Material });
+		this.spriteRenderer.color = m_Original_Colour;
     }
 
 	public void BecomeHighlighted()
@@ -144,9 +163,8 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		Debug.Log($"[{objectName}] highlighted by player.");
 
 		// Set Material
-		// FIXME
-		// Global GameManager Material
-		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Highlighted_Material });
+		//this.spriteRenderer.material = GameManager.Instance.Highlighted_Material;
+		this.spriteRenderer.color = GameManager.Instance.Highlighted_Colour;
     }
 
     public void BecomeSelected()
@@ -164,9 +182,8 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		}
 
 		// Set Material
-		// FIXME
-		// Global GameManager Material
-		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Selected_Material });
+		//this.spriteRenderer.material = GameManager.Instance.Selected_Material;
+		this.spriteRenderer.color = GameManager.Instance.Selected_Colour;
 
 		if (hauntingAnomaly != null)
 		{
