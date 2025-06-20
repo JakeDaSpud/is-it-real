@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 m_movementInput;
     private Rigidbody2D m_rb;
     private InputActions m_inputActions;
+    private bool m_canMove = true;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         
         m_inputActions.Player.Pause.performed += (ctx) => { Pause(); };
         m_inputActions.Player.Interact.performed += (ctx) => { TryInteract(); };
+        m_inputActions.Player.HighlightMode.performed += (ctx) => { HighlightMode(); };
     }
 
     private void OnDisable()
@@ -43,8 +45,15 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("TryInteract() triggered...");
     }
 
+    private void HighlightMode()
+    {
+        GameManager.Instance.ToggleHighlightMode();
+    }
+
     private void FixedUpdate()
     {
+        if (!m_canMove) return;
+
         // Normalise input to prevent diagonal speed boost
         Vector2 move = m_movementInput.normalized * m_moveSpeed * Time.fixedDeltaTime;
 
@@ -65,4 +74,10 @@ public class PlayerMovement : MonoBehaviour
         // Move using Rigidbody2D (has collision)
         m_rb.MovePosition(m_rb.position + move);
     }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.m_canMove = canMove;
+    }
+
 }

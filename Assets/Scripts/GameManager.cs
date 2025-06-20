@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private PlayerMovement player;
+    [SerializeField] private GameObject player;
+    [SerializeField] private bool InHighlightMode = false;
 
     // Non-Variable Arrays
     [SerializeField] private GameObject[] allObjects;
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         if (array.Length == 0)
         {
-            throw new Exception(arrayName + " is empty.");
+            //throw new Exception(arrayName + " is empty.");
         }
     }
 
@@ -52,6 +53,40 @@ public class GameManager : MonoBehaviour
     {
         CheckArrayEmpty(allObjects, nameof(allObjects));
         CheckArrayEmpty(allAnomalies, nameof(allAnomalies));
+    }
+
+    public void ToggleHighlightMode()
+    {
+        // FIXME
+        // Needs to be getfirstchild or whatever
+        // camera and darkfilter are children of Player, NOT components!
+
+        Transform playerCameraT = player.transform.Find("Main Camera");
+        Camera playerCamera = playerCameraT.GetComponent<Camera>();
+        Transform darkFilterT = playerCamera.gameObject.transform.Find("DarkFilter");
+        SpriteRenderer darkFilter = darkFilterT.GetComponent<SpriteRenderer>();
+        Transform playerSpriteT = player.gameObject.transform.Find("Sprite");
+        SpriteRenderer playerSprite = playerSpriteT.GetComponent<SpriteRenderer>();
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+
+        if (InHighlightMode)
+        {
+            // Unpause Player
+            // Unhide Player
+            darkFilter.gameObject.SetActive(false);
+            playerSprite.gameObject.SetActive(true);
+            playerMovement.SetCanMove(true);
+        }
+        else
+        {
+            // Pause Player
+            // Hide Player
+            darkFilter.gameObject.SetActive(true);
+            playerSprite.gameObject.SetActive(false);
+            playerMovement.SetCanMove(false);
+        }
+
+        InHighlightMode = !InHighlightMode;
     }
 
     public void StartDay(int day)
@@ -88,21 +123,6 @@ public class GameManager : MonoBehaviour
             anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);
-        }
-    }
-
-    public void ToggleMarkObject(GameObject obj)
-    {
-        if (!suspectObjects.Contains(obj))
-        {
-            suspectObjects.Add(obj);
-            Debug.Log($"Marked {obj.name} as suspect.");
-        }
-
-        else
-        {
-            suspectObjects.Remove(obj);
-            Debug.Log($"Unmarked {obj.name} as suspect.");
         }
     }
 
