@@ -133,6 +133,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	{
 		if (GameManager.Instance.InHighlightMode)
 		{
+			Debug.Log($"mouse entered {this.name}");
 			BecomeHighlighted();
 		}
 	}
@@ -141,6 +142,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	{
 		if (GameManager.Instance.InHighlightMode)
 		{
+			Debug.Log($"mouse exited {this.name}");
 			BecomeOriginal();
 		}
 	}
