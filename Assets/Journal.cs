@@ -13,7 +13,7 @@ public class Journal : MonoBehaviour
     {
         index++;
         pages[index].SetAsLastSibling();
-        float angle = 180;
+        float angle = -180;
         StartCoroutine(Rotation(angle, true));
     }
 
