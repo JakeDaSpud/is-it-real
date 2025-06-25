@@ -33,13 +33,22 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	private int currentSpriteIndex = 0;
 
 	// Selectable Fields
-	protected Material m_Original_Material { get; set; }
 	protected Color m_Original_Colour { get; set; }
 
-    public bool IsSelected { get; set ; }
-    public bool IsHighlighted { get; set; }
+	public bool IsSelected { get; set; }
+	public bool IsHighlighted { get; set; }
 
-    void Awake()
+	void OnEnable()
+	{
+		EventManager.Instance.OnPlayerLeftClick += CheckIfSelected;
+	}
+	
+	void OnDisable()
+	{
+		EventManager.Instance.OnPlayerLeftClick -= CheckIfSelected;
+	}
+
+	void Awake()
 	{
 		if (!isActive)
 		{
@@ -49,12 +58,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 		if (hasSprite)
 		{
-			m_Original_Material = spriteRenderer.material;
 			m_Original_Colour = spriteRenderer.color;
-			// TODO
-			// - [ ] Have GameManager store the Highlighted and Selected Materials
-			/*m_Highlighted_Material = GameManager.Instance.Highlighted_Material;
-			m_Selected_Material = GameManager.Instance.Selected_Material;*/
 		}
 
 		if (hasSprite && showSprite)
@@ -140,9 +144,9 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	public void OnMouseExit()
 	{
-		if (GameManager.Instance.InHighlightMode)
+		if (GameManager.Instance.InHighlightMode && !this.IsSelected)
 		{
-			Debug.Log($"mouse exited {this.name}");
+			Debug.Log($"mouse exited {objectName}");
 			BecomeOriginal();
 		}
 	}
@@ -153,10 +157,9 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		this.IsHighlighted = false;
 		this.IsSelected = false;
 
-		// Set Material
-		//this.spriteRenderer.SetMaterials(new List<Material> { this.m_Original_Material });
+		// Set Colour
 		this.spriteRenderer.color = m_Original_Colour;
-    }
+	}
 
 	public void BecomeHighlighted()
 	{
@@ -164,17 +167,16 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		this.IsHighlighted = true;
 		Debug.Log($"[{objectName}] highlighted by player.");
 
-		// Set Material
-		//this.spriteRenderer.material = GameManager.Instance.Highlighted_Material;
+		// Set Colour
 		this.spriteRenderer.color = GameManager.Instance.Highlighted_Colour;
-    }
+	}
 
-    public void BecomeSelected()
-    {
+	public void BecomeSelected()
+	{
 		// Bool setting
 		if (!this.IsHighlighted)
 		{
-        	Debug.LogError($"[{objectName}] NOT highlighted by player, but tried to BecomeSelected().");
+			Debug.LogError($"[{objectName}] NOT highlighted by player, but tried to BecomeSelected().");
 			return;
 		}
 		else
@@ -183,8 +185,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 			Debug.Log($"[{objectName}] selected by player.");
 		}
 
-		// Set Material
-		//this.spriteRenderer.material = GameManager.Instance.Selected_Material;
+		// Set Colour
 		this.spriteRenderer.color = GameManager.Instance.Selected_Colour;
 
 		if (hauntingAnomaly != null)
@@ -192,8 +193,14 @@ public class HauntableObject : MonoBehaviour, ISelectable
 			Debug.LogWarning($"[{objectName}] is haunted by [{hauntingAnomaly.name}]!");
 		}
 
-		// TODO
-		// - [ ] Add me to GameManager.Instance.SuspectedObjects[]
 		Debug.Log($"This is where [{objectName}] tries to get added to the end-day bestiary to check if it's haunted!");
-    }
+	}
+
+	private void CheckIfSelected()
+	{
+		if (IsHighlighted)
+		{
+			GameManager.Instance.AddSuspectObject(this);
+		}
+	}
 }

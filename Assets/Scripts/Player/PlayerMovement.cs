@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         
         m_inputActions.Player.Pause.performed += (ctx) => { Pause(); };
         m_inputActions.Player.Interact.performed += (ctx) => { TryInteract(); };
+        m_inputActions.Player.Interact.performed += (ctx) => { TrySelect(); };
         m_inputActions.Player.HighlightMode.performed += (ctx) => { HighlightMode(); };
     }
 
@@ -48,6 +49,14 @@ public class PlayerMovement : MonoBehaviour
     private void HighlightMode()
     {
         GameManager.Instance.ToggleHighlightMode();
+    }
+
+    public void TrySelect()
+    {
+        if (GameManager.Instance.InHighlightMode)
+        {
+            EventManager.Instance.RaisePlayerLeftClick();
+        }
     }
 
     private void FixedUpdate()

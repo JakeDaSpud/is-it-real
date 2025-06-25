@@ -17,17 +17,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Anomaly[] allAnomalies;
 
     // Variable Arrays 
-    private List<GameObject> suspectObjects = new List<GameObject>();
-    private List<Anomaly> currentAnomalies = new List<Anomaly>();
+    [SerializeField] private HauntableObject[] suspectObjects = new HauntableObject[3];
+    [SerializeField] private List<Anomaly> currentAnomalies = new List<Anomaly>();
 
     // Day Variables
     private int currentDay = 0;
     private int failedDays = 0;
     private const int maxFailedDays = 3;
 
-    // Materials
-    [SerializeField] public Material Highlighted_Material;
-    [SerializeField] public Material Selected_Material;
+    // Colours
     [SerializeField] public Color Highlighted_Colour;
     [SerializeField] public Color Selected_Colour;
 
@@ -47,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         if (array.Length == 0)
         {
-            //throw new Exception(arrayName + " is empty.");
+            throw new Exception(arrayName + " is empty.");
         }
     }
 
@@ -59,10 +57,6 @@ public class GameManager : MonoBehaviour
 
     public void ToggleHighlightMode()
     {
-        // FIXME
-        // Needs to be getfirstchild or whatever
-        // camera and darkfilter are children of Player, NOT components!
-
         Transform playerCameraT = player.transform.Find("Main Camera");
         Camera playerCamera = playerCameraT.GetComponent<Camera>();
         Transform darkFilterT = playerCamera.gameObject.transform.Find("DarkFilter");
@@ -93,8 +87,12 @@ public class GameManager : MonoBehaviour
 
     public void StartDay(int day)
     {
-        currentAnomalies.Clear();
-        suspectObjects.Clear();
+        currentAnomalies[0] = null;
+        currentAnomalies[1] = null;
+        currentAnomalies[2] = null;
+        suspectObjects[0] = null;
+        suspectObjects[1] = null;
+        suspectObjects[2] = null;
 
         GenerateAnomaliesForDay(day);
         Debug.Log($"Day {day} started.");
@@ -127,6 +125,35 @@ public class GameManager : MonoBehaviour
             currentAnomalies.Add(anomaly);
         }
     }
+
+    public bool AddSuspectObject(HauntableObject obj)
+    {
+        if (suspectObjects[0] == null)
+        {
+            suspectObjects[0] = obj;
+            obj.BecomeSelected();
+            return true;
+        }
+
+        if (suspectObjects[1] == null)
+        {
+            suspectObjects[1] = obj;
+            obj.BecomeSelected();
+            return true;
+        }
+
+        if (suspectObjects[2] == null)
+        {
+            suspectObjects[2] = obj;
+            obj.BecomeSelected();
+            return true;
+        }
+
+        Debug.LogError($"{obj.name} couldn't be added to suspectObjects, it is full!");
+        return false;
+    }
+
+
 
     private void GameOver()
     {
