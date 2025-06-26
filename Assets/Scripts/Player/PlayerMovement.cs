@@ -26,10 +26,8 @@ public class PlayerMovement : MonoBehaviour
         
         m_inputActions.Player.Move.performed += (ctx) => { m_movementInput = ctx.ReadValue<Vector2>(); };
         m_inputActions.Player.Move.canceled += (ctx) => { m_movementInput = Vector2.zero; };
-        
         m_inputActions.Player.Pause.performed += (ctx) => { Pause(); };
         m_inputActions.Player.Interact.performed += (ctx) => { TryInteract(); };
-        m_inputActions.Player.Interact.performed += (ctx) => { TrySelect(); };
         m_inputActions.Player.HighlightMode.performed += (ctx) => { HighlightMode(); };
     }
 
@@ -38,12 +36,21 @@ public class PlayerMovement : MonoBehaviour
         m_inputActions.Player.Disable();
     }
 
-    private void Pause() {
+    private void Pause()
+    {
         Debug.Log("Pause() triggered...");
     }
 
-    private void TryInteract() {
-        Debug.Log("TryInteract() triggered...");
+    private void TryInteract()
+    {
+        if (GameManager.Instance.InHighlightMode)
+        {
+            TrySelect();
+        }
+        else
+        {
+            Debug.Log("TryInteract() triggered...");
+        }
     }
 
     private void HighlightMode()

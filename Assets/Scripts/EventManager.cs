@@ -27,6 +27,7 @@ public class EventManager : MonoBehaviour
     // State Events
     public event Action OnGameStart;
     public event Action OnGameOver;
+    public event Action OnHighlightModeChange;
 
     // Player Events
     public event Action OnPlayerDeath;
@@ -38,17 +39,18 @@ public class EventManager : MonoBehaviour
     public event Action<Anomaly[]> OnAnomaliesRevealed;
 
     // Raising Functions
-    public void RaiseDayStart(int dayNumber) {OnDayStart?.Invoke(dayNumber); }
-    public void RaiseDaySucceed() {OnDaySucceed?.Invoke(); }
-    public void RaiseDayFail() {OnDayFail?.Invoke(); }
+    public void RaiseDayStart(int dayNumber) { OnDayStart?.Invoke(dayNumber); }
+    public void RaiseDaySucceed() { OnDaySucceed?.Invoke(); }
+    public void RaiseDayFail() { OnDayFail?.Invoke(); }
     
     public void RaiseGameStart() { OnGameStart?.Invoke(); }
-    public void RaiseGameOver() {OnGameOver?.Invoke(); }
+    public void RaiseGameOver() { OnGameOver?.Invoke(); }
+    public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
-    public void RaisePlayerLeftClick() { OnPlayerLeftClick?.Invoke(); }
-    public void RaiseHauntableObjectHighlighted(HauntableObject obj) { OnHauntableObjectHighlighted?.Invoke(obj); }
-    public void RaiseHauntableObjectSelected(HauntableObject obj) { OnHauntableObjectSelected?.Invoke(obj); }
+    public void RaisePlayerLeftClick() { Debug.Log("Raised OnPlayerLeftClick."); OnPlayerLeftClick?.Invoke(); }
+    public void RaiseHauntableObjectHighlighted(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectHighlighted."); OnHauntableObjectHighlighted?.Invoke(obj); }
+    public void RaiseHauntableObjectSelected(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected."); OnHauntableObjectSelected?.Invoke(obj); }
     
     public void RaiseAnomaliesRevealed(Anomaly[] anomalies) { OnAnomaliesRevealed?.Invoke(anomalies); }
 

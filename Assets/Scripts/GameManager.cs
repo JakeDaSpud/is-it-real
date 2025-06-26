@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Anomaly[] allAnomalies;
 
     // Variable Arrays 
-    [SerializeField] private HauntableObject[] suspectObjects = new HauntableObject[3];
+    [SerializeField] private List<HauntableObject> suspectObjects = new List<HauntableObject>();
     [SerializeField] private List<Anomaly> currentAnomalies = new List<Anomaly>();
 
     // Day Variables
@@ -83,17 +83,11 @@ public class GameManager : MonoBehaviour
         }
 
         InHighlightMode = !InHighlightMode;
+        EventManager.Instance.RaiseHighlightModeChange();
     }
 
     public void StartDay(int day)
     {
-        currentAnomalies[0] = null;
-        currentAnomalies[1] = null;
-        currentAnomalies[2] = null;
-        suspectObjects[0] = null;
-        suspectObjects[1] = null;
-        suspectObjects[2] = null;
-
         GenerateAnomaliesForDay(day);
         Debug.Log($"Day {day} started.");
     }
@@ -111,11 +105,6 @@ public class GameManager : MonoBehaviour
 
             // TODO
             // - [ ] uhhh refactor / fix ALL of this Anomaly adding logic
-            // - [ ] highlight proper setup
-            // - [ ] select proper setup
-            // - [ ] detect hover on object
-            // - [ ] add AddSuspect(HaunatbleObject HO)
-            // - [ ] add RemoveSuspect(HaunatbleObject HO)
 
             // FIXME
             // IMPORTANT: - [ ] use if (Anomaly.HauntRandom) to check!!!!!!!!!!!
@@ -126,26 +115,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Try to add a HauntableObject to suspectObjects[].
+    /// </summary>
+    /// <param name="obj">Object to be added to suspectObjects[]</param>
+    /// <returns>True if added successfully, false if it couldn't be.</returns>
     public bool AddSuspectObject(HauntableObject obj)
     {
-        if (suspectObjects[0] == null)
+        if (suspectObjects.Count() < 3)
         {
-            suspectObjects[0] = obj;
-            obj.BecomeSelected();
-            return true;
-        }
-
-        if (suspectObjects[1] == null)
-        {
-            suspectObjects[1] = obj;
-            obj.BecomeSelected();
-            return true;
-        }
-
-        if (suspectObjects[2] == null)
-        {
-            suspectObjects[2] = obj;
-            obj.BecomeSelected();
+            suspectObjects.Add(obj);
             return true;
         }
 
@@ -153,7 +132,22 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Try to remove a HauntableObject from suspectObjects[].
+    /// </summary>
+    /// <param name="obj">Object to be removed from suspectObjects[]</param>
+    /// <returns>True if removed successfully, false if it wasn't found.</returns>
+    public bool RemoveSuspectObject(HauntableObject obj)
+    {
+        if (suspectObjects.Contains(obj))
+        {
+            suspectObjects.Remove(obj);
+            return true;
+        }
 
+        Debug.LogError($"{obj.name} couldn't be removed from suspectObjects, it's not there!");
+        return false;
+    }
 
     private void GameOver()
     {
