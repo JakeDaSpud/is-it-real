@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,7 +7,16 @@ public class PathAnomaly : Anomaly
     private Transform currentPathPoint;
     private int index = 0;
     [SerializeField] float moveSpeed = 2f;
-    // The amount by which the PathAnomaly's position has to be within to be considered "at" the next point
+    [SerializeField] Transform hoSpawnTransform;
+    /// <summary>
+    /// The Anomaly's visual, Highlightable representation.
+    /// </summary>
+    [SerializeField] HauntableObject hoRepresentation;
+    HauntableObject m_hoRepObject;
+
+    /// <summary>
+    /// The amount by which the PathAnomaly's position has to be within to be considered "at" the next point
+    /// </summary>
     [SerializeField] const float EPSILON = 0.1f;
 
     private void Awake()
@@ -29,7 +35,7 @@ public class PathAnomaly : Anomaly
 
     public void FixedUpdate()
     {
-        if (WithinDistance(this.transform, currentPathPoint))
+        if (WithinDistance(m_hoRepObject.transform, currentPathPoint))
         {
             SetNextPathPoint();
         }
@@ -68,16 +74,12 @@ public class PathAnomaly : Anomaly
 
     private void MoveTowards(Transform target)
     {
-        this.transform.position += ((target.position - this.transform.position).normalized * moveSpeed) * Time.deltaTime;
-        // normalize(Target Pos - My Pos) * speed
+        m_hoRepObject.transform.position += (target.position - m_hoRepObject.transform.position).normalized * moveSpeed * Time.deltaTime;
     }
 
     public override void ExecuteHaunt(HauntableObject hauntableObject = null)
     {
-        // Spawn pathPoints
-
         // Spawn HauntableObject representation of Anomaly (i.e. FloatingSkullSprite, EnemyLookingGuySprite)
-
-        // Start() can continue?
+        m_hoRepObject = Instantiate(hoRepresentation, hoSpawnTransform);
     }
 }

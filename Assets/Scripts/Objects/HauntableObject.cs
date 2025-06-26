@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HauntableObject : MonoBehaviour, ISelectable
@@ -229,20 +224,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	{
 		if (!GameManager.Instance.InHighlightMode)
 		{
-			if (IsSelected)
-			{
-				return;
-			}
-
-			if (IsHighlighted && !IsSelected)
-			{
-				BecomeOriginal();
-			}
-
-			if (!IsHighlighted && !IsSelected)
-			{
-				BecomeOriginal();
-			}
+			BecomeCurrent();
 		}
 	}
 }
