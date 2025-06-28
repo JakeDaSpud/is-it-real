@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      catCouch01_CS_0: 720307928342027068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
