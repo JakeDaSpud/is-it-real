@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
     // Non-Variable Arrays
     [SerializeField] private GameObject[] allObjects;
     [SerializeField] private Anomaly[] allAnomalies;
+    [SerializeField] private DailyTask[] allDailyTasks;
 
     // Variable Arrays 
     [SerializeField] private List<HauntableObject> suspectObjects = new List<HauntableObject>();
     [SerializeField] private List<Anomaly> currentAnomalies = new List<Anomaly>();
+    [SerializeField] private List<DailyTask> currentDailyTasks = new List<DailyTask>();
 
     // Day Variables
     private int currentDay = 0;
@@ -26,6 +28,28 @@ public class GameManager : MonoBehaviour
     // Colours
     [SerializeField] public Color Highlighted_Colour;
     [SerializeField] public Color Selected_Colour;
+
+    void OnEnable()
+    {
+        EventManager.Instance.OnDailyTaskCompleted += CheckDailyTaskEvent;
+    }
+    
+    void OnDisable()
+    {
+        EventManager.Instance.OnDailyTaskCompleted -= CheckDailyTaskEvent;
+    }
+
+    private void CheckDailyTaskEvent(String completedTaskName)
+    {
+        foreach (DailyTask dT in currentDailyTasks)
+        {
+            if (dT.TaskName.Equals(completedTaskName))
+            {
+                dT.CompleteTask();
+                return;
+            }
+        }
+    }
 
     void Awake()
     {
@@ -126,6 +150,12 @@ public class GameManager : MonoBehaviour
 
             currentAnomalies.Add(anomaly);
         }
+    }
+
+    private void GenerateDailyTasksForDay(int day)
+    {
+        // TODO
+        // all this yeah
     }
 
     /// <summary>
