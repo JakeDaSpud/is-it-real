@@ -5,6 +5,11 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[Header("Basic Info")]
 	[SerializeField] protected string objectName = "Unnamed_Hauntable_Object";
 	[SerializeField] protected bool isActive = true;
+	/// <summary>
+	/// If true, this HauntedObject will be removed at the start of a new day.
+	/// Meant to be used for HOs spawned by Anomalies. Like the FloatingSkull for example.
+	/// </summary>
+	[SerializeField] protected bool isTemporary = false;
 
 	[Header("Visuals")]
 	[SerializeField] private bool hasSprite = true;
@@ -92,36 +97,53 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		// Check which update option is being used, update accordingly
 		if (this.updateMode == SpriteUpdateMode.NONE)
 		{
+			SpriteUpdateNone(currentSpriteArray);
 			return;
 		}
 
 		if (this.updateMode == SpriteUpdateMode.PROGRESS)
 		{
-			if (currentSpriteIndex >= currentSpriteArray.Length)
-			{
-				currentSpriteIndex = currentSpriteArray.Length - 1;
-			}
-
-			else
-			{
-				currentSpriteIndex++;
-			}
-
-			spriteRenderer.sprite = currentSpriteArray[currentSpriteIndex];
-
-			Debug.Log($"[{objectName}] PROGRESSED Sprite.");
+			SpriteUpdateProgress(currentSpriteArray);
 			return;
 		}
 
 		if (this.updateMode == SpriteUpdateMode.RANDOM_CHANGE)
 		{
-			currentSpriteIndex = Random.Range(0, currentSpriteArray.Length);
-
-			spriteRenderer.sprite = currentSpriteArray[currentSpriteIndex];
-
-			Debug.Log($"[{objectName}] changed Sprite RANDOMLY.");
+			SpriteUpdateRandom(currentSpriteArray);
 			return;
 		}
+	}
+
+	protected void SpriteUpdateNone(Sprite[] sprites)
+	{
+		// currentSpriteIndex should just stay as 0, when not being an updated sprite!
+		spriteRenderer.sprite = sprites[currentSpriteIndex];
+	}
+
+	protected void SpriteUpdateProgress(Sprite[] sprites)
+	{
+		if (currentSpriteIndex >= sprites.Length)
+		{
+			currentSpriteIndex = sprites.Length - 1;
+		}
+
+		else
+		{
+			currentSpriteIndex++;
+		}
+
+		spriteRenderer.sprite = sprites[currentSpriteIndex];
+
+		Debug.Log($"[{objectName}] PROGRESSED Sprite.");
+	}
+
+	protected void SpriteUpdateRandom(Sprite[] sprites)
+	{
+		currentSpriteIndex = Random.Range(0, sprites.Length);
+
+		spriteRenderer.sprite = sprites[currentSpriteIndex];
+
+		Debug.Log($"[{objectName}] changed Sprite RANDOMLY.");
 	}
 
 	public void Interact(Collider2D other)

@@ -84,6 +84,21 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.RaiseHighlightModeChange();
     }
 
+    public void ResetScene()
+    {
+        // Reset currentAnomalies[]
+        // Reset currentTasks[]
+        // Reset suspectObjects[]
+
+        // Go through all HauntableObjects
+        // if (ho.isTemporary) => delete it
+        // set .hauntingAnomaly to null
+
+        // set all other HauntableObject SpriteRenderers to visible
+
+        // Reset the 
+    }
+
     public void StartDay(int day)
     {
         GenerateAnomaliesForDay(day);
