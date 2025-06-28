@@ -10,7 +10,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[SerializeField] private bool hasSprite = true;
 	[SerializeField] private bool showSprite = true;
 	[SerializeField] private SpriteRenderer spriteRenderer;
-	[SerializeField] private Sprite[] sprites;
+	[SerializeField] private Sprite[] sprites; // sprites[0] is always the default sprite
 
 	[Header("Collision")]
 	[Tooltip("The Collider of the Object, where the Player can't walk.")]
@@ -226,5 +226,12 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		{
 			BecomeCurrent();
 		}
+	}
+
+	public void ResetObject()
+	{
+		this.hauntingAnomaly = null;
+		this.spriteRenderer.sprite = sprites[0];
+		BecomeOriginal();
 	}
 }

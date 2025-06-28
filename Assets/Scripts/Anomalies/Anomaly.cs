@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public abstract class Anomaly : MonoBehaviour
     {
         if (hauntableObjects.Length == 0 || hauntableObjects == null)
         {
-            Debug.Log($"[{name} has no HauntableObjects to choose from!]");
+            Debug.Log($"[{name} has no HauntableObjects in hauntableObjects[] to choose from!]");
             return false;
         }
 
@@ -20,7 +19,12 @@ public abstract class Anomaly : MonoBehaviour
 
         foreach (HauntableObject obj in hauntableObjects)
         {
-            if (obj.hauntingAnomaly == null)
+            if (!obj.canBeHaunted)
+            {
+                Debug.LogError($"[{name}] tried to add [{obj.name}] to availableObjects[] but canBeHaunted is false.");
+            }
+
+            else if (obj.hauntingAnomaly == null)
             {
                 availableObjects.Add(obj);
             }

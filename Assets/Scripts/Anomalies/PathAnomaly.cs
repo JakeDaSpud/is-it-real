@@ -12,7 +12,7 @@ public class PathAnomaly : Anomaly
     /// The Anomaly's visual, Highlightable representation.
     /// </summary>
     [SerializeField] HauntableObject hoRepresentation;
-    HauntableObject m_hoRepObject;
+    private HauntableObject m_hoRepObject;
 
     /// <summary>
     /// The amount by which the PathAnomaly's position has to be within to be considered "at" the next point

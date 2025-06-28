@@ -6134,9 +6134,9 @@ Transform:
   - {fileID: 1629622630}
   - {fileID: 819625240}
   - {fileID: 964691009}
-  - {fileID: 1286343168}
   - {fileID: 1429242683}
   - {fileID: 1715338699}
+  - {fileID: 1286343168}
   m_Father: {fileID: 522189899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422100509
@@ -8072,7 +8072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666659255877143727, guid: c49a215d06d25d94b92f778c0325cd88, type: 3}
       propertyPath: m_SortingOrder
-      value: -7
+      value: -8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
