@@ -23,6 +23,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	[Tooltip("The Collider that the Player can interact with.")]
 	[SerializeField] protected Collider2D interactBox;
+	[SerializeField] public bool canBeInteracted = true;
 
 	[Header("Haunting")]
 	public bool canBeHaunted = false;
@@ -36,6 +37,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[Header("Selectable")]
 	[SerializeField] public bool IsHighlighted = false;
 	[SerializeField] public bool IsSelected = false;
+	[SerializeField] public bool IsInteractHighlighted = false;
 	protected Color m_Original_Colour { get; set; }
 	protected Color m_Current_Colour { get; set; }
 
@@ -188,6 +190,12 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	public void BecomeCurrent()
 	{
 		this.spriteRenderer.color = m_Current_Colour;
+	}
+
+	public void BecomeInteractHighlighted()
+	{
+		m_Current_Colour = GameManager.Instance.InteractHighlighted_Colour;
+		BecomeCurrent();
 	}
 
 	public void BecomeHighlighted()

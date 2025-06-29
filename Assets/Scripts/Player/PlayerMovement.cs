@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private InputActions m_inputActions;
     private bool m_canMove = true;
 
+    [Header("Interact Settings")]
+    [SerializeField] private Collider2D m_interactBox;
+    [SerializeField] private List<HauntableObject> m_currentlyInteractable = new List<HauntableObject>();
+
     private void Awake()
     {
         m_spriteAndInteractBoxTransform = transform.Find("Sprite and InteractBox").transform;
@@ -22,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         m_inputActions.Player.Enable();
-        
+
         m_inputActions.Player.Move.performed += (ctx) => { m_movementInput = ctx.ReadValue<Vector2>(); };
         m_inputActions.Player.Move.canceled += (ctx) => { m_movementInput = Vector2.zero; };
         m_inputActions.Player.Pause.performed += (ctx) => { Pause(); };
@@ -46,9 +53,14 @@ public class PlayerMovement : MonoBehaviour
         {
             TrySelect();
         }
+        else if (m_currentlyInteractable != null)
+        {
+            Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
+            m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
+        }
         else
         {
-            Debug.Log("TryInteract() triggered...");
+            Debug.LogError("TryInteract() triggered with NO HauntableObject.");
         }
     }
 
@@ -93,6 +105,47 @@ public class PlayerMovement : MonoBehaviour
     public void SetCanMove(bool canMove)
     {
         this.m_canMove = canMove;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<HauntableObject>() != null)
+        {
+            HauntableObject collisionHO = collision.GetComponent<HauntableObject>();
+
+            if (collisionHO.canBeInteracted && !this.m_currentlyInteractable.Contains(collisionHO))
+            {
+                // Reset the colour of the previously last object, if there is one!
+                if (this.m_currentlyInteractable.Count() > 0)
+                {
+                    this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
+                }
+
+                // Add the newest object, change its highlight colour
+                this.m_currentlyInteractable.Add(collisionHO);
+                Debug.Log($"m_currentlyInteractable.Last set to [{collisionHO}].");
+                this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
+            }
+        }
+        else
+        {
+            Debug.Log($"NO HAUNTABLEOBJECT ON [{collision.gameObject}]");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<HauntableObject>() != null)
+        {
+            HauntableObject collisionHO = collision.GetComponent<HauntableObject>();
+
+            if (this.m_currentlyInteractable.Contains(collision.GetComponent<HauntableObject>()))
+            {
+                this.m_currentlyInteractable.Last<HauntableObject>().BecomeCurrent();
+                this.m_currentlyInteractable.Remove(collisionHO);
+                Debug.Log($"m_currentlyInteractable removed [{collisionHO}].");
+            }
+        }
     }
 
 }

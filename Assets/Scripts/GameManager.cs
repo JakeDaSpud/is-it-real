@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     // Colours
     [SerializeField] public Color Highlighted_Colour;
     [SerializeField] public Color Selected_Colour;
+    [SerializeField] public Color InteractHighlighted_Colour;
 
     void OnEnable()
     {
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
         Camera playerCamera = playerCameraT.GetComponent<Camera>();
         Transform darkFilterT = playerCamera.gameObject.transform.Find("DarkFilter");
         SpriteRenderer darkFilter = darkFilterT.GetComponent<SpriteRenderer>();
-        Transform playerSpriteT = player.gameObject.transform.Find("Sprite");
+        Transform playerSpriteT = player.gameObject.transform.Find("Sprite and InteractBox").Find("Sprite");
         SpriteRenderer playerSprite = playerSpriteT.GetComponent<SpriteRenderer>();
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
