@@ -17,6 +17,10 @@ PrefabInstance:
       value: Nightstand
       objectReference: {fileID: 0}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
+      propertyPath: interactBox
+      value: 
+      objectReference: {fileID: 4860324323093714851}
+    - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 149545026945587708}
@@ -27,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
-      objectReference: {fileID: -4696849808064061392, guid: 60ecd2fd2ed78384d849173968673a4f, type: 3}
+      objectReference: {fileID: 21300000, guid: 26a7daf946bdba3488f266299646c742, type: 3}
     - target: {fileID: 2895783675423972501, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -82,6 +86,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4895154670809368258}
+    - targetCorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4860324323093714851}
   m_SourcePrefab: {fileID: 100100000, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
 --- !u!1 &8264663510213107289 stripped
 GameObject:
@@ -131,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4696849808064061392, guid: 60ecd2fd2ed78384d849173968673a4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26a7daf946bdba3488f266299646c742, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,3 +186,68 @@ CapsuleCollider2D:
   m_Offset: {x: 0.17, y: -1.15}
   m_Size: {x: 3.08, y: 1.9}
   m_Direction: 1
+--- !u!60 &4860324323093714851
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264663510213107289}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.09, y: 5.31}
+    newSize: {x: 7.29, y: 4.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.1189371, y: 0.6767963}
+      - {x: -1.1915636, y: -1.1339004}
+      - {x: 0.06080675, y: -2.1058242}
+      - {x: 1.245, y: -2.075}
+      - {x: 1.2760695, y: -0.031342328}
+      - {x: 0.86659515, y: 0.2939347}
+      - {x: 0.4114481, y: 0.5483336}
+      - {x: 0.21113506, y: 0.51296484}
+      - {x: 0.107118756, y: 0.5659259}
+      - {x: 0.13739146, y: 0.886762}
+      - {x: 0.38896596, y: 0.9316435}
+      - {x: 0.5851172, y: 1.1175736}
+      - {x: 0.12720159, y: 1.8916562}
+      - {x: -0.085168615, y: 1.9422731}
+      - {x: -0.59254235, y: 1.1474093}
+      - {x: -0.380495, y: 0.99092734}
+      - {x: -0.09911814, y: 0.9386566}
+      - {x: -0.16141474, y: 0.7060739}
+  m_UseDelaunayMesh: 0

@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float m_moveSpeed = 5f;
 
-    private Transform m_spriteTransform;
+    private Transform m_spriteAndInteractBoxTransform;
     private Vector2 m_movementInput;
     private Rigidbody2D m_rb;
     private InputActions m_inputActions;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        m_spriteTransform = transform.Find("Sprite").transform;
+        m_spriteAndInteractBoxTransform = transform.Find("Sprite and InteractBox").transform;
         m_inputActions = new InputActions();
         m_rb = GetComponent<Rigidbody2D>();
     }
@@ -73,17 +73,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 move = m_movementInput.normalized * m_moveSpeed * Time.fixedDeltaTime;
 
         // Flipping Sprite
-        if (move.x < 0 && m_spriteTransform.transform.localScale.x < 0)
+        if (move.x < 0 && m_spriteAndInteractBoxTransform.transform.localScale.x < 0)
         {
-            Vector3 scale = m_spriteTransform.transform.localScale;
+            Vector3 scale = m_spriteAndInteractBoxTransform.transform.localScale;
             scale.x *= -1;
-            m_spriteTransform.transform.localScale = scale;
+            m_spriteAndInteractBoxTransform.transform.localScale = scale;
         }
-        else if (move.x > 0 && m_spriteTransform.transform.localScale.x > 0)
+        else if (move.x > 0 && m_spriteAndInteractBoxTransform.transform.localScale.x > 0)
         {
-            Vector3 scale = m_spriteTransform.transform.localScale;
+            Vector3 scale = m_spriteAndInteractBoxTransform.transform.localScale;
             scale.x *= -1;
-            m_spriteTransform.transform.localScale = scale;
+            m_spriteAndInteractBoxTransform.transform.localScale = scale;
         }
 
         // Move using Rigidbody2D (has collision)
