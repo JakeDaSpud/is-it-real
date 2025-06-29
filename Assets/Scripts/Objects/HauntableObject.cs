@@ -194,8 +194,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	public void BecomeInteractHighlighted()
 	{
-		m_Current_Colour = GameManager.Instance.InteractHighlighted_Colour;
-		BecomeCurrent();
+		this.spriteRenderer.color = GameManager.Instance.InteractHighlighted_Colour;
 	}
 
 	public void BecomeHighlighted()

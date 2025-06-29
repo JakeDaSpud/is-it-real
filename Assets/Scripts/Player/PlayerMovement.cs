@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
                 // Reset the colour of the previously last object, if there is one!
                 if (this.m_currentlyInteractable.Count() > 0)
                 {
-                    this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
+                    this.m_currentlyInteractable.Last<HauntableObject>().BecomeCurrent();
                 }
 
                 // Add the newest object, change its highlight colour
