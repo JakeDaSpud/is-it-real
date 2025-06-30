@@ -88,6 +88,7 @@ public class PathAnomaly : Anomaly
     {
         // Spawn HauntableObject representation of Anomaly (i.e. FloatingSkullSprite, EnemyLookingGuySprite)
         m_hoRepObject = Instantiate(hoRepresentation, hoSpawnTransform);
+        m_hoRepObject.hauntingAnomaly = this;
         GameManager.Instance.temporaryObjects.Add(m_hoRepObject);
     }
 }

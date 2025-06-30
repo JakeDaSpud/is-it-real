@@ -148,6 +148,11 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		Debug.Log($"[{objectName}] changed Sprite RANDOMLY.");
 	}
 
+	public void BecomeTemporary()
+	{
+		this.isTemporary = true;
+	}
+
 	public void Interact(Collider2D other)
 	{
 		if (other.tag == "Player" && isActive)

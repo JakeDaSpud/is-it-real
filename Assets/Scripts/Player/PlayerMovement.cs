@@ -64,7 +64,21 @@ public class PlayerMovement : MonoBehaviour
         else if (m_currentlyInteractable != null)
         {
             Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
-            m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
+
+            if (m_currentlyInteractable.Last<HauntableObject>().name == "BedObject")
+            {
+                GameManager.Instance.SleepInBed();
+            }
+
+            else if (m_currentlyInteractable.Last<HauntableObject>().name == "DeskObject")
+            {
+                GameManager.Instance.WorkOnEssay();
+            }
+
+            else
+            {
+                m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
+            }
         }
         else
         {
@@ -129,6 +143,15 @@ public class PlayerMovement : MonoBehaviour
     public void SetCanMove(bool canMove)
     {
         this.m_canMove = canMove;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Anomaly")
+        {
+            Debug.LogError($"You touched a [{collision.gameObject}] Anomaly!");
+            GameManager.Instance.ResetScene();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool InHighlightMode = false;
 
     // Non-Variable Arrays
-    [SerializeField] public HauntableObject[] allObjects;
+    [SerializeField] private HauntableObject[] allObjects;
     [SerializeField] private Anomaly[] allAnomalies;
     [SerializeField] private DailyTask[] allDailyTasks;
 
@@ -127,10 +127,10 @@ public class GameManager : MonoBehaviour
         suspectObjects.Clear();
 
         // Go through all HauntableObjects
-        /*foreach (HauntableObject hauntableObject in allObjects)
+        for (int i = 0; i < allObjects.Length; i++)
         {
-            hauntableObject.ResetObject();
-        }*/
+            allObjects[i].gameObject.SetActive(true);
+        }
         
         foreach (HauntableObject hauntableObject in temporaryObjects)
         {
@@ -216,14 +216,81 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    private bool HaveSameElements<T>(List<T> l1, List<T> l2)
+    {
+        if (l1 == null || l2 == null) return false;
+        if (l1.Count != l2.Count) return false;
+
+        return !l1.Except(l2).Any() && !l2.Except(l1).Any();
+    }
+
+    private List<Anomaly> GetAnomaliesFromSuspectObjects()
+    {
+        List<Anomaly> anomalies = new List<Anomaly>();
+
+        foreach (HauntableObject hauntableObject in suspectObjects)
+        {
+            if (hauntableObject.hauntingAnomaly != null)
+            {
+                anomalies.Add(hauntableObject.hauntingAnomaly);
+            }
+        }
+
+        return anomalies;
+    }
+
+    public void SleepInBed()
+    {
+        Debug.Log("SleepInBed()");
+        List<Anomaly> foundAnomalies = GetAnomaliesFromSuspectObjects();
+
+        Debug.Log($"Found anoms = [{String.Join(',', foundAnomalies)}]");
+        Debug.Log($"Current anoms = [{String.Join(',', currentAnomalies)}]");
+
+        if (currentAnomalies.Count() == 0)
+        {
+            Debug.Log("SIB 1");
+            FailDay();
+        }
+
+        else if (HaveSameElements(foundAnomalies, currentAnomalies))
+        {
+            Debug.Log("SIB 2");
+            SucceedDay();
+        }
+
+        else
+        {
+            Debug.Log("SIB 3");
+            FailDay();
+        }
+    }
+
+    public void WorkOnEssay()
+    {
+        Debug.Log("WorkOnEssay()");
+
+        if (currentAnomalies.Count() > 0)
+        {
+            Debug.Log("WOE 1");
+            FailDay();
+        }
+
+        else
+        {
+            Debug.Log("WOE 2");
+            SucceedDay();
+        }
+    }
+
     private void SucceedDay()
     {
-
+        Debug.Log("SUCCESS");
     }
 
     private void FailDay()
     {
-
+        Debug.Log("FAILLLLLLL");
     }
 
     private void GameOver()
