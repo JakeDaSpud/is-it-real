@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player" && active)
             Teleport(other.GetComponentInParent<PlayerMovement>());
-            Debug.Log("Player touch door");
+            //Debug.Log("Player touch door");
     }
 
     void Teleport(PlayerMovement player)

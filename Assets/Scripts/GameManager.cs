@@ -8,16 +8,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform playerSpawn;
     [SerializeField] public bool InHighlightMode = false;
 
     // Non-Variable Arrays
-    [SerializeField] private GameObject[] allObjects;
+    [SerializeField] public HauntableObject[] allObjects;
     [SerializeField] private Anomaly[] allAnomalies;
     [SerializeField] private DailyTask[] allDailyTasks;
 
     // Variable Arrays 
     [SerializeField] private List<HauntableObject> suspectObjects = new List<HauntableObject>();
-    [SerializeField] private List<Anomaly> currentAnomalies = new List<Anomaly>();
+    [SerializeField] public List<Anomaly> currentAnomalies = new List<Anomaly>();
+    [SerializeField] public List<HauntableObject> temporaryObjects = new List<HauntableObject>();
     [SerializeField] private List<DailyTask> currentDailyTasks = new List<DailyTask>();
 
     // Day Variables
@@ -76,6 +78,8 @@ public class GameManager : MonoBehaviour
     {
         CheckArrayEmpty(allObjects, nameof(allObjects));
         CheckArrayEmpty(allAnomalies, nameof(allAnomalies));
+
+        StartDay(currentDay);
     }
 
     public void ToggleHighlightMode()
@@ -111,17 +115,34 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
+        // Reset the Player Position
+        player.GetComponent<PlayerMovement>().Respawn(playerSpawn.position);
+
         // Reset currentAnomalies[]
         // Reset currentTasks[]
         // Reset suspectObjects[]
 
+        currentAnomalies.Clear();
+        currentDailyTasks.Clear();
+        suspectObjects.Clear();
+
         // Go through all HauntableObjects
-        // if (ho.isTemporary) => delete it
-        // set .hauntingAnomaly to null
+        /*foreach (HauntableObject hauntableObject in allObjects)
+        {
+            hauntableObject.ResetObject();
+        }*/
+        
+        foreach (HauntableObject hauntableObject in temporaryObjects)
+        {
+            hauntableObject.ResetObject();
+        }
 
-        // set all other HauntableObject SpriteRenderers to visible
-
-        // Reset the 
+        if (InHighlightMode)
+        {
+            ToggleHighlightMode();
+        }
+        // Start from the current day
+        StartDay(currentDay);
     }
 
     public void StartDay(int day)
@@ -133,6 +154,7 @@ public class GameManager : MonoBehaviour
     private void GenerateAnomaliesForDay(int day)
     {
         int anomalyCount = UnityEngine.Random.Range(0, 4);
+        Debug.Log($"anomalyCount = [{anomalyCount}]");
         List<Anomaly> pool = allAnomalies.ToList();
 
         for (int i = 0; i < anomalyCount; i++)
@@ -147,6 +169,7 @@ public class GameManager : MonoBehaviour
             // FIXME
             // IMPORTANT: - [ ] use if (Anomaly.HauntRandom) to check!!!!!!!!!!!
 
+            anomaly.gameObject.SetActive(true);
             anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);
@@ -191,6 +214,16 @@ public class GameManager : MonoBehaviour
 
         Debug.LogError($"{obj.name} couldn't be removed from suspectObjects, it's not there!");
         return false;
+    }
+
+    private void SucceedDay()
+    {
+
+    }
+
+    private void FailDay()
+    {
+
     }
 
     private void GameOver()

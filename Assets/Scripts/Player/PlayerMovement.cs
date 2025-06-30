@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D m_rb;
     private InputActions m_inputActions;
     private bool m_canMove = true;
+    private bool m_shouldRespawn = false;
+    private Vector3 m_respawnPosition;
 
     [Header("Interact Settings")]
     [SerializeField] private Collider2D m_interactBox;
@@ -40,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         m_inputActions.Player.Disable();
+    }
+
+    public void Respawn(Vector3 position)
+    {
+        m_shouldRespawn = true;
+        m_respawnPosition = position;
     }
 
     private void Pause()
@@ -77,8 +85,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            GameManager.Instance.ResetScene();
+        }
+    }
+
     private void FixedUpdate()
     {
+        if (m_shouldRespawn)
+        {
+            this.transform.position = m_respawnPosition;
+            this.GetComponent<Rigidbody2D>().position = m_respawnPosition;
+            this.GetComponent<Rigidbody2D>().MovePosition(m_respawnPosition);
+            m_shouldRespawn = false;
+        }
+
         if (!m_canMove) return;
 
         // Normalise input to prevent diagonal speed boost
@@ -123,13 +147,13 @@ public class PlayerMovement : MonoBehaviour
 
                 // Add the newest object, change its highlight colour
                 this.m_currentlyInteractable.Add(collisionHO);
-                Debug.Log($"m_currentlyInteractable.Last set to [{collisionHO}].");
+                //Debug.Log($"m_currentlyInteractable.Last set to [{collisionHO}].");
                 this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
             }
         }
         else
         {
-            Debug.Log($"NO HAUNTABLEOBJECT ON [{collision.gameObject}]");
+            //Debug.Log($"NO HAUNTABLEOBJECT ON [{collision.gameObject}]");
         }
     }
 
@@ -143,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.m_currentlyInteractable.Last<HauntableObject>().BecomeCurrent();
                 this.m_currentlyInteractable.Remove(collisionHO);
-                Debug.Log($"m_currentlyInteractable removed [{collisionHO}].");
+                //Debug.Log($"m_currentlyInteractable removed [{collisionHO}].");
             }
         }
     }

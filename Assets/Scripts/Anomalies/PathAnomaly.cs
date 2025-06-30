@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -35,6 +36,12 @@ public class PathAnomaly : Anomaly
 
     public void FixedUpdate()
     {
+        if (m_hoRepObject == null)
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
         if (WithinDistance(m_hoRepObject.transform, currentPathPoint))
         {
             SetNextPathPoint();
@@ -81,5 +88,6 @@ public class PathAnomaly : Anomaly
     {
         // Spawn HauntableObject representation of Anomaly (i.e. FloatingSkullSprite, EnemyLookingGuySprite)
         m_hoRepObject = Instantiate(hoRepresentation, hoSpawnTransform);
+        GameManager.Instance.temporaryObjects.Add(m_hoRepObject);
     }
 }

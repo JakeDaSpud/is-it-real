@@ -262,5 +262,15 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		this.hauntingAnomaly = null;
 		this.spriteRenderer.sprite = sprites[0];
 		BecomeOriginal();
+
+		// If this is an Anomaly HauntableObject like the FloatingSkullObject, it should remove itself from the scene
+		if (isTemporary)
+		{
+			if (GameManager.Instance.temporaryObjects.Contains(this))
+			{
+				GameManager.Instance.temporaryObjects.Remove(this);
+			}
+			Destroy(this.gameObject);
+		}
 	}
 }
