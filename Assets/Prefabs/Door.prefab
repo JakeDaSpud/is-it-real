@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -7
-  m_Sprite: {fileID: -7341407202210888751, guid: a8fff64d9e2751045998ef3e27852a35, type: 3}
+  m_Sprite: {fileID: -5036611367982284438, guid: 7fc2732104fb0bf48b2dd950b0d0faba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,11 +136,13 @@ MonoBehaviour:
   active: 1
   showDoorSprite: 1
   isSideDoor: 0
+  isFrontDoor: 0
   otherDoor: {fileID: 0}
   teleportPoint: {fileID: 5708275899196606222}
   sprites:
-  - {fileID: -7341407202210888751, guid: a8fff64d9e2751045998ef3e27852a35, type: 3}
-  - {fileID: -2311580382600401949, guid: d787d6fe86470374981b9331cdc9711a, type: 3}
+  - {fileID: -5036611367982284438, guid: 7fc2732104fb0bf48b2dd950b0d0faba, type: 3}
+  - {fileID: -2547400933167113186, guid: c93aed886f014ae44a58f5fb1e3e137c, type: 3}
+  - {fileID: 641487664843319853, guid: c41a3a54c5c634240874d0f64fa4656a, type: 3}
 --- !u!61 &712446600579621124
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     [SerializeField] private bool active = true;
     [SerializeField] private bool showDoorSprite = true;
     [SerializeField] private bool isSideDoor = false;
+    [SerializeField] private bool isFrontDoor = false;
     [SerializeField] private Door otherDoor;
     [SerializeField] private Transform teleportPoint;
     [SerializeField] private Sprite[] sprites;
@@ -30,6 +31,11 @@ public class Door : MonoBehaviour
         if (isSideDoor)
         {
             mDoorSprite.sprite = sprites[1];
+        }
+
+        if (isFrontDoor)
+        {
+            mDoorSprite.sprite = sprites[2];
         }
     }
 

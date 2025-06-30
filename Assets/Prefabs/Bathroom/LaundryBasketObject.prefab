@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6357488627653598965
+--- !u!1001 &9160925926696705665
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,27 +11,31 @@ PrefabInstance:
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: hitBox
       value: 
-      objectReference: {fileID: 4895154670809368258}
+      objectReference: {fileID: 4632847800337803077}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: objectName
-      value: Shower
+      value: LaundryBasketObject
       objectReference: {fileID: 0}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: interactBox
       value: 
-      objectReference: {fileID: 6890320565125432771}
+      objectReference: {fileID: 6249322451334960473}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 149545026945587708}
+      objectReference: {fileID: 3760348940792982353}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: sprites.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
-      objectReference: {fileID: 21300000, guid: 679cd3838ce95f649a182decc2f97bd2, type: 3}
+      objectReference: {fileID: 21300000, guid: 41f99b11bf160ae4f9aec7c72f6aa836, type: 3}
+    - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fb4d4eea89991b74097f1ef88a4e24cf, type: 3}
     - target: {fileID: 2895783675423972501, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -74,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: m_Name
-      value: ShowerObject
+      value: LaundryBasketObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82,26 +86,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 149545026945587708}
+      addedObject: {fileID: 3760348940792982353}
     - targetCorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4895154670809368258}
+      addedObject: {fileID: 4632847800337803077}
     - targetCorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6890320565125432771}
+      addedObject: {fileID: 6249322451334960473}
   m_SourcePrefab: {fileID: 100100000, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
---- !u!1 &8264663510213107289 stripped
+--- !u!1 &6172614308119060013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3065734829376159916, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
-  m_PrefabInstance: {fileID: 6357488627653598965}
+  m_PrefabInstance: {fileID: 9160925926696705665}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &149545026945587708
+--- !u!212 &3760348940792982353
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264663510213107289}
+  m_GameObject: {fileID: 6172614308119060013}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -137,25 +141,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 679cd3838ce95f649a182decc2f97bd2, type: 3}
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: 41f99b11bf160ae4f9aec7c72f6aa836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.53, y: 3}
+  m_Size: {x: 1.76, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &4895154670809368258
-CapsuleCollider2D:
+--- !u!61 &4632847800337803077
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264663510213107289}
+  m_GameObject: {fileID: 6172614308119060013}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -183,16 +187,25 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.18, y: -2.15}
-  m_Size: {x: 4.27, y: 2.41}
-  m_Direction: 1
---- !u!60 &6890320565125432771
+  m_Offset: {x: 0.006148368, y: -1.5432402}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.76, y: 4}
+    newSize: {x: 1.76, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.7623973, y: 0.86473536}
+  m_EdgeRadius: 0
+--- !u!60 &6249322451334960473
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264663510213107289}
+  m_GameObject: {fileID: 6172614308119060013}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -224,18 +237,19 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.87, y: 6.43}
-    newSize: {x: 5.53, y: 3}
+    oldSize: {x: 1.76, y: 4}
+    newSize: {x: 1.76, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.8028636, y: -2.8602204}
-      - {x: 1.1683071, y: -2.8864527}
-      - {x: 1.665807, y: -1.6941055}
-      - {x: 1.6551287, y: 2.9315557}
-      - {x: -0.76920116, y: 3.0038757}
-      - {x: -1.8307532, y: 2.6230607}
+    - - {x: 0.24593501, y: 1.90381}
+      - {x: -0.41901273, y: 1.4903867}
+      - {x: -0.81579256, y: 0.9607439}
+      - {x: -0.8417063, y: -1.0863417}
+      - {x: -0.24347669, y: -1.9649096}
+      - {x: 0.8460168, y: -1.940316}
+      - {x: 0.8280896, y: 1.4587617}
   m_UseDelaunayMesh: 0
