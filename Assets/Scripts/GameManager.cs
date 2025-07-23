@@ -293,12 +293,24 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private bool HaveSameElements<T>(List<T> l1, List<T> l2)
+    private bool HaveSameElements<Anomaly>(List<Anomaly> l1, List<Anomaly> l2)
     {
         if (l1 == null || l2 == null) return false;
         if (l1.Count != l2.Count) return false;
 
-        return !l1.Except(l2).Any() && !l2.Except(l1).Any();
+        l1.Sort((a1, a2) => a1.GetHashCode().CompareTo(a2.GetHashCode()));
+        l2.Sort((a1, a2) => a1.GetHashCode().CompareTo(a2.GetHashCode()));
+
+        for (int i = 0; i < l1.Count; i++)
+        {
+            if (l1[i].GetHashCode() != l2[i].GetHashCode())
+            {
+                Debug.LogError($"HaveSameElements: {l1[i]} is not equal to {l2[i]}");
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private List<Anomaly> GetAnomaliesFromSuspectObjects()
@@ -310,6 +322,12 @@ public class GameManager : MonoBehaviour
             if (hauntableObject.hauntingAnomaly != null)
             {
                 anomalies.Add(hauntableObject.hauntingAnomaly);
+            }
+
+            else
+            {
+                Debug.LogError($"{hauntableObject} was not haunted! Failing Day...");
+                FailDay();
             }
         }
 
