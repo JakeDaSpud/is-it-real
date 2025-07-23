@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    [SerializeField] private TMP_Text tempDayText;
+    [SerializeField] private TMP_Text tempTutorialText;
 
     [SerializeField] private GameObject player;
     [SerializeField] private Transform playerSpawn;
@@ -23,20 +28,66 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<DailyTask> currentDailyTasks = new List<DailyTask>();
 
     // Day Variables
-    private int currentDay = 0;
-    private int failedDays = 0;
-    private const int maxFailedDays = 3;
+    [SerializeField] private int currentDay = 0;
+    [SerializeField] private int failedDays = 0;
+    [SerializeField] private const int maxFailedDays = 3;
+    [SerializeField] private String TEMP_DayState = "";
 
     // Colours
     [SerializeField] public Color Highlighted_Colour;
     [SerializeField] public Color Selected_Colour;
     [SerializeField] public Color InteractHighlighted_Colour;
 
+    public void SetTEMPText(String str)
+    {
+        tempTutorialText.text = str;
+    }
+
+    public void SetTEMPDayText(String state)
+    {
+        tempDayText.text = "Day " + currentDay + '\n';
+
+        if (currentDay == 7)
+        {
+            SetTEMPText("Congrats! You win! Press 'L' to restart.");
+        }
+
+        // If char is x, print ❌
+        // If char is o, print ✅
+        // If no more char, print -
+        for (int i = 0; i < 7; i++)
+        {
+            if (i < state.Length)
+            {
+                char c = state[i];
+                if (c == 'x')
+                {
+                    tempDayText.text += "X ";
+                }
+
+                else if (c == 'o')
+                {
+                    tempDayText.text += "O ";
+                }
+
+                else
+                {
+                    tempDayText.text += "- ";
+                }
+            }
+
+            else
+            {
+                tempDayText.text += "- ";
+            }
+        }
+    }
+
     void OnEnable()
     {
         EventManager.Instance.OnDailyTaskCompleted += CheckDailyTaskEvent;
     }
-    
+
     void OnDisable()
     {
         EventManager.Instance.OnDailyTaskCompleted -= CheckDailyTaskEvent;
@@ -130,30 +181,47 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < allObjects.Length; i++)
         {
             allObjects[i].gameObject.SetActive(true);
+            allObjects[i].ResetObject();
         }
-        
-        foreach (HauntableObject hauntableObject in temporaryObjects)
+
+        for (int i = temporaryObjects.Count - 1; i >= 0; i--)
         {
-            hauntableObject.ResetObject();
+            temporaryObjects[i].ResetObject();
         }
 
         if (InHighlightMode)
         {
             ToggleHighlightMode();
         }
-        // Start from the current day
-        StartDay(currentDay);
     }
 
     public void StartDay(int day)
     {
+        ResetScene();
         GenerateAnomaliesForDay(day);
         Debug.Log($"Day {day} started.");
+        SetTEMPDayText(TEMP_DayState);
+        if (day == 0)
+        {
+            SetTEMPText("Learn the layout of your house, remember where everything is!\n- Work on your essay.");
+        }
+        else if (day < 7)
+        {
+            SetTEMPText("- Select every Anomaly and then sleep if you see one.\n- Work on your essay if you don't see any.");
+        }
     }
 
     private void GenerateAnomaliesForDay(int day)
     {
         int anomalyCount = UnityEngine.Random.Range(0, 4);
+
+        if (day == 0)
+        {
+            Debug.Log("Day 0 gets no Anomalies.");
+            anomalyCount = 0;
+            return;
+        }
+
         Debug.Log($"anomalyCount = [{anomalyCount}]");
         List<Anomaly> pool = allAnomalies.ToList();
 
@@ -285,12 +353,25 @@ public class GameManager : MonoBehaviour
 
     private void SucceedDay()
     {
+        TEMP_DayState += "o";
         Debug.Log("SUCCESS");
+        currentDay++;
+        StartDay(currentDay);
     }
 
-    private void FailDay()
+    public void FailDay()
     {
+        TEMP_DayState += "x";
         Debug.Log("FAILLLLLLL");
+        currentDay++;
+        failedDays++;
+
+        if (failedDays >= maxFailedDays)
+        {
+            GameOver();
+        }
+
+        StartDay(currentDay);
     }
 
     private void GameOver()
@@ -298,6 +379,12 @@ public class GameManager : MonoBehaviour
         Debug.LogError("Too many failed Days, restarting game.");
         currentDay = 0;
         failedDays = 0;
+        TEMP_DayState = "";
         StartDay(currentDay);
+    }
+
+    public void FullReset()
+    {
+        GameOver();
     }
 }

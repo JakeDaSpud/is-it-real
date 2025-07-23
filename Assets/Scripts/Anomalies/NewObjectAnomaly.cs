@@ -21,11 +21,11 @@ public class NewObjectAnomaly : Anomaly
         // Spawn HauntableObject
         m_hoSpawnedObject = Instantiate(newObject, newObjectSpawnPoint);
         m_hoSpawnedObject.BecomeTemporary();
+        m_hoSpawnedObject.hauntingAnomaly = this;
         if (objectToHide != null)
         {
             objectToHide.gameObject.SetActive(false);
         }
         GameManager.Instance.temporaryObjects.Add(m_hoSpawnedObject);
-        m_hoSpawnedObject.hauntingAnomaly = this;
     }
 }

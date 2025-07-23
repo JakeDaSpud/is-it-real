@@ -105,6 +105,11 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.ResetScene();
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.Instance.FullReset();
+        }
     }
 
     private void FixedUpdate()
@@ -150,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Anomaly")
         {
             Debug.LogError($"You touched a [{collision.gameObject}] Anomaly!");
-            GameManager.Instance.ResetScene();
+            GameManager.Instance.FailDay();
         }
     }
 
