@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text tempTutorialText;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private Transform playerSpawn;
+    [SerializeField] private Transform beginningSpawn;
+    [SerializeField] private Transform bedroomSpawn;
     [SerializeField] public bool InHighlightMode = false;
 
     // Non-Variable Arrays
@@ -167,7 +168,15 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         // Reset the Player Position
-        player.GetComponent<PlayerMovement>().Respawn(playerSpawn.position);
+        if (currentDay == 0)
+        {
+            player.GetComponent<PlayerMovement>().Respawn(beginningSpawn.position);
+        }
+
+        else
+        {
+            player.GetComponent<PlayerMovement>().Respawn(bedroomSpawn.position);
+        }
 
         // Reset currentAnomalies[]
         // Reset currentTasks[]

@@ -4199,11 +4199,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.97
+      value: -17.83
       objectReference: {fileID: 0}
     - target: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.12
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4255,9 +4255,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
       insertIndex: 0
       addedObject: {fileID: 519420032}
-    - targetCorrespondingSourceObject: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1142413586}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
 --- !u!1 &883432216
@@ -6102,7 +6099,7 @@ RectTransform:
   m_Children:
   - {fileID: 136526484}
   - {fileID: 1277427314}
-  m_Father: {fileID: 1510645945}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11950,6 +11947,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 246962618903396985, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.96
+      objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
@@ -12846,5 +12847,6 @@ SceneRoots:
   - {fileID: 2013344584}
   - {fileID: 58427914}
   - {fileID: 880453283}
+  - {fileID: 1142413586}
   - {fileID: 622604585}
   - {fileID: 1529782036}
