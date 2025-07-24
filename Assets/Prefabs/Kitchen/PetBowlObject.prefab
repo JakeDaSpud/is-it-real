@@ -29,6 +29,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: dd40ae2846bd15e40ae2cc20594eeb6d, type: 2}
+    - target: {fileID: 1766171406893282961, guid: dea9ebf258d82374e90fc951a4a20bb9, type: 3}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}

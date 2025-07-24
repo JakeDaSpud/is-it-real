@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HauntableObject : MonoBehaviour, ISelectable
@@ -24,6 +25,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[Tooltip("The Collider that the Player can interact with.")]
 	[SerializeField] protected Collider2D interactBox;
 	[SerializeField] public bool canBeInteracted = true;
+	[SerializeField] protected InteractionEvent interactionEvent;
 
 	[Header("Haunting")]
 	public bool canBeHaunted = false;
@@ -91,6 +93,18 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		}
 	}
 
+	public void ChangeSprite(int newSpriteIndex)
+	{
+		Debug.Log($"{this.name}::ChangeSprite[{newSpriteIndex}]");
+		spriteRenderer.sprite = sprites[newSpriteIndex];
+	}
+
+	public void ChangeSprite(Sprite sprite)
+	{
+		Debug.Log($"{this.name}::ChangeSprite[{sprite.name}]");
+		spriteRenderer.sprite = sprite;
+	}
+
 	public void UpdateObject()
 	{
 		// Default sprite set
@@ -141,7 +155,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	protected void SpriteUpdateRandom(Sprite[] sprites)
 	{
-		currentSpriteIndex = Random.Range(0, sprites.Length);
+		currentSpriteIndex = UnityEngine.Random.Range(0, sprites.Length);
 
 		spriteRenderer.sprite = sprites[currentSpriteIndex];
 
@@ -155,6 +169,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	public void Interact(Collider2D other)
 	{
+		interactionEvent.Interact();
 		if (other.tag == "Player" && isActive)
 		{
 			Debug.Log($"Player interacted with [{objectName}].");

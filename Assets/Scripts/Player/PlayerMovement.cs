@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
 
-            if (m_currentlyInteractable.Last<HauntableObject>().name == "BedObject")
+            /*if (m_currentlyInteractable.Last<HauntableObject>().name == "BedObject")
             {
                 GameManager.Instance.SleepInBed();
             }
@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour
             }
 
             else
-            {
-                m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
-            }
+            {*/
+                m_currentlyInteractable.Last<HauntableObject>().GetComponent<InteractionEvent>().Interact();
+            //}
         }
         else
         {
