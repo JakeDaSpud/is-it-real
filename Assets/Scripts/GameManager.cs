@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform beginningSpawn;
     [SerializeField] private Transform bedroomSpawn;
     [SerializeField] public bool InHighlightMode = false;
+    [SerializeField] public bool GamePaused = false;
 
     // Non-Variable Arrays
     [SerializeField] private HauntableObject[] allObjects;
@@ -87,11 +88,13 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.Instance.OnDailyTaskCompleted += CheckDailyTaskEvent;
+        EventManager.Instance.OnPause += ToggleGamePaused;
     }
 
     void OnDisable()
     {
         EventManager.Instance.OnDailyTaskCompleted -= CheckDailyTaskEvent;
+        EventManager.Instance.OnPause -= ToggleGamePaused;
     }
 
     private void CheckDailyTaskEvent(String completedTaskName)
@@ -132,6 +135,27 @@ public class GameManager : MonoBehaviour
         CheckArrayEmpty(allAnomalies, nameof(allAnomalies));
 
         StartDay(currentDay);
+    }
+
+    private void ToggleGamePaused()
+    {
+        this.GamePaused = !this.GamePaused;
+
+        // Game is Paued
+        // - Stop ENTITIES and PLAYER from MOVING
+        // - Show DarkFilter
+        if (GamePaused)
+        {
+
+        }
+
+        // Game is Unpaused
+        // - Let PLAYER and ENTITIES MOVE
+        // - Hide DarkFilter
+        else
+        {
+
+        }
     }
 
     public void ToggleHighlightMode()

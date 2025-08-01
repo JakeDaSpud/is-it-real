@@ -36,11 +36,16 @@ public class PathAnomaly : Anomaly
 
     public void FixedUpdate()
     {
-        if (m_hoRepObject == null)
+        if (GameManager.Instance.GamePaused)
         {
-            this.gameObject.SetActive(false);
             return;
         }
+
+        if (m_hoRepObject == null)
+            {
+                this.gameObject.SetActive(false);
+                return;
+            }
 
         if (WithinDistance(m_hoRepObject.transform, currentPathPoint))
         {

@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Pause()
     {
-        Debug.Log("Pause() triggered...");
+        EventManager.Instance.RaisePause();
     }
 
     private void TryInteract()

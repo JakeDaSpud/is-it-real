@@ -51,7 +51,7 @@ public class InteractionManager : MonoBehaviour
 
     private void ImageShow(Sprite newSprite)
     {
-
+        
     }
 
     private void Sleep()

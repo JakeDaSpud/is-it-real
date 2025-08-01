@@ -28,6 +28,7 @@ public class EventManager : MonoBehaviour
     public event Action OnGameStart;
     public event Action OnGameOver;
     public event Action OnHighlightModeChange;
+    public event Action OnPause;
 
     // Player Events
     public event Action OnPlayerDeath;
@@ -71,6 +72,7 @@ public class EventManager : MonoBehaviour
     public void RaiseGameStart() { OnGameStart?.Invoke(); }
     public void RaiseGameOver() { OnGameOver?.Invoke(); }
     public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
+    public void RaisePause() { Debug.Log("Raised OnPause"); OnPause?.Invoke(); }
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
     public void RaisePlayerLeftClick() { Debug.Log("Raised OnPlayerLeftClick."); OnPlayerLeftClick?.Invoke(); }
