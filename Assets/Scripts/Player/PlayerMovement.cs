@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
             else
             {*/
-                m_currentlyInteractable.Last<HauntableObject>().GetComponent<InteractionEvent>().Interact();
+                m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
             //}
         }
         else
