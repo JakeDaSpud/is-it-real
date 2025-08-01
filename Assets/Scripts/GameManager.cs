@@ -139,27 +139,14 @@ public class GameManager : MonoBehaviour
 
     private void ToggleGamePaused()
     {
+        if (GamePaused && InHighlightMode)
+        {
+            ToggleHighlightMode();
+            return;
+        }
+
         this.GamePaused = !this.GamePaused;
-
-        // Game is Paued
-        // - Stop ENTITIES and PLAYER from MOVING
-        // - Show DarkFilter
-        if (GamePaused)
-        {
-
-        }
-
-        // Game is Unpaused
-        // - Let PLAYER and ENTITIES MOVE
-        // - Hide DarkFilter
-        else
-        {
-
-        }
-    }
-
-    public void ToggleHighlightMode()
-    {
+        
         Transform playerCameraT = player.transform.Find("Main Camera");
         Camera playerCamera = playerCameraT.GetComponent<Camera>();
         Transform darkFilterT = playerCamera.gameObject.transform.Find("DarkFilter");
@@ -168,7 +155,29 @@ public class GameManager : MonoBehaviour
         SpriteRenderer playerSprite = playerSpriteT.GetComponent<SpriteRenderer>();
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        if (InHighlightMode)
+        // Game is Paued
+        // - Stop ENTITIES and PLAYER from MOVING
+        // - Show DarkFilter
+        if (GamePaused)
+        {
+            // Pause Player
+            // Hide Player
+            darkFilter.gameObject.SetActive(true);
+            playerSprite.gameObject.SetActive(false);
+            playerMovement.SetCanMove(false);
+
+            //TODO
+            // SHOW PAUSE MENU HERE
+            if (!InHighlightMode)
+            {
+
+            }
+        }
+
+        // Game is Unpaused
+        // - Let PLAYER and ENTITIES MOVE
+        // - Hide DarkFilter
+        else
         {
             // Unpause Player
             // Unhide Player
@@ -176,16 +185,19 @@ public class GameManager : MonoBehaviour
             playerSprite.gameObject.SetActive(true);
             playerMovement.SetCanMove(true);
         }
-        else
+    }
+
+    public void ToggleHighlightMode()
+    {
+        // Player cannot go into Highlight Mode from regular Pause state
+        if (this.GamePaused && !InHighlightMode)
         {
-            // Pause Player
-            // Hide Player
-            darkFilter.gameObject.SetActive(true);
-            playerSprite.gameObject.SetActive(false);
-            playerMovement.SetCanMove(false);
+            return;
         }
 
         InHighlightMode = !InHighlightMode;
+        ToggleGamePaused();
+
         EventManager.Instance.RaiseHighlightModeChange();
     }
 
