@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDailyTask", menuName = "DailyTask")]
-public class DailyTask : ScriptableObject
+public class DailyTask : MonoBehaviour
 {
     [SerializeField] protected String taskName = "Unnamed_DailyTask";
     [SerializeField] protected String taskDescription = "Default_DailyTask_Description";
@@ -12,9 +12,27 @@ public class DailyTask : ScriptableObject
     public String TaskDescription => taskDescription;
     public bool IsCompleted => isCompleted;
 
-    public void CompleteTask()
+    void OnEnable()
     {
-        isCompleted = true;
+        EventManager.Instance.OnDailyTaskCompleted += TryCompleteTask;
+    }
+
+    void OnDisable()
+    {
+        EventManager.Instance.OnDailyTaskCompleted -= TryCompleteTask;
+    }
+
+    public void BecomeDailyTask()
+    {
+        EventManager.Instance.RaiseSetDailyTask(this);
+    }
+
+    public void TryCompleteTask(String completedTaskName)
+    {
+        if (completedTaskName == this.TaskName)
+        {
+            isCompleted = true;
+        }
     }
 
     public void ResetTask()

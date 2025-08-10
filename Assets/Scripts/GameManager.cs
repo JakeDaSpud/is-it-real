@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text tempTutorialText;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private int maxAnomaliesAndHighlightableObjects = 3;
     [SerializeField] private Transform beginningSpawn;
     [SerializeField] private Transform bedroomSpawn;
     [SerializeField] public bool InHighlightMode = false;
@@ -87,26 +88,12 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.Instance.OnDailyTaskCompleted += CheckDailyTaskEvent;
         EventManager.Instance.OnPause += ToggleGamePaused;
     }
 
     void OnDisable()
     {
-        EventManager.Instance.OnDailyTaskCompleted -= CheckDailyTaskEvent;
         EventManager.Instance.OnPause -= ToggleGamePaused;
-    }
-
-    private void CheckDailyTaskEvent(String completedTaskName)
-    {
-        foreach (DailyTask dT in currentDailyTasks)
-        {
-            if (dT.TaskName.Equals(completedTaskName))
-            {
-                dT.CompleteTask();
-                return;
-            }
-        }
     }
 
     void Awake()
@@ -219,6 +206,10 @@ public class GameManager : MonoBehaviour
         // Reset suspectObjects[]
 
         currentAnomalies.Clear();
+        foreach (DailyTask dailyTask in currentDailyTasks)
+        {
+            dailyTask.ResetTask();
+        }
         currentDailyTasks.Clear();
         suspectObjects.Clear();
 
@@ -244,6 +235,7 @@ public class GameManager : MonoBehaviour
     {
         ResetScene();
         GenerateAnomaliesForDay(day);
+        GenerateDailyTasksForDay(day);
         Debug.Log($"Day {day} started.");
         SetTEMPDayText(TEMP_DayState);
         if (day == 0)
@@ -258,7 +250,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateAnomaliesForDay(int day)
     {
-        int anomalyCount = UnityEngine.Random.Range(0, 4);
+        int anomalyCount = UnityEngine.Random.Range(0, maxAnomaliesAndHighlightableObjects + 1);
 
         if (day == 0)
         {
@@ -291,8 +283,15 @@ public class GameManager : MonoBehaviour
 
     private void GenerateDailyTasksForDay(int day)
     {
-        // TODO
-        // all this yeah
+        if (day == 0)
+        {
+            
+        }
+
+        else
+        {
+            
+        }
     }
 
     /// <summary>
@@ -302,7 +301,7 @@ public class GameManager : MonoBehaviour
     /// <returns>True if added successfully, false if it couldn't be.</returns>
     public bool AddSuspectObject(HauntableObject obj)
     {
-        if (suspectObjects.Count() < 3)
+        if (suspectObjects.Count() < maxAnomaliesAndHighlightableObjects)
         {
             suspectObjects.Add(obj);
             return true;
