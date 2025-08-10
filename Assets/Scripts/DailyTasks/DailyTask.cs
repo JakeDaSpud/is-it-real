@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewDailyTask", menuName = "DailyTask")]
 public class DailyTask : MonoBehaviour
 {
     [SerializeField] protected String taskName = "Unnamed_DailyTask";
     [SerializeField] protected String taskDescription = "Default_DailyTask_Description";
     [SerializeField] protected bool isCompleted = false;
+    [SerializeField] protected HauntableObject hauntableObject;
 
     public String TaskName => taskName;
     public String TaskDescription => taskDescription;
@@ -15,11 +15,23 @@ public class DailyTask : MonoBehaviour
     void OnEnable()
     {
         EventManager.Instance.OnDailyTaskCompleted += TryCompleteTask;
+        EventManager.Instance.OnDayStart += (dayNumber) => { ResetTask(); };
     }
 
     void OnDisable()
     {
         EventManager.Instance.OnDailyTaskCompleted -= TryCompleteTask;
+        EventManager.Instance.OnDayStart -= (dayNumber) => { ResetTask(); };
+    }
+
+    public HauntableObject GetHauntableObject()
+    {
+        return this.hauntableObject;
+    }
+
+    public void SetHauntableObject(HauntableObject hauntableObject)
+    {
+        this.hauntableObject = hauntableObject;
     }
 
     public void BecomeDailyTask()
@@ -27,10 +39,11 @@ public class DailyTask : MonoBehaviour
         EventManager.Instance.RaiseSetDailyTask(this);
     }
 
-    public void TryCompleteTask(String completedTaskName)
+    public void TryCompleteTask(DailyTask completedTaskName)
     {
-        if (completedTaskName == this.TaskName)
+        if (completedTaskName.TaskName == this.TaskName)
         {
+            Debug.Log($"Completed [{TaskName}].");
             isCompleted = true;
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private int maxAnomaliesAndHighlightableObjects = 3;
+    [SerializeField] private int maxDailyTasks = 2;
     [SerializeField] private Transform beginningSpawn;
     [SerializeField] private Transform bedroomSpawn;
     [SerializeField] public bool InHighlightMode = false;
@@ -89,11 +91,13 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.Instance.OnPause += ToggleGamePaused;
+        EventManager.Instance.OnSetDailyTask += AddCurrentDailyTask;
     }
 
     void OnDisable()
     {
         EventManager.Instance.OnPause -= ToggleGamePaused;
+        EventManager.Instance.OnSetDailyTask -= AddCurrentDailyTask;
     }
 
     void Awake()
@@ -120,6 +124,7 @@ public class GameManager : MonoBehaviour
     {
         CheckArrayEmpty(allObjects, nameof(allObjects));
         CheckArrayEmpty(allAnomalies, nameof(allAnomalies));
+        CheckArrayEmpty(allDailyTasks, nameof(allDailyTasks));
 
         StartDay(currentDay);
     }
@@ -285,13 +290,51 @@ public class GameManager : MonoBehaviour
     {
         if (day == 0)
         {
-            
+            // The 0th DailyTask is the Day0 Task
+            currentDailyTasks.Add(allDailyTasks[0]);
         }
 
         else
         {
-            
+            int dailyTaskCount = UnityEngine.Random.Range(0, maxDailyTasks + 1);
+
+            Debug.Log($"dailyTaskCount = [{dailyTaskCount}]");
+
+            List<DailyTask> pool = allDailyTasks.ToList();
+            pool.RemoveAt(0); // Remove the Day0 DailyTask
+
+            while (currentDailyTasks.Count() < dailyTaskCount)
+            {
+                int index = UnityEngine.Random.Range(0, pool.Count);
+
+                if (pool.Count < 1)
+                {
+                    Debug.LogError("Ran out of DailyTasks to add to currentDailyTasks[].");
+                    break;
+                }
+
+                DailyTask dT = pool[index];
+                pool.RemoveAt(index);
+
+                if (dT.GetHauntableObject().hauntingAnomaly != null)
+                {
+                    Debug.LogError($"Cannot add [{dT.TaskName}] to currentDailyTasks[], as [{dT.GetHauntableObject()}] is Haunted.");
+                    continue;
+                }
+
+                else
+                {
+                    dT.BecomeDailyTask();
+                }
+            }
+
         }
+        Debug.Log($"currentDailyTasks: {currentDailyTasks}");
+    }
+
+    private void AddCurrentDailyTask(DailyTask dT)
+    {
+        currentDailyTasks.Add(dT);
     }
 
     /// <summary>

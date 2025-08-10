@@ -135,6 +135,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &21180757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 21180758}
+  m_Layer: 0
+  m_Name: DailyTaskData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &21180758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21180757}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.24105, y: 38.564667, z: 0.6123459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2115993735}
+  - {fileID: 1389954061}
+  - {fileID: 637244871}
+  - {fileID: 1784320697}
+  - {fileID: 1921768486}
+  - {fileID: 1351936054}
+  - {fileID: 747404354}
+  - {fileID: 979257403}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &24601986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8076561412704797280, guid: 3fb687cbd733cae4395e9f071aac73e8, type: 3}
@@ -936,7 +975,7 @@ GameObject:
   - component: {fileID: 148250947}
   - component: {fileID: 148250948}
   m_Layer: 0
-  m_Name: TEMPPPPPPPLaundryInteraction
+  m_Name: LaundryInteraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,10 +1005,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 148250946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 468c8f961267eff4c998ca2d67f2f689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 872b63cd6b8584848b3324db45e315e5, type: 3}
+  hauntableObject: {fileID: 1509695043}
+  newSprite: {fileID: 0}
+  newSpriteIndex: 1
 --- !u!1001 &169823280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1258,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
+--- !u!1 &301155398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8039757129479110723, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+  m_PrefabInstance: {fileID: 1251071875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &301804686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1613,6 +1659,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2137472139}
     m_Modifications:
+    - target: {fileID: 3760348940792982353, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb4d4eea89991b74097f1ef88a4e24cf, type: 3}
     - target: {fileID: 6172614308119060013, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
       propertyPath: m_Name
       value: LaundryBasketObject
@@ -1658,9 +1708,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 747404355}
+    - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 148250948}
+    - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fb4d4eea89991b74097f1ef88a4e24cf, type: 3}
+    - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 41f99b11bf160ae4f9aec7c72f6aa836, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1979,6 +2041,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1417443403}
     m_Modifications:
+    - target: {fileID: 312071753442405111, guid: 5a317e18e9e8ef34b87de959a65bd4bc, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 979257404}
     - target: {fileID: 312071753442405111, guid: 5a317e18e9e8ef34b87de959a65bd4bc, type: 3}
       propertyPath: interactionEvent
       value: 
@@ -2300,12 +2366,48 @@ PrefabInstance:
       value: CounterObject
       objectReference: {fileID: 0}
     - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 637244872}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1792428520}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fd550f94d58980243a690e546750a0bd, type: 3}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d3011c5f802395439385a520e4c6c1f, type: 3}
+    - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_Size.x
+      value: 4.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_Size.y
+      value: 4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd550f94d58980243a690e546750a0bd, type: 3}
     - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: m_SortingOrder
       value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2896,6 +2998,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
+--- !u!1 &497408390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497408391}
+  - component: {fileID: 497408392}
+  m_Layer: 0
+  m_Name: BookshelfInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497408391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497408390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497408392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497408390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8f961267eff4c998ca2d67f2f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauntableObject: {fileID: 1516731184}
+  newSprite: {fileID: 0}
+  newSpriteIndex: 1
 --- !u!1001 &500620699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3669,12 +3818,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8076561412704797280, guid: f713ac0cc600dfb438c66cf50b7a591a, type: 3}
   m_PrefabInstance: {fileID: 1323496534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &637244870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637244871}
+  - component: {fileID: 637244872}
+  m_Layer: 0
+  m_Name: WashDishesDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637244871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637244870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &637244872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637244870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: WashDishes
+  taskDescription: Wash Dishes in the Kitchen
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!114 &680961410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
   m_PrefabInstance: {fileID: 356775646}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1509695043}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
@@ -3847,6 +4044,54 @@ MonoBehaviour:
   - {fileID: 1761612945}
   swappingHauntableObject: {fileID: 1761612945}
   hauntedSprite: {fileID: 21300000, guid: d36284546c4c1794287712c75d32f8cf, type: 3}
+--- !u!1 &747404353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747404354}
+  - component: {fileID: 747404355}
+  m_Layer: 0
+  m_Name: EmptyLaundryDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &747404354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747404353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747404355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747404353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: EmptyLaundry
+  taskDescription: Empty the Laundry Basket in the Bathroom
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!114 &754337617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7579709830723940105, guid: 45c228f1316f35c4aa6c37eefcc162d6, type: 3}
@@ -4822,13 +5067,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 1890946198}
     m_Modifications:
     - target: {fileID: 149545026945587708, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6240083268928756141, guid: c19b29d2603c10a448d3cf26acf99445, type: 3}
+    - target: {fileID: 149545026945587708, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
       propertyPath: m_SortingOrder
       value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 1351936055}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
       propertyPath: canBeInteracted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 497408392}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6240083268928756141, guid: c19b29d2603c10a448d3cf26acf99445, type: 3}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -1593957853297291306, guid: 5b3eee9734a389c4f9a08167721daca2, type: 3}
     - target: {fileID: 8076561412704797280, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -5250,6 +5519,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7845415667191469175, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
   m_PrefabInstance: {fileID: 1963017161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &979257402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979257403}
+  - component: {fileID: 979257404}
+  m_Layer: 0
+  m_Name: FillPetBowlDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &979257403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979257402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979257404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979257402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: FillPetBowl
+  taskDescription: Fill the Pet Bowl in the Kitchen
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!1 &982026191
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6563,22 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fd612b51c30a5e54e96c684ac149503a, type: 3}
+    - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e33fd933498c9448e3991a18e6d7ee, type: 3}
+    - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: f79aec208bebea24e8b9d43ac01819f0, type: 3}
     - target: {fileID: 2980661450222810713, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -6902,6 +7235,10 @@ PrefabInstance:
       value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: 6a207eb1d9d1e814a89e0624218a7188, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 2115993736}
+    - target: {fileID: 4663729959472441444, guid: 6a207eb1d9d1e814a89e0624218a7188, type: 3}
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 1786607305}
@@ -6999,9 +7336,25 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 1921768487}
+    - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
       propertyPath: canBeInteracted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1925717765}
+    - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 67c6acbd1d6079248b9ca52ba597049c, type: 3}
     - target: {fileID: 7869683006871657594, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -7393,6 +7746,53 @@ Transform:
   - {fileID: 1905336603}
   m_Father: {fileID: 2119569729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1279437042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279437043}
+  - component: {fileID: 1279437044}
+  m_Layer: 0
+  m_Name: SinkInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1279437043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279437042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279437044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279437042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8f961267eff4c998ca2d67f2f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauntableObject: {fileID: 1446460054}
+  newSprite: {fileID: 0}
+  newSpriteIndex: 1
 --- !u!4 &1282320054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 628661424419189121, guid: d5c8dbe477f358541991e6dd7781fead, type: 3}
@@ -7409,6 +7809,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1284182982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3168600884451748448, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+  m_PrefabInstance: {fileID: 1091200338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1286343168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1905232959958727224, guid: c49a215d06d25d94b92f778c0325cd88, type: 3}
@@ -7731,12 +8136,60 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
   m_PrefabInstance: {fileID: 1963017161}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1446460054}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1351936053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351936054}
+  - component: {fileID: 1351936055}
+  m_Layer: 0
+  m_Name: TidyBookshelfDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351936054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351936053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351936055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351936053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: TidyBookshelf
+  taskDescription: Tidy the Bookshelf in the Living Room
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!1 &1356378570
 GameObject:
   m_ObjectHideFlags: 0
@@ -8018,6 +8471,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a8762dabab7254b889f57e5af2b51e, type: 3}
+--- !u!1 &1389954060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389954061}
+  - component: {fileID: 1389954062}
+  m_Layer: 0
+  m_Name: WaterPlantDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1389954061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389954060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389954062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389954060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: WaterPlant
+  taskDescription: Water Plants in the Kitchen
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!1001 &1396280693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8390,10 +8891,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 326075345}
+  - {fileID: 497408391}
   - {fileID: 1877468680}
   - {fileID: 1786607304}
   - {fileID: 821138503}
   - {fileID: 148250947}
+  - {fileID: 1925717764}
+  - {fileID: 1792428519}
+  - {fileID: 1279437043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440563015
@@ -8477,6 +8982,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c8dbe477f358541991e6dd7781fead, type: 3}
+--- !u!1 &1446460054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7945701622674114638, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+  m_PrefabInstance: {fileID: 1963017161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1468938468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8076561412704797280, guid: c760db25c5af719418c309351cb83ae3, type: 3}
@@ -8759,6 +9269,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1509695043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6172614308119060013, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+  m_PrefabInstance: {fileID: 356775646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1510645945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 286301292452189953, guid: c38f6011435d3df4bb97f1dcbd6d3b43, type: 3}
@@ -8908,6 +9423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1516731184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8264663510213107289, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+  m_PrefabInstance: {fileID: 910288900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1522899231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7579709830723940105, guid: 45c228f1316f35c4aa6c37eefcc162d6, type: 3}
@@ -9098,6 +9618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1417443403}
     m_Modifications:
+    - target: {fileID: 2437829329998475026, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 6378858650041731938, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
       propertyPath: m_Name
       value: WindowObject
@@ -10034,7 +10558,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
   m_PrefabInstance: {fileID: 1251071875}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 301155398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
@@ -10419,7 +10943,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
   m_PrefabInstance: {fileID: 1091200338}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1284182982}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
@@ -10433,6 +10957,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1417443403}
     m_Modifications:
+    - target: {fileID: 1602131705822745133, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 1389954062}
     - target: {fileID: 2608415761456538640, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
       propertyPath: m_Name
       value: PlantsObject
@@ -10565,6 +11093,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1784320696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784320697}
+  - component: {fileID: 1784320698}
+  m_Layer: 0
+  m_Name: BakeCookiesDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784320697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784320696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784320698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784320696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: BakeCookies
+  taskDescription: Bake Cookies in the Kitchen
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!1001 &1785633830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10723,6 +11299,53 @@ Transform:
   - {fileID: 69095954}
   m_Father: {fileID: 522189899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1792428518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792428519}
+  - component: {fileID: 1792428520}
+  m_Layer: 0
+  m_Name: OvenInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792428519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792428518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792428520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792428518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8f961267eff4c998ca2d67f2f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauntableObject: {fileID: 1284182982}
+  newSprite: {fileID: 0}
+  newSpriteIndex: 2
 --- !u!1 &1806660409
 GameObject:
   m_ObjectHideFlags: 0
@@ -11349,7 +11972,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
   m_PrefabInstance: {fileID: 910288900}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1516731184}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
@@ -11827,6 +12450,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c987949de42e4543a683fe70b2885f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1921768485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1921768486}
+  - component: {fileID: 1921768487}
+  m_Layer: 0
+  m_Name: BrewTeaDailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1921768486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921768485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1921768487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921768485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: BrewTea
+  taskDescription: Brew Tea in the Kitchen
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
+--- !u!1 &1925717763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925717764}
+  - component: {fileID: 1925717765}
+  m_Layer: 0
+  m_Name: KettleInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925717764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925717763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1925717765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925717763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c8f961267eff4c998ca2d67f2f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauntableObject: {fileID: 301155398}
+  newSprite: {fileID: 0}
+  newSpriteIndex: 1
 --- !u!114 &1927522043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4663729959472441444, guid: dc55972327a22464c9d209319b13b79f, type: 3}
@@ -11931,9 +12649,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 1417443403}
     m_Modifications:
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 637244872}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: canBeInteracted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1279437044}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3931298262144243683, guid: 27b80d3c644d42c4cb99a9dae7b52669, type: 3}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 4995366671727844f9980839cc3c3b06, type: 3}
     - target: {fileID: 7845415667191469175, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -11994,6 +12732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SinkObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8050603537202113671, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3931298262144243683, guid: 27b80d3c644d42c4cb99a9dae7b52669, type: 3}
     - target: {fileID: 8050603537202113671, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: m_SortingOrder
       value: -6
@@ -12137,6 +12879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4163865301338712929, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6451933088844743753, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -12252,6 +12998,10 @@ PrefabInstance:
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: allAnomalies.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: allDailyTasks.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: 'allObjects.Array.data[0]'
@@ -12425,6 +13175,38 @@ PrefabInstance:
       propertyPath: 'allAnomalies.Array.data[6]'
       value: 
       objectReference: {fileID: 2065721619}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2115993736}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1389954062}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 637244872}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1784320698}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1921768487}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1351936055}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[6]'
+      value: 
+      objectReference: {fileID: 747404355}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allDailyTasks.Array.data[7]'
+      value: 
+      objectReference: {fileID: 979257404}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: InteractHighlighted_Colour.a
       value: 1
@@ -12634,9 +13416,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1417443403}
     m_Modifications:
     - target: {fileID: 689033112543148856, guid: 4fba5049196186840975b5f3275ab155, type: 3}
+      propertyPath: dailyTask
+      value: 
+      objectReference: {fileID: 1784320698}
+    - target: {fileID: 689033112543148856, guid: 4fba5049196186840975b5f3275ab155, type: 3}
       propertyPath: canBeInteracted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 689033112543148856, guid: 4fba5049196186840975b5f3275ab155, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1792428520}
     - target: {fileID: 4117063666372415804, guid: 4fba5049196186840975b5f3275ab155, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -13026,6 +13816,54 @@ Transform:
   - {fileID: 1231474102}
   m_Father: {fileID: 622604585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2115993734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115993735}
+  - component: {fileID: 2115993736}
+  m_Layer: 0
+  m_Name: Day0DailyTask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115993735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115993734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21180758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115993736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115993734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a15ad80eeb2ca4bb10efb9fcb2808f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskName: Day0
+  taskDescription: Work on your Essay at your Bedroom Desk
+  isCompleted: 0
+  hauntableObject: {fileID: 0}
 --- !u!1 &2119569728
 GameObject:
   m_ObjectHideFlags: 0
@@ -13455,3 +14293,4 @@ SceneRoots:
   - {fileID: 622604585}
   - {fileID: 1529782036}
   - {fileID: 1429740532}
+  - {fileID: 21180758}

@@ -26,6 +26,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[SerializeField] protected Collider2D interactBox;
 	[SerializeField] public bool canBeInteracted = true;
 	[SerializeField] protected InteractionEvent interactionEvent;
+	[SerializeField] protected DailyTask dailyTask;
 
 	[Header("Haunting")]
 	public bool canBeHaunted = false;
@@ -90,6 +91,11 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		else
 		{
 			spriteRenderer.gameObject.SetActive(false);
+		}
+
+		if (dailyTask)
+		{
+			dailyTask.SetHauntableObject(this);
 		}
 	}
 
@@ -170,6 +176,12 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	public void Interact(Collider2D other)
 	{
 		interactionEvent.Interact();
+
+		if (dailyTask && !dailyTask.IsCompleted)
+		{
+			EventManager.Instance.RaiseDailyTaskCompleted(dailyTask);
+		}
+
 		if (other.tag == "Player" && isActive)
 		{
 			Debug.Log($"Player interacted with [{objectName}].");

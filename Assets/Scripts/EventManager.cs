@@ -62,7 +62,8 @@ public class EventManager : MonoBehaviour
     public event Action<Anomaly[]> OnAnomaliesRevealed;
 
     // DailyTask Events
-    public event Action<String> OnDailyTaskCompleted;
+    public event Action<DailyTask> OnSetDailyTask;
+    public event Action<DailyTask> OnDailyTaskCompleted;
 
     // Raising Functions
     public void RaiseDayStart(int dayNumber) { OnDayStart?.Invoke(dayNumber); }
@@ -87,5 +88,6 @@ public class EventManager : MonoBehaviour
 
     public void RaiseAnomaliesRevealed(Anomaly[] anomalies) { OnAnomaliesRevealed?.Invoke(anomalies); }
 
-    public void RaiseDailyTaskCompleted(String dailyTaskName) { Debug.Log($"Raised [{dailyTaskName}] OnDailyTaskCompleted."); OnDailyTaskCompleted?.Invoke(dailyTaskName); }
+    public void RaiseSetDailyTask(DailyTask dailyTask) { Debug.Log($"Raised [{dailyTask.TaskName}] SetDailyTask."); OnSetDailyTask?.Invoke(dailyTask); }
+    public void RaiseDailyTaskCompleted(DailyTask dailyTask) { Debug.Log($"Raised [{dailyTask.TaskName}] OnDailyTaskCompleted."); OnDailyTaskCompleted?.Invoke(dailyTask); }
 }

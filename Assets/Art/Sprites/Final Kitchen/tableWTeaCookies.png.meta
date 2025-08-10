@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2ccd5ed22fd62f645b5055daa3266df8
+guid: f79aec208bebea24e8b9d43ac01819f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8174806528240493017
-    second: pets_Filled_0
+      213: -3421500632774096293
+    second: tableWTeaCookies_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,9 +50,9 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.5, y: 0.46078435}
+  spritePivot: {x: 0.49868664, y: 0.5387534}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 35}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pets_Filled_0
+      name: tableWTeaCookies_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 84
-        width: 415
-        height: 132
+        x: 29
+        y: 0
+        width: 940
+        height: 439
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d1a157b93fb27170800000000000000
-      internalID: 8174806528240493017
+      spriteID: b5ac9b86d436480d0800000000000000
+      internalID: -3421500632774096293
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pets_Filled_0: 8174806528240493017
+      tableWTeaCookies_0: -3421500632774096293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
