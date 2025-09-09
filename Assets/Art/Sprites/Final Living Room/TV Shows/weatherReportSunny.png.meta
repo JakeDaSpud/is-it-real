@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      weatherReportSunny_0: -3328519888593220209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -239,7 +239,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FloatingSkull_0: 8584086736453096997
+      FloatingSkull_1: -2614028536674738038
+      FloatingSkull_2: 2643650447276311142
+      FloatingSkull_3: 1527097679218975075
+      FloatingSkull_4: 1021425359167385897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
