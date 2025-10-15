@@ -20,6 +20,7 @@ public class NewObjectAnomaly : Anomaly
     {
         // Spawn HauntableObject
         m_hoSpawnedObject = Instantiate(newObject, newObjectSpawnPoint);
+        m_hoSpawnedObject.canBeInteracted = objectToHide.canBeInteracted;
         m_hoSpawnedObject.BecomeTemporary();
         m_hoSpawnedObject.hauntingAnomaly = this;
         if (objectToHide != null)

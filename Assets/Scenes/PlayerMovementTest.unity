@@ -1246,6 +1246,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2539377445644900256, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
+      propertyPath: canBeHaunted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539377445644900256, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
@@ -5890,11 +5894,11 @@ Transform:
   m_GameObject: {fileID: 1037431759}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -68.17, y: -22.64, z: 0}
+  m_LocalPosition: {x: -18.369999, y: -0.7399998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2112731689}
+  m_Father: {fileID: 1666199897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1038181331 stripped
 MonoBehaviour:
@@ -10524,6 +10528,7 @@ Transform:
   - {fileID: 1360722257}
   - {fileID: 1692935589}
   - {fileID: 1701319789}
+  - {fileID: 1037431760}
   m_Father: {fileID: 622604585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1666341247 stripped
@@ -13812,7 +13817,6 @@ Transform:
   - {fileID: 910844211}
   - {fileID: 1171099394}
   - {fileID: 1085439090}
-  - {fileID: 1037431760}
   - {fileID: 1231474102}
   m_Father: {fileID: 622604585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
