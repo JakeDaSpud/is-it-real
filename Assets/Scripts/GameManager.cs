@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int failedDays = 0;
     [SerializeField] private const int maxFailedDays = 3;
     [SerializeField] private String TEMP_DayState = "";
+    public enum Weather { NULL, CLEAR, RAIN };
+    public Weather todaysWeather = Weather.NULL;
 
     // Colours
     [SerializeField] public Color Highlighted_Colour;
@@ -239,6 +241,7 @@ public class GameManager : MonoBehaviour
     public void StartDay(int day)
     {
         ResetScene();
+        GenerateWeather();
         GenerateAnomaliesForDay(day);
         GenerateDailyTasksForDay(day);
         Debug.Log($"Day {day} started.");
@@ -251,6 +254,20 @@ public class GameManager : MonoBehaviour
         {
             SetTEMPText("- Select every Anomaly and then sleep if you see one.\n- Work on your essay if you don't see any.");
         }
+    }
+
+    private void GenerateWeather()
+    {
+        Array allWeathers = Enum.GetValues(typeof(Weather));
+
+        // Randomly pick real weather
+        todaysWeather = (Weather) allWeathers.GetValue( UnityEngine.Random.Range(1, allWeathers.Length) );
+
+        // Set TV Image to real weather
+        // Set Window Image to real weather
+        EventManager.Instance.RaiseSetWeather(todaysWeather);
+        
+        Debug.Log($"Weather now set to [{todaysWeather}]");
     }
 
     private void GenerateAnomaliesForDay(int day)

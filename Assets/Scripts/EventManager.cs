@@ -23,6 +23,7 @@ public class EventManager : MonoBehaviour
     public event Action<int> OnDayStart;
     public event Action OnDaySucceed;
     public event Action OnDayFail;
+    public event Action<GameManager.Weather> OnSetWeather;
 
     // State Events
     public event Action OnGameStart;
@@ -70,6 +71,7 @@ public class EventManager : MonoBehaviour
     public void RaiseDayStart(int dayNumber) { OnDayStart?.Invoke(dayNumber); }
     public void RaiseDaySucceed() { OnDaySucceed?.Invoke(); }
     public void RaiseDayFail() { OnDayFail?.Invoke(); }
+    public void RaiseSetWeather(GameManager.Weather weather) { OnSetWeather?.Invoke(weather); }
     
     public void RaiseGameStart() { OnGameStart?.Invoke(); }
     public void RaiseGameOver() { OnGameOver?.Invoke(); }
