@@ -17,6 +17,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[SerializeField] private bool showSprite = true;
 	[SerializeField] private SpriteRenderer spriteRenderer;
 	[SerializeField] private Sprite[] sprites; // sprites[0] is always the default sprite
+	[SerializeField] private bool reorderSpriteLayer = false;
 
 	[Header("Collision")]
 	[Tooltip("The Collider of the Object, where the Player can't walk.")]
@@ -47,12 +48,14 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	void OnEnable()
 	{
 		EventManager.Instance.OnPlayerLeftClick += TrySuspectOrUnsuspect;
+		EventManager.Instance.OnPlayerMove += ReorderSpriteLayer;
 		EventManager.Instance.OnHighlightModeChange += CheckHighlightState;
 	}
 
 	void OnDisable()
 	{
 		EventManager.Instance.OnPlayerLeftClick -= TrySuspectOrUnsuspect;
+		EventManager.Instance.OnPlayerMove -= ReorderSpriteLayer;
 		EventManager.Instance.OnHighlightModeChange -= CheckHighlightState;
 	}
 
@@ -96,6 +99,31 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		if (dailyTask)
 		{
 			dailyTask.SetHauntableObject(this);
+		}
+	}
+
+	private void ReorderSpriteLayer(float playerPosY)
+	{
+		if (!reorderSpriteLayer) return;
+
+		float currentPosY = this.hitBox.bounds.center.y;
+
+		// Object Behind Player is -5
+		// Player Sort Order is -4
+		// Object Ahead of Player is -3
+
+		// Object is now Behind Player
+		if (playerPosY < currentPosY)
+		{
+			spriteRenderer.sortingOrder = -5;
+			//Debug.Log($"{this.name} sprite is now -5.");
+		}
+
+		// Object is now Ahead of Player
+		else
+		{
+			spriteRenderer.sortingOrder = -3;
+			//Debug.Log($"{this.name} sprite is now -3.");
 		}
 	}
 

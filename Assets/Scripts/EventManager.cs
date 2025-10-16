@@ -33,6 +33,7 @@ public class EventManager : MonoBehaviour
     // Player Events
     public event Action OnPlayerDeath;
     public event Action OnPlayerLeftClick;
+    public event Action<float> OnPlayerMove;
     public event Action<HauntableObject> OnHauntableObjectHighlighted;
     public event Action<HauntableObject> OnHauntableObjectSelected;
 
@@ -77,6 +78,7 @@ public class EventManager : MonoBehaviour
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
     public void RaisePlayerLeftClick() { Debug.Log("Raised OnPlayerLeftClick."); OnPlayerLeftClick?.Invoke(); }
+    public void RaisePlayerMove(float playerY) { /*Debug.Log($"Raised OnPlayerMove([{playerY}]).");*/ OnPlayerMove?.Invoke(playerY); }
     public void RaiseHauntableObjectHighlighted(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectHighlighted."); OnHauntableObjectHighlighted?.Invoke(obj); }
     public void RaiseHauntableObjectSelected(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected."); OnHauntableObjectSelected?.Invoke(obj); }
     

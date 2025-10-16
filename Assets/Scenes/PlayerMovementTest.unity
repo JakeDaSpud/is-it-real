@@ -1027,6 +1027,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: c760db25c5af719418c309351cb83ae3, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: c760db25c5af719418c309351cb83ae3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.22
@@ -1253,6 +1257,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2539377445644900256, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4114945586506929576, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
       propertyPath: m_SortingOrder
       value: -6
@@ -1281,6 +1289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: f13e5124f2471da499aad73a230510c6, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: f13e5124f2471da499aad73a230510c6, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: f13e5124f2471da499aad73a230510c6, type: 3}
@@ -1590,6 +1602,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 1877468681}
+    - target: {fileID: 4663729959472441444, guid: 0f139dc0f8e90ca4abfc666f186dff4e, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 0f139dc0f8e90ca4abfc666f186dff4e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7215
@@ -1719,6 +1735,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 148250948}
+    - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
@@ -1880,6 +1900,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1309697590803959461, guid: 0dce8257ac6659e428c7a27d97ab101a, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309697590803959461, guid: 0dce8257ac6659e428c7a27d97ab101a, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2316509482913314968, guid: 0dce8257ac6659e428c7a27d97ab101a, type: 3}
@@ -2053,6 +2077,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 326075346}
+    - target: {fileID: 312071753442405111, guid: 5a317e18e9e8ef34b87de959a65bd4bc, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3817332827557986547, guid: 5a317e18e9e8ef34b87de959a65bd4bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -2232,6 +2260,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360722257}
     m_Modifications:
+    - target: {fileID: 5571622628141968986, guid: ba656bfec6028094f915cb4c82a1ac9c, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8840241878078859071, guid: ba656bfec6028094f915cb4c82a1ac9c, type: 3}
       propertyPath: m_SortingOrder
       value: -6
@@ -2369,6 +2401,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterObject
       objectReference: {fileID: 0}
+    - target: {fileID: 1416999646701087572, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416999646701087572, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 4.28
+      objectReference: {fileID: 0}
     - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: dailyTask
       value: 
@@ -2382,6 +2422,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1792428520}
     - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2393,6 +2437,14 @@ PrefabInstance:
       propertyPath: 'sprites.Array.data[1]'
       value: 
       objectReference: {fileID: 21300000, guid: 0d3011c5f802395439385a520e4c6c1f, type: 3}
+    - target: {fileID: 7556044673252259824, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556044673252259824, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 4.28
+      objectReference: {fileID: 0}
     - target: {fileID: 9082235325769997284, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: m_Size.x
       value: 4.82
@@ -2937,6 +2989,14 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895154670809368258, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
+      propertyPath: m_Size.y
+      value: 1.54
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -3063,6 +3123,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: 73873f3ba17acac429bd28b8a97a665b, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 73873f3ba17acac429bd28b8a97a665b, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 73873f3ba17acac429bd28b8a97a665b, type: 3}
@@ -3918,6 +3982,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 943de1207a6ebcf4083baacf61b9b2d4, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 943de1207a6ebcf4083baacf61b9b2d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.63
@@ -4209,6 +4277,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: e3c04e21892a3bb4bb99ad974b9b4bd7, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: e3c04e21892a3bb4bb99ad974b9b4bd7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.72
@@ -4488,6 +4560,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7481512570888495928, guid: 86961ab60a8c0aa4e8e97299533d5f23, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481512570888495928, guid: 86961ab60a8c0aa4e8e97299533d5f23, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5091,6 +5167,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 497408392}
     - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 932f2f5159f4edc49909cc2666517643, type: 3}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5343,6 +5423,10 @@ PrefabInstance:
     - target: {fileID: 149545026945587708, guid: 3fb687cbd733cae4395e9f071aac73e8, type: 3}
       propertyPath: m_SortingOrder
       value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 3fb687cbd733cae4395e9f071aac73e8, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 3fb687cbd733cae4395e9f071aac73e8, type: 3}
       propertyPath: m_LocalScale.x
@@ -6076,6 +6160,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 45e4f568ae3afe2438d781291f17a29e, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 45e4f568ae3afe2438d781291f17a29e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -6568,6 +6656,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869063851319565405, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
       propertyPath: sprites.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -6857,6 +6949,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: 6221f5d0161a50a4c8d47bcc2e7ded72, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 6221f5d0161a50a4c8d47bcc2e7ded72, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 6221f5d0161a50a4c8d47bcc2e7ded72, type: 3}
@@ -7246,6 +7342,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 1786607305}
+    - target: {fileID: 4663729959472441444, guid: 6a207eb1d9d1e814a89e0624218a7188, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 6a207eb1d9d1e814a89e0624218a7188, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.59
@@ -7351,6 +7451,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 1925717765}
+    - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6745242838353933950, guid: 749b339ab03dfc744b37e42b18eb6e33, type: 3}
       propertyPath: sprites.Array.size
       value: 2
@@ -8005,6 +8109,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: f713ac0cc600dfb438c66cf50b7a591a, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: f713ac0cc600dfb438c66cf50b7a591a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.53
@@ -8068,6 +8176,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: bd0271e0a50947348b757b021c625b61, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: bd0271e0a50947348b757b021c625b61, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: bd0271e0a50947348b757b021c625b61, type: 3}
@@ -8410,6 +8522,10 @@ PrefabInstance:
       propertyPath: canBeInteracted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: e4a8762dabab7254b889f57e5af2b51e, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: e4a8762dabab7254b889f57e5af2b51e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.67
@@ -8537,6 +8653,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: d93ab4320a71b88458d182f310032bfc, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: d93ab4320a71b88458d182f310032bfc, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: d93ab4320a71b88458d182f310032bfc, type: 3}
@@ -8975,6 +9095,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040894744927738757, guid: d5c8dbe477f358541991e6dd7781fead, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040894744927738757, guid: d5c8dbe477f358541991e6dd7781fead, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5464694988960279864, guid: d5c8dbe477f358541991e6dd7781fead, type: 3}
@@ -9686,6 +9810,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7678457292340821343, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9968,6 +10096,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 821138504}
+    - target: {fileID: 4663729959472441444, guid: dc55972327a22464c9d209319b13b79f, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: dc55972327a22464c9d209319b13b79f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -10966,6 +11098,10 @@ PrefabInstance:
       propertyPath: dailyTask
       value: 
       objectReference: {fileID: 1389954062}
+    - target: {fileID: 1602131705822745133, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2608415761456538640, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
       propertyPath: m_Name
       value: PlantsObject
@@ -11216,6 +11352,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088887874807042108, guid: c49a215d06d25d94b92f778c0325cd88, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088887874807042108, guid: c49a215d06d25d94b92f778c0325cd88, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5666659255877143727, guid: c49a215d06d25d94b92f778c0325cd88, type: 3}
@@ -11558,6 +11698,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7326345330002558218, guid: 8f0bb936acb30194b8bbbf8c8f723bff, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326345330002558218, guid: 8f0bb936acb30194b8bbbf8c8f723bff, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12666,6 +12810,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1279437044}
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -12677,6 +12825,22 @@ PrefabInstance:
       propertyPath: 'sprites.Array.data[1]'
       value: 
       objectReference: {fileID: 21300000, guid: 4995366671727844f9980839cc3c3b06, type: 3}
+    - target: {fileID: 6911710000842154307, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.57363105
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911710000842154307, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.47138995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911710000842154307, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911710000842154307, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7845415667191469175, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -12744,6 +12908,22 @@ PrefabInstance:
     - target: {fileID: 8050603537202113671, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: m_SortingOrder
       value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911572843728329435, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.57363105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911572843728329435, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.47138995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911572843728329435, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911572843728329435, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13340,6 +13520,10 @@ PrefabInstance:
       value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
       objectReference: {fileID: -4603263724347168060, guid: d016104d24d11bf4eae47d216f23390a, type: 3}
@@ -13432,6 +13616,10 @@ PrefabInstance:
       propertyPath: interactionEvent
       value: 
       objectReference: {fileID: 1792428520}
+    - target: {fileID: 689033112543148856, guid: 4fba5049196186840975b5f3275ab155, type: 3}
+      propertyPath: reorderSpriteLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4117063666372415804, guid: 4fba5049196186840975b5f3275ab155, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -13702,6 +13890,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: 2c7db476be3333d4b8a7b71907671a7a, type: 3}
       propertyPath: canBeInteracted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: 2c7db476be3333d4b8a7b71907671a7a, type: 3}
+      propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076561412704797280, guid: 2c7db476be3333d4b8a7b71907671a7a, type: 3}

@@ -213,7 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 5
+  m_hitBox: {fileID: 7632287145144765276}
   m_interactBox: {fileID: 3100336005079814115}
+  m_currentlyInteractable: []
 --- !u!50 &5067809654406305443
 Rigidbody2D:
   serializedVersion: 4

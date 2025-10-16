@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     private bool m_canMove = true;
     private bool m_shouldRespawn = false;
     private Vector3 m_respawnPosition;
+    private float m_lastPositionY = 0;
+
+    [Header("Collision")]
+	[Tooltip("The Collider of the Player.")]
+	[SerializeField] protected Collider2D m_hitBox;
 
     [Header("Interact Settings")]
     [SerializeField] private Collider2D m_interactBox;
@@ -26,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         m_spriteAndInteractBoxTransform = transform.Find("Sprite and InteractBox").transform;
         m_inputActions = new InputActions();
         m_rb = GetComponent<Rigidbody2D>();
+        m_lastPositionY = m_hitBox.transform.position.y;
     }
 
     private void OnEnable()
@@ -143,6 +149,13 @@ public class PlayerMovement : MonoBehaviour
 
         // Move using Rigidbody2D (has collision)
         m_rb.MovePosition(m_rb.position + move);
+
+        // Only update if the position is new
+        if (m_hitBox.transform.position.y != m_lastPositionY)
+        {
+            EventManager.Instance.RaisePlayerMove(m_hitBox.transform.position.y);
+            m_lastPositionY = m_hitBox.transform.position.y;
+        }
     }
 
     public void SetCanMove(bool canMove)
