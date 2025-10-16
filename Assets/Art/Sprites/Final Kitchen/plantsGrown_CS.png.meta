@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 27b80d3c644d42c4cb99a9dae7b52669
+guid: 8c6ccd81ac7ca6a49a3d122d4018424a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3931298262144243683
-    second: sinkWDishes_0
+      213: -6282042982407758182
+    second: plantsGrown_CS_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,9 +50,9 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.4775868, y: 0.48831654}
+  spritePivot: {x: 0.51404166, y: 0.4949071}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 72, y: 64, z: 97, w: 71}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -96,39 +96,26 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sinkWDishes_0
+      name: plantsGrown_CS_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 63
-        width: 269
-        height: 360
-      alignment: 9
-      pivot: {x: 0.57363105, y: 0.47138995}
+        x: 87
+        y: 58
+        width: 295
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e7d735c0f6ce8630800000000000000
-      internalID: 3931298262144243683
+      spriteID: a9e99d1f033b1d8a0800000000000000
+      internalID: -6282042982407758182
       vertices: []
       indices: 
       edges: []
@@ -136,15 +123,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f406ce7cd3bc26b43a0ea30781bea732
-    internalID: -1325537831
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sinkWDishes_0: 3931298262144243683
+      plantsGrown_CS_0: -6282042982407758182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
