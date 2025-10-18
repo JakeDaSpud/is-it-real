@@ -240,6 +240,7 @@ public class GameManager : MonoBehaviour
 
     public void StartDay(int day)
     {
+        EventManager.Instance.RaiseDayStart(day);
         ResetScene();
         GenerateWeather();
         GenerateAnomaliesForDay(day);

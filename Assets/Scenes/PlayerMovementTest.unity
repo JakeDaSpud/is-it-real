@@ -1129,6 +1129,54 @@ MonoBehaviour:
   newObjectSpawnPoint: {fileID: 1357791195}
   newObject: {fileID: 4663729959472441444, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
   objectToHide: {fileID: 1876722918}
+--- !u!1 &257967505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257967506}
+  - component: {fileID: 257967507}
+  m_Layer: 0
+  m_Name: WindowWeatherChange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &257967506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257967505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1529782036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &257967507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257967505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44faac333377e64699879f96bb36d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauntableObjects:
+  - {fileID: 852907183}
+  windowHauntableObject: {fileID: 852907183}
+  windowImageShowInteractionEvent: {fileID: 325026782}
 --- !u!1 &270348785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1635,7 @@ MonoBehaviour:
   possibleImages:
   - {fileID: 8113029123216211479, guid: 48710d5a2f37bb840b744b37fea82b03, type: 3}
   - {fileID: -3439455598557465494, guid: 7327212f4634c124cbd87cafe2ed24d1, type: 3}
+  forcedImage: {fileID: 0}
 --- !u!1 &326075344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4587,7 @@ MonoBehaviour:
   possibleImages:
   - {fileID: -3328519888593220209, guid: 0d72dcc65fc51c141bcf9cd38aaced23, type: 3}
   - {fileID: 4932832397967872314, guid: 9d55b89b8d8bc444f8a0dda963d2de6c, type: 3}
+  forcedImage: {fileID: 0}
 --- !u!1001 &834784735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9700,6 +9750,7 @@ Transform:
   - {fileID: 909888664}
   - {fileID: 1692382229}
   - {fileID: 2065721618}
+  - {fileID: 257967506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538686287
@@ -9905,6 +9956,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6494767192581429083, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678457292340821343, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
+      propertyPath: canBeHaunted
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7678457292340821343, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
@@ -13384,7 +13439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: allAnomalies.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: allDailyTasks.Array.size
@@ -13562,6 +13617,10 @@ PrefabInstance:
       propertyPath: 'allAnomalies.Array.data[6]'
       value: 
       objectReference: {fileID: 2065721619}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: 'allAnomalies.Array.data[7]'
+      value: 
+      objectReference: {fileID: 257967507}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: 'allDailyTasks.Array.data[0]'
       value: 
