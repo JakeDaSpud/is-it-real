@@ -5727,6 +5727,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyTaskManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4663229093332376816, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: 1307381588}
+    - target: {fileID: 4663229093332376816, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
+      propertyPath: catTree
+      value: 
+      objectReference: {fileID: 1666341247}
+    - target: {fileID: 4663229093332376816, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
+      propertyPath: kitchenTable
+      value: 
+      objectReference: {fileID: 1728039767}
     - target: {fileID: 4905597525688011284, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11338,6 +11350,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1283729600}
     - target: {fileID: 1602131705822745133, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
+      propertyPath: persistentSprite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602131705822745133, guid: d7ba10f0742524049830943fe00fa40b, type: 3}
       propertyPath: reorderSpriteLayer
       value: 0
       objectReference: {fileID: 0}
@@ -13461,6 +13477,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1231474102}
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: maxDailyTasks
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: beginningSpawn
       value: 
       objectReference: {fileID: 1037431760}
@@ -13743,6 +13763,10 @@ PrefabInstance:
     - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
       propertyPath: InteractHighlighted_Colour.r
       value: 0.66981125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919884154834446207, guid: 757855ca91622294b935c72169d500d7, type: 3}
+      propertyPath: maxAnomaliesAndHighlightableObjects
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

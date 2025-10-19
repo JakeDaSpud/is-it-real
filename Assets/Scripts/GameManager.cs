@@ -195,11 +195,12 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.RaiseHighlightModeChange();
     }
 
-    public void ResetScene()
+    public void ResetScene(bool gameReset = false)
     {
         // Reset the Player Position
         if (currentDay == 0)
         {
+            gameReset = true;
             player.GetComponent<PlayerMovement>().Respawn(beginningSpawn.position);
         }
 
@@ -224,7 +225,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < allObjects.Length; i++)
         {
             allObjects[i].gameObject.SetActive(true);
-            allObjects[i].ResetObject();
+            allObjects[i].ResetObject(gameReset);
         }
 
         for (int i = temporaryObjects.Count - 1; i >= 0; i--)
@@ -343,6 +344,12 @@ public class GameManager : MonoBehaviour
 
                 else
                 {
+                    // Plant must be watered if there's no Anomalies today
+                    if (dT.TaskName == "WaterPlant" && currentAnomalies.Count <= 0)
+                    {
+                        DailyTaskManager.Instance.plantShouldBeWatered = true;
+                    }
+
                     dT.BecomeDailyTask();
                 }
             }

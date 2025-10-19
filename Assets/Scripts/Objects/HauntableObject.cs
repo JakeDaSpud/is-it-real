@@ -15,6 +15,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	[Header("Visuals")]
 	[SerializeField] private bool hasSprite = true;
 	[SerializeField] private bool showSprite = true;
+	[SerializeField] private bool persistentSprite = false;
 	[SerializeField] private SpriteRenderer spriteRenderer;
 	[SerializeField] private Sprite[] sprites; // sprites[0] is always the default sprite
 	[SerializeField] private bool reorderSpriteLayer = false;
@@ -317,10 +318,10 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		}
 	}
 
-	public void ResetObject()
+	public void ResetObject(bool gameReset = false)
 	{
 		this.hauntingAnomaly = null;
-		this.spriteRenderer.sprite = sprites[0];
+		if (!persistentSprite && !gameReset) this.spriteRenderer.sprite = sprites[0];
 		BecomeOriginal();
 
 		// If this is an Anomaly HauntableObject like the FloatingSkullObject, it should remove itself from the scene
