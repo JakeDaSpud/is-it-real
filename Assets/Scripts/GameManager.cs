@@ -301,6 +301,7 @@ public class GameManager : MonoBehaviour
             anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);
+            DailyTaskManager.Instance.tasksMatter = false;
         }
     }
 
@@ -314,7 +315,7 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            int dailyTaskCount = UnityEngine.Random.Range(0, maxDailyTasks + 1);
+            int dailyTaskCount = UnityEngine.Random.Range(1, maxDailyTasks + 1);
 
             Debug.Log($"dailyTaskCount = [{dailyTaskCount}]");
 
@@ -353,6 +354,20 @@ public class GameManager : MonoBehaviour
     private void AddCurrentDailyTask(DailyTask dT)
     {
         currentDailyTasks.Add(dT);
+    }
+
+    private bool AllDailyTasksCompleted()
+    {
+        foreach (DailyTask dT in currentDailyTasks)
+        {
+            if (!dT.IsCompleted)
+            {
+                Debug.Log($"Today's DailyTask [{dT.TaskName}] is not finished.");
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /// <summary>
@@ -467,9 +482,15 @@ public class GameManager : MonoBehaviour
             FailDay();
         }
 
-        else
+        else if (!AllDailyTasksCompleted() && DailyTaskManager.Instance.tasksMatter)
         {
             Debug.Log("WOE 2");
+            FailDay();
+        }
+
+        else
+        {
+            Debug.Log("WOE 3");
             SucceedDay();
         }
     }
