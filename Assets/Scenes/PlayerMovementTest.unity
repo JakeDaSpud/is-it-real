@@ -119,6 +119,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &8147191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4052271110052208094, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4052271110052208094, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_Name
+      value: SettingsManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643950237666705581, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
 --- !u!4 &11154512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9079029399201252446, guid: ba656bfec6028094f915cb4c82a1ac9c, type: 3}
@@ -1539,9 +1600,65 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1879301164541477278, guid: 91884e074b0a54842843780c42cc893b, type: 2}
     - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: doorSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 17d6e9e81853cfb42836af2e446d4445, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: mainAMG
+      value: 
+      objectReference: {fileID: 24300002, guid: 91884e074b0a54842843780c42cc893b, type: 2}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: rainSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 61f40d5bdc336364b985ee76c88e7452, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
       propertyPath: musicAMG
       value: 
       objectReference: {fileID: 1137346066218628454, guid: 91884e074b0a54842843780c42cc893b, type: 2}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: gameTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 11ae9b1ce94d5c64281e34ef15e41682, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: masterAMG
+      value: 
+      objectReference: {fileID: 24300002, guid: 91884e074b0a54842843780c42cc893b, type: 2}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: menuTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 9546535fe994c2c4f9fefb26b7c59834, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: laundrySFX
+      value: 
+      objectReference: {fileID: 8300000, guid: fdce0e85c8b35c34ca5942b08ff305c8, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: tvRadioSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 95c5e377fb1e4c2458d8bf8182c7215b, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: creditsTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 872b63cd6b8584848b3324db45e315e5, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: lightSwitchSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: fa1839782ecb87842bdc6973954da755, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: mainAudioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 91884e074b0a54842843780c42cc893b, type: 2}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: waterRunningSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 63999d4e93af68b488fd375c7cb20b75, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: washingDishesSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: c8badea8c7010e042b210fb7b5e0c9ea, type: 3}
+    - target: {fileID: 1747576794484404358, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
+      propertyPath: floatingSkullLaughSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c32367558d2f154c8cb9b4a91cf1ccd, type: 3}
     - target: {fileID: 2555178841048220004, guid: 095bfb450f9b2f24ea325b7318ab97b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15131,6 +15248,7 @@ SceneRoots:
   - {fileID: 2012604172}
   - {fileID: 322191008}
   - {fileID: 970206738}
+  - {fileID: 8147191}
   - {fileID: 880453283}
   - {fileID: 1142413586}
   - {fileID: 622604585}

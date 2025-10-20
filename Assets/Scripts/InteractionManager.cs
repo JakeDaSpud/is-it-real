@@ -83,11 +83,13 @@ public class InteractionManager : MonoBehaviour
 
     private void Sleep()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
         GameManager.Instance.SleepInBed();
     }
     
     private void WriteEssay()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
         GameManager.Instance.WorkOnEssay();
     }
 }

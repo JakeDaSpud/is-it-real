@@ -48,6 +48,7 @@ public class Door : MonoBehaviour
 
     void Teleport(PlayerMovement player)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SFX.DOOR);
         player.GetComponent<Rigidbody2D>().position = new Vector3(otherDoor.teleportPoint.transform.position.x, otherDoor.teleportPoint.transform.position.y, otherDoor.teleportPoint.transform.position.z);
     }
 }

@@ -242,6 +242,8 @@ public class GameManager : MonoBehaviour
     public void StartDay(int day)
     {
         EventManager.Instance.RaiseDayStart(day);
+        AudioManager.Instance.PlayMusic(AudioManager.Music.GAME, true);
+
         ResetScene();
         GenerateWeather();
         GenerateAnomaliesForDay(day);
