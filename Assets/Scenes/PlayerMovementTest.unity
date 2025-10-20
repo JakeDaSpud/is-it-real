@@ -1025,7 +1025,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 149545026945587708, guid: c760db25c5af719418c309351cb83ae3, type: 3}
       propertyPath: m_SortingOrder
-      value: -6
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: c760db25c5af719418c309351cb83ae3, type: 3}
       propertyPath: canBeInteracted
@@ -8467,6 +8467,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: f713ac0cc600dfb438c66cf50b7a591a, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1768455841}
+    - target: {fileID: 4663729959472441444, guid: f713ac0cc600dfb438c66cf50b7a591a, type: 3}
       propertyPath: reorderSpriteLayer
       value: 1
       objectReference: {fileID: 0}
@@ -9382,6 +9386,8 @@ Transform:
   - {fileID: 1279437043}
   - {fileID: 1283729599}
   - {fileID: 325026781}
+  - {fileID: 1791077939}
+  - {fileID: 1768455840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440563015
@@ -11129,7 +11135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntableObjects:
   - {fileID: 852907183}
-  swappingHauntableObject: {fileID: 852907183}
+  swappingHauntableObject: {fileID: 1468938470}
   hauntedSprite: {fileID: 21300000, guid: 6e1422ac933237c4daba69246bc997f9, type: 3}
 --- !u!1 &1692935588
 GameObject:
@@ -11644,6 +11650,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1768455839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768455840}
+  - component: {fileID: 1768455841}
+  m_Layer: 0
+  m_Name: DogCouchInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768455840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768455839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768455841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768455839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 39f92a65926d6af419085740543f6020, type: 3}
 --- !u!1 &1784320696
 GameObject:
   m_ObjectHideFlags: 0
@@ -11854,6 +11905,51 @@ Transform:
   - {fileID: 69095954}
   m_Father: {fileID: 522189899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1791077938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791077939}
+  - component: {fileID: 1791077940}
+  m_Layer: 0
+  m_Name: CatTreeInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1791077939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791077938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791077940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791077938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: a52d66886fc6c85489192189670681f9, type: 3}
 --- !u!1 &1792428518
 GameObject:
   m_ObjectHideFlags: 0
@@ -14022,6 +14118,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.96
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 1791077940}
     - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
       propertyPath: persistentSprite
       value: 1
