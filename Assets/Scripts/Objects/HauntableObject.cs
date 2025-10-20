@@ -4,7 +4,7 @@ using UnityEngine;
 public class HauntableObject : MonoBehaviour, ISelectable
 {
 	[Header("Basic Info")]
-	[SerializeField] protected string objectName = "Unnamed_Hauntable_Object";
+	[SerializeField] public string objectName = "Unnamed_Hauntable_Object";
 	[SerializeField] protected bool isActive = true;
 	/// <summary>
 	/// If true, this HauntedObject will be removed at the start of a new day.

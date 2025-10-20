@@ -74,22 +74,62 @@ public class InteractionManager : MonoBehaviour
         {
             hauntableObject.ChangeSprite(newSprite);
         }
+
+        switch (hauntableObject.objectName)
+        {
+            case "SinkObject":
+                AudioManager.Instance.PlaySound(AudioManager.SFX.WASHING_DISHES);
+                break;
+
+            case "Sink":
+                AudioManager.Instance.PlaySound(AudioManager.SFX.WATER_RUNNING);
+                break;
+
+            case "WindowObject":
+                if (GameManager.Instance.todaysWeather == GameManager.Weather.RAIN) AudioManager.Instance.PlaySound(AudioManager.SFX.RAIN);
+                break;
+
+            case "TV":
+                AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+                break;
+
+            case "RadioObject":
+                AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+                break;
+
+            case "LaundryBasketObject":
+                AudioManager.Instance.PlaySound(AudioManager.SFX.LAUNDRY);
+                break;
+        }
     }
 
     private void ImageShow(Sprite newSprite)
     {
-        
+        switch (newSprite.name)
+        {
+            case "weatherStormy_0":
+                if (GameManager.Instance.todaysWeather == GameManager.Weather.RAIN) AudioManager.Instance.PlaySound(AudioManager.SFX.RAIN);
+                break;
+
+            case "weatherReportSunny_0":
+                if (!GameManager.Instance.GamePaused) AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+                break;
+
+            case "weatherReportRainy_0":
+                if (!GameManager.Instance.GamePaused) AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+                break;
+        }
     }
 
     private void Sleep()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+        AudioManager.Instance.PlaySound(AudioManager.SFX.FLOATING_SKULL_LAUGH);
         GameManager.Instance.SleepInBed();
     }
     
     private void WriteEssay()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SFX.TV_RADIO);
+        AudioManager.Instance.PlaySound(AudioManager.SFX.FLOATING_SKULL_LAUGH);
         GameManager.Instance.WorkOnEssay();
     }
 }

@@ -1402,8 +1402,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: f13e5124f2471da499aad73a230510c6, type: 3}
       propertyPath: canBeInteracted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: f13e5124f2471da499aad73a230510c6, type: 3}
+      propertyPath: interactionEvent
+      value: 
+      objectReference: {fileID: 495705637}
     - target: {fileID: 4663729959472441444, guid: f13e5124f2471da499aad73a230510c6, type: 3}
       propertyPath: reorderSpriteLayer
       value: 0
@@ -3283,6 +3287,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
+--- !u!1 &495705635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495705636}
+  - component: {fileID: 495705637}
+  m_Layer: 0
+  m_Name: BathroomSinkInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495705636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495705635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429740532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &495705637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495705635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 63999d4e93af68b488fd375c7cb20b75, type: 3}
 --- !u!1 &497408390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,7 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskName: EmptyLaundry
-  taskDescription: Empty the Laundry Basket in the Bathroom
+  taskDescription: Empty the Laundry in the Bathroom
   isCompleted: 0
   hauntableObject: {fileID: 0}
 --- !u!114 &754337617 stripped
@@ -9505,6 +9554,7 @@ Transform:
   - {fileID: 325026781}
   - {fileID: 1791077939}
   - {fileID: 1768455840}
+  - {fileID: 495705636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440563015
