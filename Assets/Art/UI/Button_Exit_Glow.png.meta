@@ -154,7 +154,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Button_Exit_Glow_0: -837278471913644501
+      Button_Exit_Glow_1: -4276331971491378643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

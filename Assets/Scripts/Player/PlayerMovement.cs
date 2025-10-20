@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         m_inputActions.Player.Pause.performed += (ctx) => { Pause(); };
         m_inputActions.Player.Interact.performed += (ctx) => { TryInteract(); };
         m_inputActions.Player.HighlightMode.performed += (ctx) => { HighlightMode(); };
+        m_inputActions.Player.ToggleJournal.performed += (ctx) => { ToggleJournal(); };
     }
 
     private void OnDisable()
@@ -61,8 +63,20 @@ public class PlayerMovement : MonoBehaviour
         EventManager.Instance.RaisePause();
     }
 
+    private void ToggleJournal()
+    {
+        Pause();
+        EventManager.Instance.RaiseToggleJournal();
+    }
+
     private void TryInteract()
     {
+        if (GameManager.Instance.GamePaused)
+        {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return;
+        }
+
         if (GameManager.Instance.InHighlightMode)
         {
             TrySelect();

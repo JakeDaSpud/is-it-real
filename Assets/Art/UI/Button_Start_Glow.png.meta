@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Button_Start_Glow_0: 7776902614907739509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

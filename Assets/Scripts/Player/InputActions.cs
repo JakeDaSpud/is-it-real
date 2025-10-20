@@ -62,6 +62,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""d39e614d-76f2-4d9c-b0c1-2506523a4c67"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -295,6 +304,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""HighlightMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd004d1a-8814-47d9-ba91-3de066dc55b7"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -307,6 +327,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_HighlightMode = m_Player.FindAction("HighlightMode", throwIfNotFound: true);
+        m_Player_ToggleJournal = m_Player.FindAction("ToggleJournal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +393,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_HighlightMode;
+    private readonly InputAction m_Player_ToggleJournal;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -380,6 +402,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @HighlightMode => m_Wrapper.m_Player_HighlightMode;
+        public InputAction @ToggleJournal => m_Wrapper.m_Player_ToggleJournal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HighlightMode.started += instance.OnHighlightMode;
             @HighlightMode.performed += instance.OnHighlightMode;
             @HighlightMode.canceled += instance.OnHighlightMode;
+            @ToggleJournal.started += instance.OnToggleJournal;
+            @ToggleJournal.performed += instance.OnToggleJournal;
+            @ToggleJournal.canceled += instance.OnToggleJournal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -417,6 +443,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HighlightMode.started -= instance.OnHighlightMode;
             @HighlightMode.performed -= instance.OnHighlightMode;
             @HighlightMode.canceled -= instance.OnHighlightMode;
+            @ToggleJournal.started -= instance.OnToggleJournal;
+            @ToggleJournal.performed -= instance.OnToggleJournal;
+            @ToggleJournal.canceled -= instance.OnToggleJournal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -440,5 +469,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnHighlightMode(InputAction.CallbackContext context);
+        void OnToggleJournal(InputAction.CallbackContext context);
     }
 }
