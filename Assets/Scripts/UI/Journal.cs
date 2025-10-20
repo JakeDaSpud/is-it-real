@@ -11,6 +11,8 @@ public class Journal : MonoBehaviour
 
     public void rotateNext()
     {
+        if (index >= pages.Count - 1) return;
+
         index++;
         pages[index].SetAsLastSibling();
         float angle = -180;
@@ -20,6 +22,8 @@ public class Journal : MonoBehaviour
 
     public void rotatePrevious()
     {
+        if (index < 0) return;
+
         pages[index].SetAsLastSibling();
         float angle = 0;
         StartCoroutine(Rotation(angle, false));
