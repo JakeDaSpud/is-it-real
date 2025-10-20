@@ -302,6 +302,8 @@ public class GameManager : MonoBehaviour
             anomaly.ExecuteHaunt();
 
             currentAnomalies.Add(anomaly);
+            // Dog Cat Swap Anomaly
+            if (anomaly == allAnomalies[6]) { DailyTaskManager.Instance.HandleDogAnomaly(); }
             DailyTaskManager.Instance.tasksMatter = false;
         }
     }

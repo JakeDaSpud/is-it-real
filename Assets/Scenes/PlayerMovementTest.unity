@@ -5785,6 +5785,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1666341247}
     - target: {fileID: 4663229093332376816, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
+      propertyPath: dogCouch
+      value: 
+      objectReference: {fileID: 1951249206}
+    - target: {fileID: 4663229093332376816, guid: 2be5c4747b3a17f43a8ea2dd053e4190, type: 3}
       propertyPath: kitchenTable
       value: 
       objectReference: {fileID: 1728039767}
@@ -14017,6 +14021,10 @@ PrefabInstance:
     - target: {fileID: 246962618903396985, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
+      propertyPath: persistentSprite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4663729959472441444, guid: d2b33112974cdff48b20a2cc6afa43e9, type: 3}
       propertyPath: reorderSpriteLayer

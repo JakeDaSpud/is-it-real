@@ -37,6 +37,7 @@ public class DailyTaskManager : MonoBehaviour
 
     [Header("Cat Logic")]
     [SerializeField] private HauntableObject catTree;
+    [SerializeField] private HauntableObject dogCouch;
     [SerializeField] private CatState catState = CatState.NULL;
     private enum CatState { NULL, LEFT, MIDDLE, RIGHT, TOP, DOG };
 
@@ -67,11 +68,14 @@ public class DailyTaskManager : MonoBehaviour
         plantShouldBeWatered = false;
 
         HandleKitchenTable(TableState.EMPTY); // Empty the Table
+
+        HandleCatPosition();
         
         // Day 0 
         if (dayNumber == 0)
         {
             tasksMatter = false;
+            HandleCatPosition(CatState.LEFT);
             plantState = PlantState.NORMAL;
             plantWatered = false;
             plantWateredYesterday = false;
@@ -99,6 +103,66 @@ public class DailyTaskManager : MonoBehaviour
 
             default:
                 Debug.Log($"HandleDailyTask() doesn't account for [{dT.TaskName}].");
+                break;
+        }
+    }
+
+    public void HandleDogAnomaly()
+    {
+        HandleCatPosition(CatState.DOG);
+    }
+
+    private void HandleCatPosition(CatState requestedState = CatState.NULL)
+    {
+        if (requestedState != CatState.DOG)
+        {
+            catTree.canBeInteracted = true;
+            dogCouch.canBeInteracted = false;
+        }
+
+        if (requestedState == CatState.NULL)
+        {
+            Array catStates = Enum.GetValues(typeof(CatState));
+
+            // Randomly pick position
+            catState = (CatState)catStates.GetValue(UnityEngine.Random.Range(1, catStates.Length - 1)); // (1 cuts off CatState.NULL, Length-1 cuts off CatState.DOG)
+            requestedState = catState;
+        }
+
+        // Cat Sprite Indices
+        // Left == 0
+        // Dog == 1
+        // Top == 2
+        // Right == 3
+        // Middle == 4
+
+        switch (requestedState)
+        {
+            case CatState.LEFT:
+                catState = CatState.LEFT;
+                catTree.ChangeSprite(0);
+                break;
+
+            case CatState.DOG:
+                catState = CatState.DOG;
+                catTree.ChangeSprite(1);
+                catTree.canBeInteracted = false;
+                dogCouch.canBeInteracted = true;
+                break;
+
+            case CatState.TOP:
+                catState = CatState.TOP;
+                catTree.ChangeSprite(2);
+                break;
+
+            case CatState.RIGHT:
+                catState = CatState.RIGHT;
+                catTree.ChangeSprite(3);
+                break;
+
+            case CatState.MIDDLE:
+                catState = CatState.MIDDLE;
+                catTree.ChangeSprite(4);
                 break;
         }
     }
