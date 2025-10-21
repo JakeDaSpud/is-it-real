@@ -22,18 +22,24 @@ public class UiManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.Instance.OnToggleJournal += ToggleJournal;
+        EventManager.Instance.OnAnythingHighlighted += EnableInteractHint;
+        EventManager.Instance.OnNothingHighlighted += DisableInteractHint;
     }
     
     void OnDisable()
     {
         EventManager.Instance.OnToggleJournal -= ToggleJournal;
+        EventManager.Instance.OnAnythingHighlighted -= EnableInteractHint;
+        EventManager.Instance.OnNothingHighlighted -= DisableInteractHint;
     }
 
     [Header("UI Elements")]
     [SerializeField] RectTransform journalMenu;
+    private bool journalIsActive = false;
     [SerializeField] RectTransform journalButton;
     [SerializeField] ChoreUIManager dailyTasksNotepad;
-    private bool journalIsActive = false;
+    [SerializeField] RectTransform interactHint;
+    private bool interactHintIsActive = false;
 
     private void ToggleJournal()
     {
@@ -54,4 +60,15 @@ public class UiManager : MonoBehaviour
         journalIsActive = !journalIsActive;
     }
 
+    private void EnableInteractHint()
+    {
+        interactHint.gameObject.SetActive(true);
+        interactHintIsActive = true;
+    }
+
+    private void DisableInteractHint()
+    {
+        interactHint.gameObject.SetActive(false);
+        interactHintIsActive = false;
+    }
 }

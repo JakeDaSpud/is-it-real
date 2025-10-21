@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         EventManager.Instance.RaisePause();
     }
 
-    private void ToggleJournal()
+    public void ToggleJournal()
     {
         Pause();
         EventManager.Instance.RaiseToggleJournal();
@@ -200,6 +200,8 @@ public class PlayerMovement : MonoBehaviour
                     this.m_currentlyInteractable.Last<HauntableObject>().BecomeCurrent();
                 }
 
+                EventManager.Instance.RaiseAnythingHighlighted();
+
                 // Add the newest object, change its highlight colour
                 this.m_currentlyInteractable.Add(collisionHO);
                 //Debug.Log($"m_currentlyInteractable.Last set to [{collisionHO}].");
@@ -223,6 +225,10 @@ public class PlayerMovement : MonoBehaviour
                 this.m_currentlyInteractable.Last<HauntableObject>().BecomeCurrent();
                 this.m_currentlyInteractable.Remove(collisionHO);
                 //Debug.Log($"m_currentlyInteractable removed [{collisionHO}].");
+            }
+            if (m_currentlyInteractable.Count <= 0)
+            {
+                EventManager.Instance.RaiseNothingHighlighted();
             }
         }
     }

@@ -38,6 +38,8 @@ public class EventManager : MonoBehaviour
     public event Action<float> OnPlayerMove;
     public event Action<HauntableObject> OnHauntableObjectHighlighted;
     public event Action<HauntableObject> OnHauntableObjectSelected;
+    public event Action OnAnythingHighlighted;
+    public event Action OnNothingHighlighted;
 
     // Interaction Events
     /// <summary>
@@ -85,6 +87,8 @@ public class EventManager : MonoBehaviour
     public void RaisePlayerMove(float playerY) { /*Debug.Log($"Raised OnPlayerMove([{playerY}]).");*/ OnPlayerMove?.Invoke(playerY); }
     public void RaiseHauntableObjectHighlighted(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectHighlighted."); OnHauntableObjectHighlighted?.Invoke(obj); }
     public void RaiseHauntableObjectSelected(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected."); OnHauntableObjectSelected?.Invoke(obj); }
+    public void RaiseAnythingHighlighted() { OnAnythingHighlighted?.Invoke(); }
+    public void RaiseNothingHighlighted() { OnNothingHighlighted?.Invoke(); }
     
     public void RaiseSpriteChangeInteraction(HauntableObject hauntableObject, Sprite newSprite, int newSpriteIndex) { OnSpriteChangeInteraction?.Invoke(hauntableObject, newSprite, newSpriteIndex); }
     public void RaiseImageShowInteraction(Sprite sprite) { OnImageShowInteraction?.Invoke(sprite); }
