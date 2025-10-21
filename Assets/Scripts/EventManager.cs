@@ -63,6 +63,10 @@ public class EventManager : MonoBehaviour
     /// </summary>
     public event Action OnWriteEssayInteraction;
 
+    // Loading Screen Events
+    public event Action<int> OnStartLoadingScreen;
+    public event Action OnFinishLoadingScreen;
+
     // Anomaly Events
     public event Action<Anomaly[]> OnAnomaliesRevealed;
 
@@ -75,7 +79,7 @@ public class EventManager : MonoBehaviour
     public void RaiseDaySucceed() { OnDaySucceed?.Invoke(); }
     public void RaiseDayFail() { OnDayFail?.Invoke(); }
     public void RaiseSetWeather(GameManager.Weather weather) { OnSetWeather?.Invoke(weather); }
-    
+
     public void RaiseGameStart() { OnGameStart?.Invoke(); }
     public void RaiseGameOver() { OnGameOver?.Invoke(); }
     public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
@@ -89,12 +93,15 @@ public class EventManager : MonoBehaviour
     public void RaiseHauntableObjectSelected(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected."); OnHauntableObjectSelected?.Invoke(obj); }
     public void RaiseAnythingHighlighted() { OnAnythingHighlighted?.Invoke(); }
     public void RaiseNothingHighlighted() { OnNothingHighlighted?.Invoke(); }
-    
+
     public void RaiseSpriteChangeInteraction(HauntableObject hauntableObject, Sprite newSprite, int newSpriteIndex) { OnSpriteChangeInteraction?.Invoke(hauntableObject, newSprite, newSpriteIndex); }
     public void RaiseImageShowInteraction(Sprite sprite) { OnImageShowInteraction?.Invoke(sprite); }
     public void RaiseSoundInteraction(AudioClip audioClip) { OnSoundInteraction?.Invoke(audioClip); }
     public void RaiseSleepInteraction() { OnSleepInteraction?.Invoke(); }
     public void RaiseWriteEssayInteraction() { OnWriteEssayInteraction?.Invoke(); }
+
+    public void RaiseStartLoadingScreen(int dayNumber) { OnStartLoadingScreen?.Invoke(dayNumber); }
+    public void RaiseFinishLoadingScreen() { OnFinishLoadingScreen?.Invoke(); }
 
     public void RaiseAnomaliesRevealed(Anomaly[] anomalies) { OnAnomaliesRevealed?.Invoke(anomalies); }
 

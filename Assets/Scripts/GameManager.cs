@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform bedroomSpawn;
     [SerializeField] public bool InHighlightMode = false;
     [SerializeField] public bool GamePaused = false;
+    [SerializeField] public bool LoadingScreen = false;
 
     // Non-Variable Arrays
     [SerializeField] private HauntableObject[] allObjects;
@@ -94,13 +95,20 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.OnPause += ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask += AddCurrentDailyTask;
+        EventManager.Instance.OnStartLoadingScreen += InLoadingScreen;
+        EventManager.Instance.OnFinishLoadingScreen += OutOfLoadingScreen;
     }
 
     void OnDisable()
     {
         EventManager.Instance.OnPause -= ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask -= AddCurrentDailyTask;
+        EventManager.Instance.OnStartLoadingScreen -= InLoadingScreen;
+        EventManager.Instance.OnFinishLoadingScreen -= OutOfLoadingScreen;
     }
+
+    private void InLoadingScreen(int dayNumber) { LoadingScreen = true; }
+    private void OutOfLoadingScreen() { LoadingScreen = false; }
 
     void Awake()
     {
@@ -245,6 +253,9 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(AudioManager.Music.GAME, true);
 
         ResetScene();
+
+        EventManager.Instance.RaiseStartLoadingScreen(day);
+
         GenerateWeather();
         GenerateAnomaliesForDay(day);
         GenerateDailyTasksForDay(day);
