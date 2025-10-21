@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.FullReset();
         }
-    }
+    }*/
 
     private void FixedUpdate()
     {

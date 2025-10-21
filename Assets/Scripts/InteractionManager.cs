@@ -123,13 +123,13 @@ public class InteractionManager : MonoBehaviour
 
     private void Sleep()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SFX.FLOATING_SKULL_LAUGH);
+        AudioManager.Instance.PlaySound(AudioManager.SFX.LIGHT_SWITCH);
         GameManager.Instance.SleepInBed();
     }
     
     private void WriteEssay()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SFX.FLOATING_SKULL_LAUGH);
+        AudioManager.Instance.PlaySound(AudioManager.SFX.LIGHT_SWITCH);
         GameManager.Instance.WorkOnEssay();
     }
 }

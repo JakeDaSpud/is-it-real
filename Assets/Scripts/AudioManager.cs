@@ -210,9 +210,9 @@ public class AudioManager : MonoBehaviour
                     audioSource.clip = doorSFX;
                     break;
 
-                case SFX.TV_RADIO:
+                /*case SFX.TV_RADIO:
                     audioSource.clip = tvRadioSFX;
-                    break;
+                    break;*/
 
                 case SFX.LIGHT_SWITCH:
                     audioSource.clip = lightSwitchSFX;
@@ -230,10 +230,10 @@ public class AudioManager : MonoBehaviour
                     audioSource.clip = floatingSkullLaughSFX;
                     break;
 
-                case SFX.RAIN:
+                /*case SFX.RAIN:
                     audioSource.clip = rainSFX;
                     //audioSource.loop = true;
-                    break;
+                    break;*/
             }
 
             audioSource.Play();
