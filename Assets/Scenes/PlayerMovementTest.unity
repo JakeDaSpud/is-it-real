@@ -10163,7 +10163,9 @@ MonoBehaviour:
   choreText: {fileID: 1052744276}
   choreID: 2
   dailyTask1: {fileID: 0}
+  dailyTask1Text: {fileID: 1052744276}
   dailyTask2: {fileID: 0}
+  dailyTask2Text: {fileID: 1947764509}
 --- !u!1 &1417100991
 GameObject:
   m_ObjectHideFlags: 0
@@ -13276,7 +13278,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c3bf70c0ce8cec94aa1e1676f1f78f3e, type: 3}
   - {fileID: 21300000, guid: d69898f484fa90748bd6291542244153, type: 3}
   - {fileID: 21300000, guid: 6ab163ed5c201e341abbd47377ff2f89, type: 3}
-  fadeInDuration: 2
+  fadeInDuration: 0.5
   holdDuration: 2
   fadeOutDuration: 4
 --- !u!1 &1759905992
@@ -16493,7 +16495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskName: Day0
-  taskDescription: Work on your Essay at your Bedroom Desk
+  taskDescription: Work on your essay
   isCompleted: 0
   hauntableObject: {fileID: 0}
 --- !u!1 &2117905662

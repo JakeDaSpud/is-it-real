@@ -10,15 +10,15 @@ public class ChoreUIManager : MonoBehaviour
 
     [SerializeField] private DailyTask dailyTask1;
     private bool dailyTask1Set = false;
-    private TMP_Text dailyTask1Text;
+    [SerializeField] private TMP_Text dailyTask1Text;
     [SerializeField] private DailyTask dailyTask2;
     private bool dailyTask2Set = false;
-    private TMP_Text dailyTask2Text;
+    [SerializeField] private TMP_Text dailyTask2Text;
 
     void Start()
     {
-        dailyTask1Text = this.transform.Find("DailyTask1").GetComponent<TMP_Text>();
-        dailyTask2Text = this.transform.Find("DailyTask2").GetComponent<TMP_Text>();
+        //dailyTask1Text = this.transform.Find("DailyTask1").GetComponent<TMP_Text>();
+        //dailyTask2Text = this.transform.Find("DailyTask2").GetComponent<TMP_Text>();
         //UpdateChoreText(choreID); // FOR TESTING PURPOSES - JOHN 
     }
 
@@ -68,8 +68,6 @@ public class ChoreUIManager : MonoBehaviour
     
     private void ResetTasks(int dayNumber)
     {
-        if (dailyTask1 == null || dailyTask2 == null) return;
-        
         dailyTask1 = null;
         dailyTask1Text.text = "";
         dailyTask1Set = false;

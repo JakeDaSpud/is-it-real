@@ -227,6 +227,7 @@ public class GameManager : MonoBehaviour
             dailyTask.ResetTask();
         }
         currentDailyTasks.Clear();
+        currentDailyTasks.Clear();
         suspectObjects.Clear();
 
         // Go through all HauntableObjects
@@ -327,7 +328,8 @@ public class GameManager : MonoBehaviour
         if (day == 0)
         {
             // The 0th DailyTask is the Day0 Task
-            currentDailyTasks.Add(allDailyTasks[0]);
+            allDailyTasks[0].BecomeDailyTask();
+            //currentDailyTasks.Add(allDailyTasks[0]);
         }
 
         else
@@ -498,6 +500,8 @@ public class GameManager : MonoBehaviour
     public void WorkOnEssay()
     {
         Debug.Log("WorkOnEssay()");
+
+        if (currentDailyTasks[0].TaskName == "Day0") EventManager.Instance.RaiseDailyTaskCompleted(currentDailyTasks[0]);
 
         if (currentAnomalies.Count() > 0)
         {

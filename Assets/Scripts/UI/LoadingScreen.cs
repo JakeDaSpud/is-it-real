@@ -24,6 +24,9 @@ public class LoadingScreen : MonoBehaviour
     void Start()
     {
         loadingScreen = transform.Find("Image").GetComponent<UnityEngine.UI.Image>();
+        Color color = loadingScreen.color;
+        color.a = 0f;
+        loadingScreen.color = color;
     }
 
     private void StartAnimation(int dayNumber)
@@ -38,6 +41,7 @@ public class LoadingScreen : MonoBehaviour
     {
         Color color = loadingScreen.color;
         color.a = 0f;
+        loadingScreen.color = color;
         loadingScreen.gameObject.SetActive(true);
 
         // lerp alpha for fadeInDuration seconds
