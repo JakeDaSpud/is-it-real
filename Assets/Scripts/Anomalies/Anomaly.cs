@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ public abstract class Anomaly : MonoBehaviour
     [Header("Hauntable Objects")]
     public HauntableObject[] hauntableObjects;
     protected HauntableObject currentHauntedObject;
+
+    [Header("Journal Info")]
+    [SerializeField] public String journalPageTitle;
+    [SerializeField] public String journalPageEntry;
 
     public bool HauntRandom()
     {

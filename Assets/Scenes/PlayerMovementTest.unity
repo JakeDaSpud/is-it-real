@@ -285,6 +285,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226335500804423294, guid: 7d9cfdb461e23d34d8d25418c15b648a, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4226335500804423294, guid: 7d9cfdb461e23d34d8d25418c15b648a, type: 3}
       propertyPath: m_Name
       value: UiManager
       objectReference: {fileID: 0}
@@ -488,6 +492,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03387dab9ac67e47bf09b8c9a1f9efd, type: 3}
+--- !u!224 &68393646 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 73519695099630949, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69095953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,9 +1301,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Topsy Table
+  journalPageEntry: 'The Laws of Gravity keeps us to the ground, and everything should
+    be pulled down, but if your dining table has been lifted and is now ready for
+    a family of bats to wine and dine, It is most likely you are asleep. I would
+    also advise to NOT stand underneath it... '
   newObjectSpawnPoint: {fileID: 1357791195}
   newObject: {fileID: 4663729959472441444, guid: 4b35790899bb6b74c8543516dda0ff70, type: 3}
   objectToHide: {fileID: 1876722918}
+--- !u!224 &222628014 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2207463178914701371, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &257967505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1360,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntableObjects:
   - {fileID: 852907183}
+  journalPageTitle: Weather Bewilder
+  journalPageEntry: The TV is ALWAYS reliable with the weather. Your local weatherman
+    will tell you it is clear skies and that is how things SHOULD be. If it happens
+    to be different, it is most likely that you are experiencing a dream and should
+    sleep.
   windowHauntableObject: {fileID: 852907183}
   windowImageShowInteractionEvent: {fileID: 325026782}
 --- !u!1 &270348785
@@ -1389,6 +1413,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Floating Skull
+  journalPageEntry: 'If you are ever in your halls and night and notice skulls flying
+    around, it is advised to RUN back to bed and avoid any and ALL interaction. They
+    are known to trap those who touch them in a nightmare of pure agony that will
+    keep that constricted into their bed! '
   pathPoints:
   - {fileID: 1759905993}
   - {fileID: 2134386909}
@@ -2035,6 +2064,22 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 1655837205280472146, guid: a92da83894cf2694485cfc04df512517, type: 3}
+      propertyPath: m_text
+      value: Bathroom Time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568769519253442028, guid: a92da83894cf2694485cfc04df512517, type: 3}
+      propertyPath: m_text
+      value: 'Door to Nowhere
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390282023494115098, guid: a92da83894cf2694485cfc04df512517, type: 3}
+      propertyPath: m_text
+      value: We all know time passes faster in the bathroom, but now you can track
+        that time! Where did the window go? Ah well, might as well sleep once you're
+        done here, because you surely can't read a clock in your dream!
+      objectReference: {fileID: 0}
     - target: {fileID: 6705390033840838843, guid: a92da83894cf2694485cfc04df512517, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -2131,9 +2176,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7922529704421338788, guid: a92da83894cf2694485cfc04df512517, type: 3}
+      propertyPath: m_text
+      value: 'Just outside your bedroom door is... another door?? Was that always
+        there? Maybe in your dreams it is.
+
+        If this is a new roommate, they
+        better be paying rent!'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7882995109592332744, guid: a92da83894cf2694485cfc04df512517, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1570648797}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92da83894cf2694485cfc04df512517, type: 3}
 --- !u!224 &393897592 stripped
@@ -2858,6 +2914,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8076561412704797280, guid: 943de1207a6ebcf4083baacf61b9b2d4, type: 3}
   m_PrefabInstance: {fileID: 709394035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &443120459 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7908688354099392217, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &444272801
 PrefabInstance:
@@ -3840,6 +3901,119 @@ Transform:
   - {fileID: 1417100993}
   m_Father: {fileID: 622604585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &531683513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: journalPages.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1538386688}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 443120459}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1954905393}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[3]'
+      value: 
+      objectReference: {fileID: 68393646}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[4]'
+      value: 
+      objectReference: {fileID: 764551631}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1553778067}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[6]'
+      value: 
+      objectReference: {fileID: 658125940}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1449096504}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[8]'
+      value: 
+      objectReference: {fileID: 222628014}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[9]'
+      value: 
+      objectReference: {fileID: 657965375}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1570648798}
+    - target: {fileID: 65191730904648782, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: 'journalPages.Array.data[11]'
+      value: 
+      objectReference: {fileID: 1570648799}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 805548766395343565, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624083341262222616, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2624083341262222616, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
+      propertyPath: m_Name
+      value: BeastiaryManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bdc465d2172e3447ac2a19844dcfd44, type: 3}
 --- !u!1 &581358518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,6 +4644,16 @@ RectTransform:
   m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &657965375 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6385509750077988711, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &658125940 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9205343398651638816, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &680961410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7467133239958644752, guid: 6407bbc8fec2cf14c80e5b551c7eb457, type: 3}
@@ -4650,6 +4834,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Chair Ikon
+  journalPageEntry: Most college student panic buy furniture. Some buy a couch that
+    never gets used, others buy 3 chairs, but nobody buys 5 chairs for a 2 person
+    table and just STACKS them in the center of a room. Personally I blame the gnomes
+    I dreamt about for building them (they are really good carpenters but please
+    ANYTHING but chairs)
   newObjectSpawnPoint: {fileID: 1109253691}
   newObject: {fileID: 5570146360211370387, guid: a3914d3ecdf5672419d6ac0a5d250461, type: 3}
   objectToHide: {fileID: 0}
@@ -4699,6 +4889,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntableObjects:
   - {fileID: 1761612945}
+  journalPageTitle: Picture Misplacement
+  journalPageEntry: Posters give the room a sense of you as a person, your hobbies,
+    your interests, your whatever. If you live alone and some grouchy roommate swaps
+    your poster for theirs, firstly you should swap the photo back for your original
+    and then sleep cause this is one weird dream.
   swappingHauntableObject: {fileID: 1761612945}
   hauntedSprite: {fileID: 21300000, guid: d36284546c4c1794287712c75d32f8cf, type: 3}
 --- !u!1 &747404353
@@ -4760,6 +4955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c987949de42e4543a683fe70b2885f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &764551631 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1587331581445132028, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &773050633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +5920,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Plumbing mis,,,Plumbing
+  journalPageEntry: 'Plumbers are already a ripoff. They cut corners wherever they
+    can. Some might save a few cents by linking your pipes to your neighbours and
+    then charge you 500 EUR anyway. Well maybe in dreamland this would happen, though
+    I wouldn''t put it past some plumbers.  What happens if I flush it?  '
   newObjectSpawnPoint: {fileID: 112960927}
   newObject: {fileID: 4663729959472441444, guid: 73873f3ba17acac429bd28b8a97a665b, type: 3}
   objectToHide: {fileID: 698739556}
@@ -6311,6 +6516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Door to Nowhere
+  journalPageEntry: Just outside your bedroom door is... another door?? Was that
+    always there? Maybe in your dreams it is. If this is a new roommate, they better
+    be paying rent!
   newObjectSpawnPoint: {fileID: 2117905663}
   newObject: {fileID: 6135392998109835005, guid: 50dae52629cbee140897f0a00969699f, type: 3}
   objectToHide: {fileID: 0}
@@ -10319,6 +10528,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7945701622674114638, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
   m_PrefabInstance: {fileID: 1963017161}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1449096504 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4143430771435637628, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1468938468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8076561412704797280, guid: c760db25c5af719418c309351cb83ae3, type: 3}
@@ -10812,6 +11026,11 @@ Transform:
   - {fileID: 975753802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1538386688 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3170201527140405637, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1538686287
 GameObject:
   m_ObjectHideFlags: 0
@@ -11046,6 +11265,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d1178c380368640a80d0c5b578d5e8, type: 3}
+--- !u!224 &1553778067 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5780593254643659168, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570248896
 GameObject:
   m_ObjectHideFlags: 0
@@ -11179,6 +11403,149 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1570648796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1943087723}
+    m_Modifications:
+    - target: {fileID: 2671053110234053520, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_text
+      value: 'Time Twisting
+
+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740421817345470435, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 434.5232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740421817345470435, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.2996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900659628607939774, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -242
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 242
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484214244237465804, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_Name
+      value: Page7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679999759350646774, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902435455644403815, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+      propertyPath: m_text
+      value: Your time may be all twisted and turned. Your clocks say 13:00 but as
+        you look outside you realize it is as dark, stormy night. Working in these
+        conditions may be cozy IF you were AWAKE. Instead, sleep off this storm as
+        your dream.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+--- !u!224 &1570648797 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6162991814679781480, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+  m_PrefabInstance: {fileID: 1570648796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1570648798 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8083194904449866655, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+  m_PrefabInstance: {fileID: 1570648796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1570648799 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3896415949703439555, guid: 68d0655a40271a74e9b95599f2ca968e, type: 3}
+  m_PrefabInstance: {fileID: 1570648796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589040277
 GameObject:
   m_ObjectHideFlags: 0
@@ -12246,6 +12613,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntableObjects:
   - {fileID: 852907183}
+  journalPageTitle: Bathroom Time
+  journalPageEntry: We all know time passes faster in the bathroom, but now you can
+    track that time! Where did the window go? Ah well, might as well sleep once you're
+    done here, because you surely can't read a clock in your dream!
   swappingHauntableObject: {fileID: 1468938470}
   hauntedSprite: {fileID: 21300000, guid: 6e1422ac933237c4daba69246bc997f9, type: 3}
 --- !u!1 &1692935588
@@ -14600,6 +14971,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1943087723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7882995109592332744, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947764507
 GameObject:
   m_ObjectHideFlags: 0
@@ -14763,6 +15139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1954905393 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5132606710593006137, guid: a92da83894cf2694485cfc04df512517, type: 3}
+  m_PrefabInstance: {fileID: 393897591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1963017161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15151,6 +15532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hauntableObjects: []
+  journalPageTitle: Upside Down Radio
+  journalPageEntry: 'AM Waves are longer than FM Waves, and your Radio should be
+    ground level, it should not be on the roof trying to reach the top of the waves,
+    If your radio appears to be sticking to your roof, you are probably sleeping. '
   newObjectSpawnPoint: {fileID: 619596547}
   newObject: {fileID: 2539377445644900256, guid: d4a613c841dc580498d67e64f1c40f2c, type: 3}
   objectToHide: {fileID: 953628352}
@@ -15904,6 +16289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntableObjects:
   - {fileID: 1951249206}
+  journalPageTitle: Dogcat/Catdog
+  journalPageEntry: 'Every college student needs a furry friend, cat or dog, it should
+    generally stay the creature because that''s just how it was born. If your furry
+    friend has suddenly changed you either: have a stray who replaced your pet or
+    you are dreaming of a shapeshifter and in that case, go to sleep. '
   swappingHauntableObject: {fileID: 1951249206}
   hauntedSprite: {fileID: -737497350076089717, guid: d7b2eaf84932a4b4eaae1d362fb67444, type: 3}
 --- !u!4 &2065893780 stripped
@@ -16563,6 +16953,7 @@ SceneRoots:
   - {fileID: 322191008}
   - {fileID: 970206738}
   - {fileID: 8147191}
+  - {fileID: 531683513}
   - {fileID: 28897765}
   - {fileID: 880453283}
   - {fileID: 1142413586}

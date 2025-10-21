@@ -251,6 +251,7 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.RaiseDayStart(day);
         AudioManager.Instance.PlayMusic(AudioManager.Music.GAME, true);
+        BeastiaryManager.Instance.UpdatePages(currentAnomalies);
 
         ResetScene();
 
