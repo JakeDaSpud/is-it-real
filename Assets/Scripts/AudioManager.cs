@@ -203,7 +203,7 @@ public class AudioManager : MonoBehaviour
             {
                 case SFX.WATER_RUNNING:
                     audioSource.clip = waterRunningSFX;
-                    audioSource.loop = true;
+                    //audioSource.loop = true;
                     break;
 
                 case SFX.DOOR:
@@ -232,7 +232,7 @@ public class AudioManager : MonoBehaviour
 
                 case SFX.RAIN:
                     audioSource.clip = rainSFX;
-                    audioSource.loop = true;
+                    //audioSource.loop = true;
                     break;
             }
 

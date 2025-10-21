@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        AudioManager.Instance.PlayMusic(AudioManager.Music.MENU);
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("PlayerMovementTest");

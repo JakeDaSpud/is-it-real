@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,3 +44,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c8428008619d64ea0eac5c84578d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempDayText: {fileID: 0}
+  tempTutorialText: {fileID: 0}
+  player: {fileID: 0}
+  maxAnomaliesAndHighlightableObjects: 3
+  maxDailyTasks: 2
+  beginningSpawn: {fileID: 0}
+  bedroomSpawn: {fileID: 0}
+  InHighlightMode: 0
+  GamePaused: 0
+  LoadingScreen: 0
+  allObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  allAnomalies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  allDailyTasks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  suspectObjects: []
+  currentAnomalies: []
+  temporaryObjects: []
+  currentDailyTasks: []
+  currentDay: 0
+  failedDays: 0
+  TEMP_DayState: 
+  todaysWeather: 0
+  Highlighted_Colour: {r: 1, g: 0.96892864, b: 0.37421376, a: 1}
+  Selected_Colour: {r: 0.9433962, g: 0.2640322, b: 0.2640322, a: 1}
+  InteractHighlighted_Colour: {r: 0.66981125, g: 0.8564471, b: 1, a: 1}

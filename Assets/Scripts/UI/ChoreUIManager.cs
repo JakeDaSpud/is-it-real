@@ -68,6 +68,8 @@ public class ChoreUIManager : MonoBehaviour
     
     private void ResetTasks(int dayNumber)
     {
+        if (dailyTask1 == null || dailyTask2 == null) return;
+        
         dailyTask1 = null;
         dailyTask1Text.text = "";
         dailyTask1Set = false;
