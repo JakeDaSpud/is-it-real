@@ -7,9 +7,15 @@ public class SpriteChangeInteractionEvent : InteractionEvent
     [SerializeField] public GameObject hauntableObject;
     [SerializeField] public Sprite newSprite;
     [SerializeField] public int newSpriteIndex = -1;
+    private bool interactionHappened = false;
 
     override public void Interact()
     {
-        EventManager.Instance.RaiseSpriteChangeInteraction(hauntableObject.GetComponent<HauntableObject>(), newSprite, newSpriteIndex);
+        if (!interactionHappened)
+        {
+            EventManager.Instance.RaiseSpriteChangeInteraction(hauntableObject.GetComponent<HauntableObject>(), newSprite, newSpriteIndex);
+            EventManager.Instance.RaiseSuccessfulInteraction(this);
+            interactionHappened = true;
+        }
     }
 }

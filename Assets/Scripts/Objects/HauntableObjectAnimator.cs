@@ -11,8 +11,13 @@ public class HauntableObjectAnimator : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     private Sprite[] sprites;
     private InteractionEvent interactionEvent;
+    private bool canReplayAnimationInSameDay = false;
+    private bool animationPlayed = false;
 
     [Header("Animation Settings")]
+    [Tooltip("The index of the frame the Animation should return to once finished.")]
+    [SerializeField] private int returnFrameIndex = 0;
+
     [Tooltip("The index of the Animation's first frame.")]
     [SerializeField] private int firstFrameIndex = -1;
 
@@ -23,19 +28,22 @@ public class HauntableObjectAnimator : MonoBehaviour
     [Tooltip("How long each frame lasts, in milliseconds.")]
     [SerializeField] private float frameDurationMS = 330;
     private float frameDurationS = 0.33f;
-    
+
     [Tooltip("The amount of times the Animation should loop AFTER the first time. Leave as -1 to infinitely loop.")]
     [SerializeField] private int loopCount = -1;
+    private int loopsLeft;
     [SerializeField] private bool isPlaying = false;
 
     void OnEnable()
     {
         EventManager.Instance.OnSuccessfulInteraction += StartAnimation;
+        EventManager.Instance.OnDayStart += HandleNewDay;
     }
 
     void OnDisable()
     {
         EventManager.Instance.OnSuccessfulInteraction -= StartAnimation;
+        EventManager.Instance.OnDayStart -= HandleNewDay;
     }
 
     void Awake()
@@ -68,10 +76,15 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void StartAnimation(InteractionEvent raisedInteractionEvent)
     {
-        if (isPlaying) return;
-
-        if (interactionEvent == raisedInteractionEvent)
+        if (isPlaying || (animationPlayed && !canReplayAnimationInSameDay))
         {
+            
+        }
+        
+
+        else if (interactionEvent == raisedInteractionEvent)
+        {
+            loopsLeft = loopCount;
             isPlaying = true;
             NextFrame();
         }
@@ -92,22 +105,39 @@ public class HauntableObjectAnimator : MonoBehaviour
         if (currentFrameIndex > lastFrameIndex)
         {
             // Is Animation Finished?
-            if (loopCount == 0)
+            if (loopCount != -1 && loopsLeft == 0)
             {
                 FinishAnimation();
                 return;
             }
 
-            if (loopCount > 0) loopCount--;
+            if (loopsLeft > 0) loopsLeft--;
 
             currentFrameIndex = firstFrameIndex;
         }
 
         StartCoroutine(WaitForFrameDuration());
     }
-    
+
     private void FinishAnimation()
     {
         isPlaying = false;
+        animationPlayed = true;
+        currentFrameIndex = firstFrameIndex;
+        m_spriteRenderer.sprite = sprites[returnFrameIndex];
+    }
+    
+    private void HandleNewDay(int dayNumber)
+    {
+        if (loopCount == -1)
+        {
+            FinishAnimation();
+        }
+
+        // This way it won't affect the Essay or Sleeping Animations
+        if (!isPlaying)
+        {
+            loopsLeft = loopCount;
+        }
     }
 }

@@ -471,6 +471,7 @@ public class GameManager : MonoBehaviour
     public void SleepInBed()
     {
         Debug.Log("SleepInBed()");
+
         List<Anomaly> foundAnomalies = GetAnomaliesFromSuspectObjects();
 
         Debug.Log($"Found anoms = [{String.Join(',', foundAnomalies)}]");
