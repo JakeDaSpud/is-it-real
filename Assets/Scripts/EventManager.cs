@@ -42,6 +42,7 @@ public class EventManager : MonoBehaviour
     public event Action OnNothingHighlighted;
 
     // Interaction Events
+    public event Action<InteractionEvent> OnSuccessfulInteraction;
     /// <summary>
     /// Changes the HauntableObject's Sprite to the passed-in Sprite, or changes to the currentSprite[int] if not -1.
     /// </summary>
@@ -94,6 +95,7 @@ public class EventManager : MonoBehaviour
     public void RaiseAnythingHighlighted() { OnAnythingHighlighted?.Invoke(); }
     public void RaiseNothingHighlighted() { OnNothingHighlighted?.Invoke(); }
 
+    public void RaiseSuccessfulInteraction(InteractionEvent interactionEvent) { OnSuccessfulInteraction?.Invoke(interactionEvent); }
     public void RaiseSpriteChangeInteraction(HauntableObject hauntableObject, Sprite newSprite, int newSpriteIndex) { OnSpriteChangeInteraction?.Invoke(hauntableObject, newSprite, newSpriteIndex); }
     public void RaiseImageShowInteraction(Sprite sprite) { OnImageShowInteraction?.Invoke(sprite); }
     public void RaiseSoundInteraction(AudioClip audioClip) { OnSoundInteraction?.Invoke(audioClip); }

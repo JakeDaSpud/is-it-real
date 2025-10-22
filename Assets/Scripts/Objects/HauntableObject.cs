@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HauntableObject : MonoBehaviour, ISelectable
@@ -316,6 +317,28 @@ public class HauntableObject : MonoBehaviour, ISelectable
 		{
 			BecomeCurrent();
 		}
+	}
+
+	/// <summary>
+	/// Returns this.sprites ONLY IF the HauntableObjectAnimator belongs to this HauntableObject
+	/// </summary>
+	/// <param name="hauntableObjectAnimator">The HauntableObjectAnimator that wants the Sprite list</param>
+	/// <returns>null or this.sprites</returns>
+	public Sprite[] GetSprites(HauntableObjectAnimator hauntableObjectAnimator)
+	{
+		if (hauntableObjectAnimator != GetComponent<HauntableObjectAnimator>()) return null;
+		return this.sprites;
+	}
+	
+	/// <summary>
+    /// Returns this.interactionEvent ONLY IF the HauntableObjectAnimator belongs to this HauntableObject
+    /// </summary>
+    /// <param name="hauntableObjectAnimator">The HauntableObjectAnimator that wants the InteractionEvent</param>
+    /// <returns>null or this.interactionEvent</returns>
+	public InteractionEvent GetInteractionEvent(HauntableObjectAnimator hauntableObjectAnimator)
+	{
+		if (hauntableObjectAnimator != GetComponent<HauntableObjectAnimator>()) return null;
+		return this.interactionEvent;
 	}
 
 	public void ResetObject(bool gameReset = false)
