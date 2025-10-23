@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnPause += ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask += AddCurrentDailyTask;
         EventManager.Instance.OnStartLoadingScreen += InLoadingScreen;
-        EventManager.Instance.OnFinishLoadingScreen += OutOfLoadingScreen;
+        EventManager.Instance.OnAnimationFinished += HandleEssaySleepAnimation;
     }
 
     void OnDisable()
@@ -102,11 +102,22 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnPause -= ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask -= AddCurrentDailyTask;
         EventManager.Instance.OnStartLoadingScreen -= InLoadingScreen;
-        EventManager.Instance.OnFinishLoadingScreen -= OutOfLoadingScreen;
+        EventManager.Instance.OnAnimationFinished -= HandleEssaySleepAnimation;
     }
 
-    private void InLoadingScreen(int dayNumber) { LoadingScreen = true; }
+    private void InLoadingScreen(int dayNumber)
+    {
+        LoadingScreen = true;
+    }
     private void OutOfLoadingScreen() { LoadingScreen = false; }
+    private void HandleEssaySleepAnimation(HauntableObject hauntableObject)
+    {
+        if (hauntableObject.objectName == "Desk" || hauntableObject.objectName == "Bed")
+        {
+            ToggleGamePaused();
+            OutOfLoadingScreen();
+        }
+    }
 
     void Awake()
     {
@@ -158,8 +169,16 @@ public class GameManager : MonoBehaviour
         // Game is Paued
         // - Stop ENTITIES and PLAYER from MOVING
         // - Show DarkFilter
+        Color zeroAlphaColor = darkFilter.color;
         if (GamePaused)
         {
+            zeroAlphaColor.a = 0f;
+            
+            if (LoadingScreen)
+            {
+                darkFilter.color = zeroAlphaColor;
+            }
+
             // Pause Player
             // Hide Player
             darkFilter.gameObject.SetActive(true);
@@ -179,6 +198,9 @@ public class GameManager : MonoBehaviour
         // - Hide DarkFilter
         else
         {
+            zeroAlphaColor.a = 247 / 255f; // This is 247 out of 255 for the alpha value
+            darkFilter.color = zeroAlphaColor;
+
             // Unpause Player
             // Unhide Player
             darkFilter.gameObject.SetActive(false);

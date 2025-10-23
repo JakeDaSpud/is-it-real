@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36c5cc3d1e97e4a41b254156e88ff77c
+guid: 0fd24bd318a1ff34bb12d51c91e4ed89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1546514870005438739
-    second: desk_CS_0
+      213: 2866265512140053996
+    second: desk_working2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5381201, y: 0.48919496}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -96,39 +96,26 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desk_CS_0
+      name: desk_working2_0
       rect:
         serializedVersion: 2
         x: 56
-        y: 44
+        y: 51
         width: 546
         height: 620
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de667756beca98ae0800000000000000
-      internalID: -1546514870005438739
+      spriteID: ced9f031c4507c720800000000000000
+      internalID: 2866265512140053996
       vertices: []
       indices: 
       edges: []
@@ -137,14 +124,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      desk_CS_0: -1546514870005438739
+      desk_working2_0: 2866265512140053996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

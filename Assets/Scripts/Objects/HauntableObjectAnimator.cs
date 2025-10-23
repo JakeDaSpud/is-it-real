@@ -11,8 +11,6 @@ public class HauntableObjectAnimator : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     private Sprite[] sprites;
     private InteractionEvent interactionEvent;
-    private bool canReplayAnimationInSameDay = false;
-    private bool animationPlayed = false;
 
     [Header("Animation Settings")]
     [Tooltip("The index of the frame the Animation should return to once finished.")]
@@ -33,6 +31,8 @@ public class HauntableObjectAnimator : MonoBehaviour
     [SerializeField] private int loopCount = -1;
     private int loopsLeft;
     [SerializeField] private bool isPlaying = false;
+    [SerializeField] private bool canReplayAnimation = false;
+    private bool animationPlayed = false;
 
     void OnEnable()
     {
@@ -76,16 +76,16 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void StartAnimation(InteractionEvent raisedInteractionEvent)
     {
-        if (isPlaying || (animationPlayed && !canReplayAnimationInSameDay))
+        if (isPlaying || (animationPlayed && !canReplayAnimation))
         {
             
         }
-        
 
         else if (interactionEvent == raisedInteractionEvent)
         {
             loopsLeft = loopCount;
             isPlaying = true;
+            animationPlayed = true;
             NextFrame();
         }
     }
@@ -125,6 +125,7 @@ public class HauntableObjectAnimator : MonoBehaviour
         animationPlayed = true;
         currentFrameIndex = firstFrameIndex;
         m_spriteRenderer.sprite = sprites[returnFrameIndex];
+        EventManager.Instance.RaiseAnimationFinished(m_hauntableObject);
     }
     
     private void HandleNewDay(int dayNumber)
@@ -132,6 +133,7 @@ public class HauntableObjectAnimator : MonoBehaviour
         if (loopCount == -1)
         {
             FinishAnimation();
+            animationPlayed = false;
         }
 
         // This way it won't affect the Essay or Sleeping Animations

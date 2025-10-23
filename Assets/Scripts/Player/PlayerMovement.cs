@@ -60,11 +60,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Pause()
     {
+        if (GameManager.Instance.LoadingScreen) return;
         EventManager.Instance.RaisePause();
     }
 
     public void ToggleJournal()
     {
+        if (GameManager.Instance.LoadingScreen) return;
         Pause();
         EventManager.Instance.RaiseToggleJournal();
     }
@@ -108,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HighlightMode()
     {
+        if (GameManager.Instance.LoadingScreen) return;
         GameManager.Instance.ToggleHighlightMode();
     }
 

@@ -31,6 +31,7 @@ public class EventManager : MonoBehaviour
     public event Action OnHighlightModeChange;
     public event Action OnPause;
     public event Action OnToggleJournal;
+    public event Action<HauntableObject> OnAnimationFinished;
 
     // Player Events
     public event Action OnPlayerDeath;
@@ -86,6 +87,7 @@ public class EventManager : MonoBehaviour
     public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
     public void RaisePause() { Debug.Log("Raised OnPause"); OnPause?.Invoke(); }
     public void RaiseToggleJournal() { OnToggleJournal?.Invoke(); }
+    public void RaiseAnimationFinished(HauntableObject hauntableObject) { OnAnimationFinished?.Invoke(hauntableObject); }
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
     public void RaisePlayerLeftClick() { Debug.Log("Raised OnPlayerLeftClick."); OnPlayerLeftClick?.Invoke(); }

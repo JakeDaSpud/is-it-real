@@ -29,7 +29,11 @@ public class LoadingScreen : MonoBehaviour
 
     private void StartAnimation(int dayNumber)
     {
-        if (dayNumber == 0) return;
+        if (dayNumber == 0)
+        {
+            EventManager.Instance.RaiseFinishLoadingScreen();
+            return;
+        }
         loadingScreen.sprite = allLoadingScreens[dayNumber - 1];
         EventManager.Instance.RaisePause();
         StartCoroutine(PlayLoadingScreenAnimation());
@@ -55,8 +59,6 @@ public class LoadingScreen : MonoBehaviour
 
         // wait for holdDuration seconds
         yield return new WaitForSeconds(holdDuration);
-
-        EventManager.Instance.RaisePause();
 
         // lerp alpha for fadeOutDuration seconds
         timer = 0f;
