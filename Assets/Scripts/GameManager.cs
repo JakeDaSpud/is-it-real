@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
     {
         if (hauntableObject.objectName == "Desk" || hauntableObject.objectName == "Bed")
         {
-            ToggleGamePaused();
+            if (currentDay != 0) ToggleGamePaused();
             OutOfLoadingScreen();
         }
     }
@@ -550,6 +550,7 @@ public class GameManager : MonoBehaviour
         TEMP_DayState += "o";
         Debug.Log("SUCCESS");
         currentDay++;
+        EventManager.Instance.RaiseDaySucceed();
         StartDay(currentDay);
     }
 
@@ -565,6 +566,7 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
+        EventManager.Instance.RaiseDayFail();
         StartDay(currentDay);
     }
 
@@ -574,6 +576,7 @@ public class GameManager : MonoBehaviour
         currentDay = 0;
         failedDays = 0;
         TEMP_DayState = "";
+        EventManager.Instance.RaiseGameOver();
         StartDay(currentDay);
     }
 
