@@ -83,24 +83,10 @@ public class PlayerMovement : MonoBehaviour
         {
             TrySelect();
         }
-        else if (m_currentlyInteractable != null)
+        else if (m_currentlyInteractable != null && m_currentlyInteractable.Count != 0)
         {
             Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
-
-            /*if (m_currentlyInteractable.Last<HauntableObject>().name == "BedObject")
-            {
-                GameManager.Instance.SleepInBed();
-            }
-
-            else if (m_currentlyInteractable.Last<HauntableObject>().name == "DeskObject")
-            {
-                GameManager.Instance.WorkOnEssay();
-            }
-
-            else
-            {*/
-                m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
-            //}
+            m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
         }
         else
         {
