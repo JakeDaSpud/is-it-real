@@ -67,8 +67,8 @@ public class PlayerMovement : MonoBehaviour
     public void ToggleJournal()
     {
         if (GameManager.Instance.LoadingScreen) return;
+        EventManager.Instance.RaiseToggleJournal(UiManager.JournalStateRequest.TOGGLE);
         Pause();
-        EventManager.Instance.RaiseToggleJournal();
     }
 
     private void TryInteract()

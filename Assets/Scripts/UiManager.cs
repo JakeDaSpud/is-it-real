@@ -34,37 +34,51 @@ public class UiManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] RectTransform journalMenu;
-    private bool journalIsActive = false;
+    [SerializeField] private bool journalIsActive = false;
+    [SerializeField] public enum JournalStateRequest { TOGGLE, ACTIVATE, DEACTIVATE }
     [SerializeField] RectTransform journalButton;
     [SerializeField] ChoreUIManager dailyTasksNotepad;
     [SerializeField] RectTransform interactHint;
     private bool interactHintIsActive = false;
 
-    private void DeactivateJournal()
+    public void ActivateJournal()
     {
+        journalMenu.gameObject.SetActive(true);
+        journalButton.gameObject.SetActive(false);
+        dailyTasksNotepad.gameObject.SetActive(false);
+        journalIsActive = true;
+    }
+
+    public void DeactivateJournal()
+    {
+        // Ignore the game's request
+        if (GameManager.Instance.GamePaused) return;
+
         journalMenu.gameObject.SetActive(false);
         journalButton.gameObject.SetActive(true);
         dailyTasksNotepad.gameObject.SetActive(true);
         journalIsActive = false;
     }
 
-    private void ToggleJournal()
-    {
-        if (journalIsActive)
-        {
-            journalMenu.gameObject.SetActive(false);
-            journalButton.gameObject.SetActive(true);
-            dailyTasksNotepad.gameObject.SetActive(true);
-        }
+    public void CloseJournalButton() { EventManager.Instance.RaisePause(); }
 
-        else
+    private void ToggleJournal(JournalStateRequest requestedState)
+    {   
+        switch (requestedState)
         {
-            journalMenu.gameObject.SetActive(true);
-            journalButton.gameObject.SetActive(false);
-            dailyTasksNotepad.gameObject.SetActive(false);
-        }
+            case JournalStateRequest.ACTIVATE:
+                ActivateJournal();
+                break;
 
-        journalIsActive = !journalIsActive;
+            case JournalStateRequest.DEACTIVATE:
+                DeactivateJournal();
+                break;
+
+            case JournalStateRequest.TOGGLE:
+                if (journalIsActive) DeactivateJournal();
+                else ActivateJournal();
+                break;
+        }
     }
 
     private void EnableInteractHint()

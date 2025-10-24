@@ -30,7 +30,7 @@ public class EventManager : MonoBehaviour
     public event Action OnGameOver;
     public event Action OnHighlightModeChange;
     public event Action OnPause;
-    public event Action OnToggleJournal;
+    public event Action<UiManager.JournalStateRequest> OnToggleJournal;
     public event Action<HauntableObject> OnAnimationFinished;
 
     // Player Events
@@ -86,7 +86,7 @@ public class EventManager : MonoBehaviour
     public void RaiseGameOver() { OnGameOver?.Invoke(); }
     public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
     public void RaisePause() { Debug.Log("Raised OnPause"); OnPause?.Invoke(); }
-    public void RaiseToggleJournal() { OnToggleJournal?.Invoke(); }
+    public void RaiseToggleJournal(UiManager.JournalStateRequest requestedState) { OnToggleJournal?.Invoke(requestedState); }
     public void RaiseAnimationFinished(HauntableObject hauntableObject) { OnAnimationFinished?.Invoke(hauntableObject); }
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
