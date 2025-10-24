@@ -43,6 +43,10 @@ public class HauntableObjectAnimator : MonoBehaviour
     [SerializeField] private bool canReplayAnimation = false;
     private bool animationPlayed = false;
 
+    [Header("Reaction Animator Trigger")]
+    [Tooltip("If this Animation can finish, the Interaction Animation of the specified HauntableObjectAnimator will be played.")]
+    [SerializeField] private HauntableObjectAnimator animationToStartWhenFinished;
+
     void OnEnable()
     {
         EventManager.Instance.OnSuccessfulInteraction += StartInteractionAnimation;
@@ -127,6 +131,24 @@ public class HauntableObjectAnimator : MonoBehaviour
         StartCoroutine(WaitForDefaultFrame());
     }
 
+    public void StartInteractionAnimationAsReaction()
+    {
+        if (isPlaying || (animationPlayed && !canReplayAnimation))
+        {
+            
+        }
+
+        else
+        {
+            state = AnimationState.INTERACTION;
+            isPlayingDefaultAnimation = false;
+            loopsLeft = loopCount;
+            isPlaying = true;
+            animationPlayed = true;
+            NextInteractionFrame();
+        }
+    }
+
     private void StartInteractionAnimation(InteractionEvent raisedInteractionEvent)
     {
         if (isPlaying || (animationPlayed && !canReplayAnimation))
@@ -181,6 +203,9 @@ public class HauntableObjectAnimator : MonoBehaviour
         animationPlayed = true;
         currentFrameIndex = firstFrameIndex;
         m_spriteRenderer.sprite = sprites[returnFrameIndex];
+
+        if (animationToStartWhenFinished != null) animationToStartWhenFinished.StartInteractionAnimationAsReaction();
+        
         EventManager.Instance.RaiseAnimationFinished(m_hauntableObject);
     }
     
