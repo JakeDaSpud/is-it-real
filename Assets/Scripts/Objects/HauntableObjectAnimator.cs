@@ -11,8 +11,21 @@ public class HauntableObjectAnimator : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     private Sprite[] sprites;
     private InteractionEvent interactionEvent;
+    private enum AnimationState { NULL, DEFAULT, INTERACTION, REACTION };
+    [SerializeField] private AnimationState state = AnimationState.NULL;
 
-    [Header("Animation Settings")]
+    [Header("General Animation Settings")]
+    [Tooltip("How long each frame lasts, in milliseconds.")]
+    [SerializeField] private float frameDurationMS = 330;
+    private float frameDurationS = 0.33f;
+
+    [Header("Default Animation Settings")]
+    [SerializeField] private bool hasDefaultAnimation = false;
+    [SerializeField] private int defaultFirstFrameIndex = -1;
+    [SerializeField] private int defaultLastFrameIndex = -1;
+    [SerializeField] private bool isPlayingDefaultAnimation = false;
+
+    [Header("Interaction Animation Settings")]
     [Tooltip("The index of the frame the Animation should return to once finished.")]
     [SerializeField] private int returnFrameIndex = 0;
 
@@ -23,10 +36,6 @@ public class HauntableObjectAnimator : MonoBehaviour
     [SerializeField] private int lastFrameIndex = -1;
     private int currentFrameIndex;
 
-    [Tooltip("How long each frame lasts, in milliseconds.")]
-    [SerializeField] private float frameDurationMS = 330;
-    private float frameDurationS = 0.33f;
-
     [Tooltip("The amount of times the Animation should loop AFTER the first time. Leave as -1 to infinitely loop.")]
     [SerializeField] private int loopCount = -1;
     private int loopsLeft;
@@ -36,13 +45,13 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.Instance.OnSuccessfulInteraction += StartAnimation;
+        EventManager.Instance.OnSuccessfulInteraction += StartInteractionAnimation;
         EventManager.Instance.OnDayStart += HandleNewDay;
     }
 
     void OnDisable()
     {
-        EventManager.Instance.OnSuccessfulInteraction -= StartAnimation;
+        EventManager.Instance.OnSuccessfulInteraction -= StartInteractionAnimation;
         EventManager.Instance.OnDayStart -= HandleNewDay;
     }
 
@@ -51,6 +60,12 @@ public class HauntableObjectAnimator : MonoBehaviour
         if (firstFrameIndex < 0)
         {
             Debug.Log("firstFrameIndex cannot be less than 0!");
+            return;
+        }
+
+        if (hasDefaultAnimation && defaultFirstFrameIndex < 0)
+        {
+            Debug.Log("defaultFirstFrameIndex cannot be less than 0!");
             return;
         }
 
@@ -71,10 +86,48 @@ public class HauntableObjectAnimator : MonoBehaviour
             lastFrameIndex = -1;
         }
 
+        // Figure out where the final frame is
+        if (hasDefaultAnimation && (defaultLastFrameIndex < -1 || defaultLastFrameIndex >= sprites.Length))
+        {
+            Debug.LogError($"[{m_hauntableObject.objectName}]'s defaultLastFrameIndex is out of bounds! Setting to -1 (Playing infinitely).");
+            defaultLastFrameIndex = -1;
+        }
+
         if (lastFrameIndex == -1) lastFrameIndex = sprites.Length - 1;
+        if (defaultLastFrameIndex == -1) defaultLastFrameIndex = sprites.Length - 1;
+
+        if (hasDefaultAnimation) StartDefaultAnimation();
     }
 
-    private void StartAnimation(InteractionEvent raisedInteractionEvent)
+    private void StartDefaultAnimation()
+    {
+        state = AnimationState.DEFAULT;
+        isPlayingDefaultAnimation = true;
+        NextDefaultFrame();
+    }
+
+    private IEnumerator WaitForDefaultFrame()
+    {
+        if (state != AnimationState.DEFAULT) yield break;
+        yield return new WaitForSeconds(frameDurationS);
+        NextDefaultFrame();
+    }
+
+    private void NextDefaultFrame()
+    {
+        m_spriteRenderer.sprite = sprites[currentFrameIndex];
+
+        currentFrameIndex++;
+
+        if (currentFrameIndex > defaultLastFrameIndex)
+        {
+            currentFrameIndex = defaultFirstFrameIndex;
+        }
+
+        StartCoroutine(WaitForDefaultFrame());
+    }
+
+    private void StartInteractionAnimation(InteractionEvent raisedInteractionEvent)
     {
         if (isPlaying || (animationPlayed && !canReplayAnimation))
         {
@@ -83,20 +136,22 @@ public class HauntableObjectAnimator : MonoBehaviour
 
         else if (interactionEvent == raisedInteractionEvent)
         {
+            state = AnimationState.INTERACTION;
+            isPlayingDefaultAnimation = false;
             loopsLeft = loopCount;
             isPlaying = true;
             animationPlayed = true;
-            NextFrame();
+            NextInteractionFrame();
         }
     }
 
-    private IEnumerator WaitForFrameDuration()
+    private IEnumerator WaitForInteractionFrame()
     {
         yield return new WaitForSeconds(frameDurationS);
-        NextFrame();
+        NextInteractionFrame();
     }
 
-    private void NextFrame()
+    private void NextInteractionFrame()
     {
         m_spriteRenderer.sprite = sprites[currentFrameIndex];
 
@@ -116,11 +171,12 @@ public class HauntableObjectAnimator : MonoBehaviour
             currentFrameIndex = firstFrameIndex;
         }
 
-        StartCoroutine(WaitForFrameDuration());
+        StartCoroutine(WaitForInteractionFrame());
     }
 
     private void FinishAnimation()
     {
+        isPlayingDefaultAnimation = false;
         isPlaying = false;
         animationPlayed = true;
         currentFrameIndex = firstFrameIndex;
