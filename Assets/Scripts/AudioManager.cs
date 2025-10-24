@@ -105,11 +105,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        float dummy;
+        /*float dummy;
         Debug.Log($"MasterVolume exists? {mainAudioMixer.GetFloat("MasterVolume", out dummy)}");
         Debug.Log($"MusicVolume exists? {mainAudioMixer.GetFloat("MusicVolume", out dummy)}");
         Debug.Log($"SFXVolume exists? {mainAudioMixer.GetFloat("SFXVolume", out dummy)}");
-        Debug.Log($"UIVolume exists? {mainAudioMixer.GetFloat("UIVolume", out dummy)}");
+        Debug.Log($"UIVolume exists? {mainAudioMixer.GetFloat("UIVolume", out dummy)}");*/
 
         SetMixerGroupVolumes();
     }

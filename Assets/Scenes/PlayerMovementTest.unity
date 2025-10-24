@@ -1424,6 +1424,9 @@ MonoBehaviour:
   moveSpeed: 2
   hoSpawnTransform: {fileID: 2134386909}
   hoRepresentation: {fileID: 3664003184966734218, guid: 3e9c58d6972b2d34097fff85ca1ee946, type: 3}
+  repeatingSound: 4
+  minimumDurationBetweenSound: 5
+  maxDurationBetweenSound: 20
 --- !u!1001 &300807359
 PrefabInstance:
   m_ObjectHideFlags: 0

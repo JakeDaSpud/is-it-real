@@ -14,6 +14,13 @@ public class PathAnomaly : Anomaly
     /// </summary>
     [SerializeField] HauntableObject hoRepresentation;
     private HauntableObject m_hoRepObject;
+    
+    [Header("Sound Settings")]
+    [SerializeField] AudioManager.SFX repeatingSound;
+    [SerializeField] float minimumDurationBetweenSound = 5f;
+    [SerializeField] float maxDurationBetweenSound = 10f;
+    private float soundTimer;
+    private float nextSoundDelay;
 
     /// <summary>
     /// The amount by which the PathAnomaly's position has to be within to be considered "at" the next point
@@ -56,6 +63,8 @@ public class PathAnomaly : Anomaly
         {
             MoveTowards(currentPathPoint);
         }
+
+        HandleSoundTimer();
     }
 
     private bool WithinDistance(Transform currentTransform, Transform targetTransform, float epsilon = EPSILON)
@@ -87,6 +96,23 @@ public class PathAnomaly : Anomaly
     private void MoveTowards(Transform target)
     {
         m_hoRepObject.transform.position += (target.position - m_hoRepObject.transform.position).normalized * moveSpeed * Time.deltaTime;
+    }
+
+    private void HandleSoundTimer()
+    {
+        soundTimer -= Time.deltaTime;
+
+        if (soundTimer <= 0f)
+        {
+            AudioManager.Instance.PlaySound(repeatingSound);
+            ResetSoundTimer();
+        }
+    }
+
+    private void ResetSoundTimer()
+    {
+        nextSoundDelay = UnityEngine.Random.Range(minimumDurationBetweenSound, maxDurationBetweenSound);
+        soundTimer = nextSoundDelay;
     }
 
     public override void ExecuteHaunt(HauntableObject hauntableObject = null)
