@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnPause += ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask += AddCurrentDailyTask;
         EventManager.Instance.OnStartLoadingScreen += InLoadingScreen;
+        EventManager.Instance.OnFinishLoadingScreen += OutOfLoadingScreen;
         EventManager.Instance.OnAnimationFinished += HandleEssaySleepAnimation;
     }
 
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnPause -= ToggleGamePaused;
         EventManager.Instance.OnSetDailyTask -= AddCurrentDailyTask;
         EventManager.Instance.OnStartLoadingScreen -= InLoadingScreen;
+        EventManager.Instance.OnFinishLoadingScreen -= OutOfLoadingScreen;
         EventManager.Instance.OnAnimationFinished -= HandleEssaySleepAnimation;
     }
 
