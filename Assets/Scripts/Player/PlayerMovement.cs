@@ -73,24 +73,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryInteract()
     {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.Instance.GamePaused && !GameManager.Instance.InHighlightMode)
         {
+            // If there's a UI element that will use this input
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
                 return;
+            }
         }
 
-        if (GameManager.Instance.InHighlightMode)
-        {
-            TrySelect();
-        }
-        else if (m_currentlyInteractable != null && m_currentlyInteractable.Count != 0)
-        {
-            Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
-            m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
-        }
         else
         {
-            Debug.LogError("TryInteract() triggered with NO HauntableObject.");
+            // Highlighting objects
+            if (GameManager.Instance.InHighlightMode)
+            {
+                TrySelect();
+                return;
+            }
+
+            // Trying to interact with the last interactable object
+            if (m_currentlyInteractable != null && m_currentlyInteractable.Count != 0)
+            {
+                Debug.Log($"TryInteract() triggered on {m_currentlyInteractable.Last<HauntableObject>()}");
+                m_currentlyInteractable.Last<HauntableObject>().Interact(m_interactBox);
+            }
+            else
+            {
+                Debug.LogError("TryInteract() triggered with NO HauntableObject.");
+            }
         }
     }
 
