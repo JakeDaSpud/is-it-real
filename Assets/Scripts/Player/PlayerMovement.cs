@@ -208,7 +208,10 @@ public class PlayerMovement : MonoBehaviour
                 // Add the newest object, change its highlight colour
                 this.m_currentlyInteractable.Add(collisionHO);
                 //Debug.Log($"m_currentlyInteractable.Last set to [{collisionHO}].");
-                this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
+                if (m_currentlyInteractable.Count != 0)
+                {
+                    this.m_currentlyInteractable.Last<HauntableObject>().BecomeInteractHighlighted();
+                }
             }
         }
         else
