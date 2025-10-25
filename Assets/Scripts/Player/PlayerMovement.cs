@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D m_interactBox;
     [SerializeField] private List<HauntableObject> m_currentlyInteractable = new List<HauntableObject>();
 
+    [Header("Animation Settings")]
+    [SerializeField] private Animator m_animator;
+
     private void Awake()
     {
         m_spriteAndInteractBoxTransform = transform.Find("Sprite and InteractBox").transform;
@@ -159,6 +162,9 @@ public class PlayerMovement : MonoBehaviour
             scale.x *= -1;
             m_spriteAndInteractBoxTransform.transform.localScale = scale;
         }
+
+        if (move != Vector2.zero) { m_animator.SetBool("isMoving", true); }
+        else { m_animator.SetBool("isMoving", false); }
 
         // Move using Rigidbody2D (has collision)
         m_rb.MovePosition(m_rb.position + move);
