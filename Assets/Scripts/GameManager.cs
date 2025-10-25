@@ -306,7 +306,7 @@ public class GameManager : MonoBehaviour
         // Set Window Image to real weather
         EventManager.Instance.RaiseSetWeather(todaysWeather);
         
-        Debug.Log($"Weather now set to [{todaysWeather}]");
+        /*Debug.Log($"Weather now set to [{todaysWeather}]");*/
     }
 
     private void GenerateAnomaliesForDay(int day)

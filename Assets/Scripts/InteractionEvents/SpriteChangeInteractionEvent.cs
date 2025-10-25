@@ -9,6 +9,21 @@ public class SpriteChangeInteractionEvent : InteractionEvent
     [SerializeField] public int newSpriteIndex = -1;
     private bool interactionHappened = false;
 
+    void OnEnable()
+    {
+        EventManager.Instance.OnDayStart += ResetState;
+    }
+
+    void OnDisable()
+    {
+        EventManager.Instance.OnDayStart -= ResetState;
+    }
+    
+    private void ResetState(int dayNumber)
+    {
+        interactionHappened = false;
+    }
+
     override public void Interact()
     {
         if (!interactionHappened)

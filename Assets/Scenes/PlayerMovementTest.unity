@@ -497,6 +497,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 73519695099630949, guid: a92da83894cf2694485cfc04df512517, type: 3}
   m_PrefabInstance: {fileID: 393897591}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &68807872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1017107915829029220, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+  m_PrefabInstance: {fileID: 432363875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69095953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,7 +2918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: sprites.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: 'sprites.Array.data[0]'
@@ -2923,6 +2928,14 @@ PrefabInstance:
       propertyPath: 'sprites.Array.data[1]'
       value: 
       objectReference: {fileID: 21300000, guid: 0d3011c5f802395439385a520e4c6c1f, type: 3}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 9507ff3b4a93ca042ad78b19e8b90ab5, type: 3}
+    - target: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7387c94ddf61cff499b69fb0c8db1afd, type: 3}
     - target: {fileID: 7556044673252259824, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 4.82
@@ -2954,7 +2967,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1017107915829029220, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1719112081}
   m_SourcePrefab: {fileID: 100100000, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
 --- !u!4 &437837546 stripped
 Transform:
@@ -10818,16 +10834,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   frameDurationMS: 330
   hasDefaultAnimation: 1
-  defaultFirstFrameIndex: -1
-  defaultLastFrameIndex: -1
-  returnFrameIndex: 0
-  firstFrameIndex: -1
-  lastFrameIndex: -1
-  loopCount: -1
+  defaultFirstFrameIndex: 0
+  defaultLastFrameIndex: 1
+  isPlayingDefaultAnimation: 0
+  returnFrameIndex: 7
+  firstFrameIndex: 2
+  lastFrameIndex: 6
+  loopCount: 0
   isPlaying: 0
   canReplayAnimation: 0
+  animationToStartWhenFinished: {fileID: 1719112081}
 --- !u!224 &1449096504 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4143430771435637628, guid: a92da83894cf2694485cfc04df512517, type: 3}
@@ -12661,16 +12680,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   frameDurationMS: 330
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
+  isPlayingDefaultAnimation: 0
   returnFrameIndex: 0
   firstFrameIndex: 2
   lastFrameIndex: 3
   loopCount: 4
   isPlaying: 0
   canReplayAnimation: 0
+  animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1652904919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8264663510213107289, guid: 6a207eb1d9d1e814a89e0624218a7188, type: 3}
@@ -12688,16 +12710,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   frameDurationMS: 330
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
+  isPlayingDefaultAnimation: 0
   returnFrameIndex: 0
   firstFrameIndex: 2
   lastFrameIndex: 12
   loopCount: 1
   isPlaying: 0
   canReplayAnimation: 1
+  animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1664123731 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917478049847647434, guid: 5a317e18e9e8ef34b87de959a65bd4bc, type: 3}
@@ -12928,16 +12953,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   frameDurationMS: 330
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
+  isPlayingDefaultAnimation: 0
   returnFrameIndex: 0
   firstFrameIndex: 2
   lastFrameIndex: 3
   loopCount: 4
   isPlaying: 0
   canReplayAnimation: 0
+  animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1692382228
 GameObject:
   m_ObjectHideFlags: 0
@@ -13416,12 +13444,37 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4329191100094553945, guid: 61ba788840c5f304aa76317f321e407a, type: 3}
   m_PrefabInstance: {fileID: 432363875}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 68807872}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8285dbef3467ee4ba8a6c81ad2ab788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1719112081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68807872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  frameDurationMS: 330
+  hasDefaultAnimation: 0
+  defaultFirstFrameIndex: -1
+  defaultLastFrameIndex: -1
+  isPlayingDefaultAnimation: 0
+  returnFrameIndex: 0
+  firstFrameIndex: 2
+  lastFrameIndex: 3
+  loopCount: -1
+  isPlaying: 0
+  canReplayAnimation: 0
+  animationToStartWhenFinished: {fileID: 0}
 --- !u!4 &1728039763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2980661450222810713, guid: 0ada82b3cdcf77a418528abf1c8e7027, type: 3}
@@ -15555,7 +15608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: sprites.Array.size
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: 'sprites.Array.data[0]'
@@ -15564,13 +15617,29 @@ PrefabInstance:
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: 'sprites.Array.data[1]'
       value: 
-      objectReference: {fileID: 21300000, guid: 4995366671727844f9980839cc3c3b06, type: 3}
+      objectReference: {fileID: 21300000, guid: c9aa338d175fcc94dbabe04b7f5f15be, type: 3}
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: 'sprites.Array.data[2]'
       value: 
-      objectReference: {fileID: 21300000, guid: 4995366671727844f9980839cc3c3b06, type: 3}
+      objectReference: {fileID: 21300000, guid: cffeb99bcb19058429bca12c6ac99634, type: 3}
     - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
       propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f7481d0aa5c3104b945f188f9cc11c5, type: 3}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 60a0752999dcc6c47bdf2ef3fafe33a0, type: 3}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 93134c67d91ec904e9554cfe3121f1c2, type: 3}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 21300000, guid: c644b7544d8bc5d4db9bf6ec49b166e7, type: 3}
+    - target: {fileID: 6651204891503853171, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
+      propertyPath: 'sprites.Array.data[7]'
       value: 
       objectReference: {fileID: 21300000, guid: 4995366671727844f9980839cc3c3b06, type: 3}
     - target: {fileID: 6911710000842154307, guid: 35ca42a30ecf558459c2f99f53ba654e, type: 3}
@@ -16894,16 +16963,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28cfc89451d82f40a4b538787fb75b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   frameDurationMS: 330
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
+  isPlayingDefaultAnimation: 0
   returnFrameIndex: 0
   firstFrameIndex: 1
   lastFrameIndex: 7
   loopCount: 2
   isPlaying: 0
   canReplayAnimation: 1
+  animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &2112731688
 GameObject:
   m_ObjectHideFlags: 0

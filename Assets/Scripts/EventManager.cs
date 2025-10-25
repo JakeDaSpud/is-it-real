@@ -84,16 +84,16 @@ public class EventManager : MonoBehaviour
 
     public void RaiseGameStart() { OnGameStart?.Invoke(); }
     public void RaiseGameOver() { OnGameOver?.Invoke(); }
-    public void RaiseHighlightModeChange() { Debug.Log("Raised OnHighlightModeChange."); OnHighlightModeChange?.Invoke(); }
+    public void RaiseHighlightModeChange() { /*Debug.Log("Raised OnHighlightModeChange.");*/ OnHighlightModeChange?.Invoke(); }
     public void RaisePause() { Debug.Log("Raised OnPause"); OnPause?.Invoke(); }
     public void RaiseToggleJournal(UiManager.JournalStateRequest requestedState) { OnToggleJournal?.Invoke(requestedState); }
     public void RaiseAnimationFinished(HauntableObject hauntableObject) { OnAnimationFinished?.Invoke(hauntableObject); }
 
     public void RaisePlayerDeath() { OnPlayerDeath?.Invoke(); }
-    public void RaisePlayerLeftClick() { Debug.Log("Raised OnPlayerLeftClick."); OnPlayerLeftClick?.Invoke(); }
+    public void RaisePlayerLeftClick() { /*Debug.Log("Raised OnPlayerLeftClick.");*/ OnPlayerLeftClick?.Invoke(); }
     public void RaisePlayerMove(float playerY) { /*Debug.Log($"Raised OnPlayerMove([{playerY}]).");*/ OnPlayerMove?.Invoke(playerY); }
-    public void RaiseHauntableObjectHighlighted(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectHighlighted."); OnHauntableObjectHighlighted?.Invoke(obj); }
-    public void RaiseHauntableObjectSelected(HauntableObject obj) { Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected."); OnHauntableObjectSelected?.Invoke(obj); }
+    public void RaiseHauntableObjectHighlighted(HauntableObject obj) { /*Debug.Log($"Raised [{obj.name}] OnHauntableObjectHighlighted.");*/ OnHauntableObjectHighlighted?.Invoke(obj); }
+    public void RaiseHauntableObjectSelected(HauntableObject obj) { /*Debug.Log($"Raised [{obj.name}] OnHauntableObjectSelected.");*/ OnHauntableObjectSelected?.Invoke(obj); }
     public void RaiseAnythingHighlighted() { OnAnythingHighlighted?.Invoke(); }
     public void RaiseNothingHighlighted() { OnNothingHighlighted?.Invoke(); }
 

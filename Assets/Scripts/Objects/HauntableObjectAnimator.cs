@@ -11,13 +11,18 @@ public class HauntableObjectAnimator : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     private Sprite[] sprites;
     private InteractionEvent interactionEvent;
-    private enum AnimationState { NULL, DEFAULT, INTERACTION, REACTION };
+    private enum AnimationState { NULL, EDITOR_SPRITE, DEFAULT, INTERACTION, REACTION };
     [SerializeField] private AnimationState state = AnimationState.NULL;
+
+    [SerializeField] private bool logStatements = false;
 
     [Header("General Animation Settings")]
     [Tooltip("How long each frame lasts, in milliseconds.")]
     [SerializeField] private float frameDurationMS = 330;
     private float frameDurationS = 0.33f;
+    [SerializeField] private int currentFrameIndex;
+    [SerializeField] private int editorDefaultSpriteIndex; // The Sprite that this HauntableObject is set to, from the editor
+    private bool isDayChanging = false;
 
     [Header("Default Animation Settings")]
     [SerializeField] private bool hasDefaultAnimation = false;
@@ -34,14 +39,13 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     [Tooltip("The index of the Animation's last frame. Leave as -1 to loop from firstFrameIndex to the last frame in the array.")]
     [SerializeField] private int lastFrameIndex = -1;
-    private int currentFrameIndex;
 
     [Tooltip("The amount of times the Animation should loop AFTER the first time. Leave as -1 to infinitely loop.")]
     [SerializeField] private int loopCount = -1;
     private int loopsLeft;
     [SerializeField] private bool isPlaying = false;
     [SerializeField] private bool canReplayAnimation = false;
-    private bool animationPlayed = false;
+    [SerializeField] private bool animationPlayed = false;
 
     [Header("Reaction Animator Trigger")]
     [Tooltip("If this Animation can finish, the Interaction Animation of the specified HauntableObjectAnimator will be played.")]
@@ -61,6 +65,16 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     void Awake()
     {
+        logStatements = true;
+        Setup();
+        
+        editorDefaultSpriteIndex = System.Array.IndexOf(sprites, m_spriteRenderer.sprite);
+
+        if (hasDefaultAnimation) StartDefaultAnimation();
+    }
+
+    private void Setup()
+    {
         if (firstFrameIndex < 0)
         {
             Debug.Log("firstFrameIndex cannot be less than 0!");
@@ -78,6 +92,8 @@ public class HauntableObjectAnimator : MonoBehaviour
 
         m_hauntableObject = GetComponent<HauntableObject>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} Setup()");
 
         // Request the HauntableObject's sprites[] and interactionEvent
         sprites = m_hauntableObject.GetSprites(this);
@@ -99,12 +115,12 @@ public class HauntableObjectAnimator : MonoBehaviour
 
         if (lastFrameIndex == -1) lastFrameIndex = sprites.Length - 1;
         if (defaultLastFrameIndex == -1) defaultLastFrameIndex = sprites.Length - 1;
-
-        if (hasDefaultAnimation) StartDefaultAnimation();
     }
 
     private void StartDefaultAnimation()
     {
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} StartDefaultAnimation");
+        
         state = AnimationState.DEFAULT;
         isPlayingDefaultAnimation = true;
         NextDefaultFrame();
@@ -119,6 +135,8 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void NextDefaultFrame()
     {
+        if (!isPlayingDefaultAnimation || state != AnimationState.DEFAULT) return;
+
         m_spriteRenderer.sprite = sprites[currentFrameIndex];
 
         currentFrameIndex++;
@@ -133,24 +151,22 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     public void StartInteractionAnimationAsReaction()
     {
-        if (isPlaying || (animationPlayed && !canReplayAnimation))
-        {
-            
-        }
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} StartInteractionAnimationAsReaction");
+        
+        if (isDayChanging) return;
 
-        else
-        {
-            state = AnimationState.INTERACTION;
-            isPlayingDefaultAnimation = false;
-            loopsLeft = loopCount;
-            isPlaying = true;
-            animationPlayed = true;
-            NextInteractionFrame();
-        }
+        state = AnimationState.INTERACTION;
+        isPlayingDefaultAnimation = false;
+        loopsLeft = loopCount;
+        isPlaying = true;
+        animationPlayed = true;
+        NextInteractionFrame();
     }
 
     private void StartInteractionAnimation(InteractionEvent raisedInteractionEvent)
     {
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} StartInteractionAnimation");
+        
         if (isPlaying || (animationPlayed && !canReplayAnimation))
         {
             
@@ -175,6 +191,8 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void NextInteractionFrame()
     {
+        if (!isPlaying || state != AnimationState.INTERACTION) return;
+
         m_spriteRenderer.sprite = sprites[currentFrameIndex];
 
         currentFrameIndex++;
@@ -198,29 +216,78 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void FinishAnimation()
     {
+        
         isPlayingDefaultAnimation = false;
         isPlaying = false;
         animationPlayed = true;
         currentFrameIndex = firstFrameIndex;
         m_spriteRenderer.sprite = sprites[returnFrameIndex];
 
-        if (animationToStartWhenFinished != null) animationToStartWhenFinished.StartInteractionAnimationAsReaction();
+        if (!isDayChanging && animationToStartWhenFinished != null)
+        {
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} FinishAnimation Branch 1");
+            state = AnimationState.REACTION;
+            animationToStartWhenFinished.StartInteractionAnimationAsReaction();
+        }
         
-        EventManager.Instance.RaiseAnimationFinished(m_hauntableObject);
+        if (!isDayChanging)
+        {        
+            if (logStatements) Debug.Log($"{m_hauntableObject.objectName} FinishAnimation Branch 2");
+            EventManager.Instance.RaiseAnimationFinished(m_hauntableObject);
+        }
     }
-    
+
     private void HandleNewDay(int dayNumber)
     {
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} HandleNewDay {dayNumber}");
+        
+        if (dayNumber == 0) return;
+
+        isDayChanging = true; // Stop Reaction Animations from being triggered
+
+        isPlaying = false;
+        isPlayingDefaultAnimation = false;
+        state = AnimationState.NULL;
+
         if (loopCount == -1)
         {
+            if (logStatements) Debug.Log($"{m_hauntableObject.objectName} HandleNewDay {dayNumber} Branch 1");
             FinishAnimation();
-            animationPlayed = false;
         }
 
         // This way it won't affect the Essay or Sleeping Animations
-        if (!isPlaying)
+        if (m_hauntableObject.objectName != "Desk" && m_hauntableObject.objectName != "Bed")
         {
+            if (logStatements) Debug.Log($"{m_hauntableObject.objectName} HandleNewDay {dayNumber} Branch 2");
             loopsLeft = loopCount;
         }
+
+        if (hasDefaultAnimation)
+        {
+            if (logStatements) Debug.Log($"{m_hauntableObject.objectName} HandleNewDay {dayNumber} Branch 3");
+            currentFrameIndex = defaultFirstFrameIndex;
+            StartDefaultAnimation();
+        }
+
+        else
+        {
+            if (logStatements) Debug.Log($"{m_hauntableObject.objectName} HandleNewDay {dayNumber} Branch 4");
+            state = AnimationState.EDITOR_SPRITE;
+            currentFrameIndex = editorDefaultSpriteIndex;
+            if (sprites != null && sprites.Length > currentFrameIndex)
+            {
+                m_spriteRenderer.sprite = sprites[currentFrameIndex];
+            }
+        }
+
+        animationPlayed = false;
+        StartCoroutine(StopDayChange());
+    }
+    
+    private IEnumerator StopDayChange()
+    {
+        if (logStatements) Debug.Log($"{m_hauntableObject.objectName} StopDayChange");
+        yield return null;
+        isDayChanging = false;
     }
 }
