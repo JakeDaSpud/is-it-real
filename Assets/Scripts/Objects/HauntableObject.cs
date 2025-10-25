@@ -131,7 +131,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 
 	public void ChangeSprite(int newSpriteIndex)
 	{
-		Debug.Log($"{this.name}::ChangeSprite[{newSpriteIndex}]");
+		/*Debug.Log($"{this.name}::ChangeSprite[{newSpriteIndex}]");*/
 		spriteRenderer.sprite = sprites[newSpriteIndex];
 	}
 
@@ -344,7 +344,7 @@ public class HauntableObject : MonoBehaviour, ISelectable
 	public void ResetObject(bool gameReset = false)
 	{
 		this.hauntingAnomaly = null;
-		if (!persistentSprite && !gameReset) this.spriteRenderer.sprite = sprites[0];
+		if (!persistentSprite /*&& !gameReset*/) this.spriteRenderer.sprite = sprites[0];
 		BecomeOriginal();
 
 		// If this is an Anomaly HauntableObject like the FloatingSkullObject, it should remove itself from the scene
