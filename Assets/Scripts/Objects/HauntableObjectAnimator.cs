@@ -88,7 +88,6 @@ public class HauntableObjectAnimator : MonoBehaviour
         }
 
         frameDurationS = frameDurationMS / 1000;
-        currentFrameIndex = firstFrameIndex;
 
         m_hauntableObject = GetComponent<HauntableObject>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -120,7 +119,8 @@ public class HauntableObjectAnimator : MonoBehaviour
     private void StartDefaultAnimation()
     {
         if (logStatements) Debug.Log($"{m_hauntableObject.objectName} StartDefaultAnimation");
-        
+
+        currentFrameIndex = defaultFirstFrameIndex;
         state = AnimationState.DEFAULT;
         isPlayingDefaultAnimation = true;
         NextDefaultFrame();
@@ -155,6 +155,7 @@ public class HauntableObjectAnimator : MonoBehaviour
         
         if (isDayChanging) return;
 
+        currentFrameIndex = firstFrameIndex;
         state = AnimationState.INTERACTION;
         isPlayingDefaultAnimation = false;
         loopsLeft = loopCount;
@@ -174,6 +175,7 @@ public class HauntableObjectAnimator : MonoBehaviour
 
         else if (interactionEvent == raisedInteractionEvent)
         {
+            currentFrameIndex = firstFrameIndex;
             state = AnimationState.INTERACTION;
             isPlayingDefaultAnimation = false;
             loopsLeft = loopCount;
@@ -216,11 +218,10 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     private void FinishAnimation()
     {
-        
         isPlayingDefaultAnimation = false;
         isPlaying = false;
         animationPlayed = true;
-        currentFrameIndex = firstFrameIndex;
+        currentFrameIndex = returnFrameIndex;
         m_spriteRenderer.sprite = sprites[returnFrameIndex];
 
         if (!isDayChanging && animationToStartWhenFinished != null)
