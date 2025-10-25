@@ -64,7 +64,7 @@ public class HauntableObjectAnimator : MonoBehaviour
 
     void Awake()
     {
-        logStatements = true;
+        logStatements = false;
         Setup();
         
         editorDefaultSpriteIndex = System.Array.IndexOf(sprites, m_spriteRenderer.sprite);

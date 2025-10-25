@@ -15,7 +15,7 @@ public class InteractionManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     [SerializeField] private InteractionEvent[] allInteractionEvents;

@@ -16,7 +16,7 @@ public class BeastiaryManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     [Header("Pages")]

@@ -16,7 +16,7 @@ public class DailyTaskManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     
     void OnEnable()

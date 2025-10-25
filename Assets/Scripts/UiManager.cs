@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -13,13 +14,13 @@ public class UiManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     void OnEnable()
     {
         EventManager.Instance.OnToggleJournal += ToggleJournal;
-        EventManager.Instance.OnPause += DeactivateJournal;
+        EventManager.Instance.OnPause += HandlePause;
         EventManager.Instance.OnAnythingHighlighted += EnableInteractHint;
         EventManager.Instance.OnNothingHighlighted += DisableInteractHint;
     }
@@ -27,7 +28,7 @@ public class UiManager : MonoBehaviour
     void OnDisable()
     {
         EventManager.Instance.OnToggleJournal -= ToggleJournal;
-        EventManager.Instance.OnPause -= DeactivateJournal;
+        EventManager.Instance.OnPause -= HandlePause;
         EventManager.Instance.OnAnythingHighlighted -= EnableInteractHint;
         EventManager.Instance.OnNothingHighlighted -= DisableInteractHint;
     }
@@ -37,16 +38,68 @@ public class UiManager : MonoBehaviour
     [SerializeField] private bool journalIsActive = false;
     [SerializeField] public enum JournalStateRequest { TOGGLE, ACTIVATE, DEACTIVATE }
     [SerializeField] RectTransform journalButton;
+    [SerializeField] RectTransform pauseMenuButton;
+    private bool pauseMenuIsActive = false;
     [SerializeField] ChoreUIManager dailyTasksNotepad;
     [SerializeField] RectTransform interactHint;
     private bool interactHintIsActive = false;
 
+    public void HandlePause()
+    {
+        if (GameManager.Instance.GamePaused)
+        {
+            DeactivateJournal();
+            SetPauseMenuButtonActive(1);
+        }
+
+        else
+        {
+            SetPauseMenuButtonActive(0);
+            DeactivateJournal(); // Make sure journal is off when unpausing
+        }
+    }
+    
+    private void SetPauseMenuButtonActive(int option = -1)
+    {
+        switch (option)
+        {
+            //Toggle
+            case -1:
+                if (pauseMenuIsActive)
+                {
+                    pauseMenuButton.gameObject.SetActive(false);
+                    pauseMenuIsActive = false;
+                }
+
+                else
+                {
+                    pauseMenuButton.gameObject.SetActive(true);
+                    pauseMenuIsActive = true;
+                }
+                break;
+
+            // Enable, true
+            case 1:
+                pauseMenuButton.gameObject.SetActive(true);
+                pauseMenuIsActive = true;
+                break;
+
+            // Disable, false
+            case 0:
+                pauseMenuButton.gameObject.SetActive(false);
+                pauseMenuIsActive = false;
+                break;
+        }
+    }
+
     public void ActivateJournal()
     {
+        SetPauseMenuButtonActive(0);
         journalMenu.gameObject.SetActive(true);
         journalButton.gameObject.SetActive(false);
         dailyTasksNotepad.gameObject.SetActive(false);
         journalIsActive = true;
+        SetPauseMenuButtonActive(0);
     }
 
     public void DeactivateJournal()
@@ -67,6 +120,7 @@ public class UiManager : MonoBehaviour
         switch (requestedState)
         {
             case JournalStateRequest.ACTIVATE:
+                SetPauseMenuButtonActive(0);
                 ActivateJournal();
                 break;
 
@@ -76,7 +130,11 @@ public class UiManager : MonoBehaviour
 
             case JournalStateRequest.TOGGLE:
                 if (journalIsActive) DeactivateJournal();
-                else ActivateJournal();
+                else
+                {
+                    SetPauseMenuButtonActive(0);
+                    ActivateJournal();
+                }
                 break;
         }
     }
@@ -91,5 +149,10 @@ public class UiManager : MonoBehaviour
     {
         interactHint.gameObject.SetActive(false);
         interactHintIsActive = false;
+    }
+
+    public void EnterMainMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
