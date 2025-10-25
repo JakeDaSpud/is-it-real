@@ -52,6 +52,8 @@ MonoBehaviour:
   tvRadioSFX: {fileID: 8300000, guid: 95c5e377fb1e4c2458d8bf8182c7215b, type: 3}
   laundrySFX: {fileID: 8300000, guid: fdce0e85c8b35c34ca5942b08ff305c8, type: 3}
   rainSFX: {fileID: 8300000, guid: 61f40d5bdc336364b985ee76c88e7452, type: 3}
+  meowSFX: {fileID: 8300000, guid: a52d66886fc6c85489192189670681f9, type: 3}
+  barkSFX: {fileID: 8300000, guid: 39f92a65926d6af419085740543f6020, type: 3}
   menuTheme: {fileID: 8300000, guid: 9546535fe994c2c4f9fefb26b7c59834, type: 3}
   gameTheme: {fileID: 8300000, guid: 11ae9b1ce94d5c64281e34ef15e41682, type: 3}
   creditsTheme: {fileID: 8300000, guid: 872b63cd6b8584848b3324db45e315e5, type: 3}

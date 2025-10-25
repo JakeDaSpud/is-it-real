@@ -55,7 +55,7 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// Plays an AudioClip.
     /// </summary>
-    public event Action<AudioClip> OnSoundInteraction;
+    public event Action<AudioManager.SFX> OnSoundInteraction;
     /// <summary>
     /// Call next day protocol for Sleeping.
     /// </summary>
@@ -100,7 +100,7 @@ public class EventManager : MonoBehaviour
     public void RaiseSuccessfulInteraction(InteractionEvent interactionEvent) { OnSuccessfulInteraction?.Invoke(interactionEvent); }
     public void RaiseSpriteChangeInteraction(HauntableObject hauntableObject, Sprite newSprite, int newSpriteIndex) { OnSpriteChangeInteraction?.Invoke(hauntableObject, newSprite, newSpriteIndex); }
     public void RaiseImageShowInteraction(Sprite sprite) { OnImageShowInteraction?.Invoke(sprite); }
-    public void RaiseSoundInteraction(AudioClip audioClip) { OnSoundInteraction?.Invoke(audioClip); }
+    public void RaiseSoundInteraction(AudioManager.SFX sfx) { OnSoundInteraction?.Invoke(sfx); }
     public void RaiseSleepInteraction() { OnSleepInteraction?.Invoke(); }
     public void RaiseWriteEssayInteraction() { OnWriteEssayInteraction?.Invoke(); }
 

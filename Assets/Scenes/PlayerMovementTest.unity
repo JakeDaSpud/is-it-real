@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 913549100195934375, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
+      propertyPath: sfxVolume
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4052271110052208094, guid: 52b44f1fca5560d47b09804472a82b31, type: 3}
       propertyPath: m_Name
       value: SettingsManager
@@ -3613,7 +3617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 63999d4e93af68b488fd375c7cb20b75, type: 3}
+  sound: 1
 --- !u!1 &497408390
 GameObject:
   m_ObjectHideFlags: 0
@@ -10835,7 +10839,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 1
   defaultFirstFrameIndex: 0
   defaultLastFrameIndex: 1
@@ -10846,6 +10853,7 @@ MonoBehaviour:
   loopCount: 0
   isPlaying: 0
   canReplayAnimation: 0
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 1719112081}
 --- !u!224 &1449096504 stripped
 RectTransform:
@@ -12681,7 +12689,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
@@ -12692,6 +12703,7 @@ MonoBehaviour:
   loopCount: 4
   isPlaying: 0
   canReplayAnimation: 0
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1652904919 stripped
 GameObject:
@@ -12711,7 +12723,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
@@ -12722,6 +12737,7 @@ MonoBehaviour:
   loopCount: 1
   isPlaying: 0
   canReplayAnimation: 1
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1664123731 stripped
 GameObject:
@@ -12954,7 +12970,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
@@ -12965,6 +12984,7 @@ MonoBehaviour:
   loopCount: 4
   isPlaying: 0
   canReplayAnimation: 0
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &1692382228
 GameObject:
@@ -13463,7 +13483,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
@@ -13474,6 +13497,7 @@ MonoBehaviour:
   loopCount: -1
   isPlaying: 0
   canReplayAnimation: 0
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 0}
 --- !u!4 &1728039763 stripped
 Transform:
@@ -13811,7 +13835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 39f92a65926d6af419085740543f6020, type: 3}
+  sound: 9
 --- !u!1 &1784320696
 GameObject:
   m_ObjectHideFlags: 0
@@ -14090,7 +14114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4223391b943b2b449383656389f15b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: a52d66886fc6c85489192189670681f9, type: 3}
+  sound: 8
 --- !u!1 &1792428518
 GameObject:
   m_ObjectHideFlags: 0
@@ -16964,7 +16988,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  logStatements: 0
   frameDurationMS: 330
+  currentFrameIndex: 0
+  editorDefaultSpriteIndex: 0
   hasDefaultAnimation: 0
   defaultFirstFrameIndex: -1
   defaultLastFrameIndex: -1
@@ -16975,6 +17002,7 @@ MonoBehaviour:
   loopCount: 2
   isPlaying: 0
   canReplayAnimation: 1
+  animationPlayed: 0
   animationToStartWhenFinished: {fileID: 0}
 --- !u!1 &2112731688
 GameObject:

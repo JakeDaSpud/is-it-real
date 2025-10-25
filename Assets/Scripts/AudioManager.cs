@@ -30,7 +30,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip tvRadioSFX;
     [SerializeField] private AudioClip laundrySFX;
     [SerializeField] private AudioClip rainSFX;
-    public enum SFX { DOOR, WATER_RUNNING, LIGHT_SWITCH, WASHING_DISHES, FLOATING_SKULL_LAUGH, TV_RADIO, LAUNDRY, RAIN };
+    [SerializeField] private AudioClip meowSFX;
+    [SerializeField] private AudioClip barkSFX;
+    public enum SFX { DOOR, WATER_RUNNING, LIGHT_SWITCH, WASHING_DISHES, FLOATING_SKULL_LAUGH, TV_RADIO, LAUNDRY, RAIN, MEOW, BARK };
 
     [Header("Music Files")]
     [SerializeField] private AudioClip menuTheme;
@@ -124,7 +126,7 @@ public class AudioManager : MonoBehaviour
         EventManager.Instance.OnSoundInteraction -= HandleSound;
     }
 
-    private void HandleSound(AudioClip sound)
+    private void HandleSound(SFX sound)
     {
         PlaySound(sound);
     }
@@ -210,9 +212,9 @@ public class AudioManager : MonoBehaviour
                     audioSource.clip = doorSFX;
                     break;
 
-                /*case SFX.TV_RADIO:
+                case SFX.TV_RADIO:
                     audioSource.clip = tvRadioSFX;
-                    break;*/
+                    break;
 
                 case SFX.LIGHT_SWITCH:
                     audioSource.clip = lightSwitchSFX;
@@ -230,10 +232,18 @@ public class AudioManager : MonoBehaviour
                     audioSource.clip = floatingSkullLaughSFX;
                     break;
 
-                /*case SFX.RAIN:
+                case SFX.RAIN:
                     audioSource.clip = rainSFX;
                     //audioSource.loop = true;
-                    break;*/
+                    break;
+
+                case SFX.MEOW:
+                    audioSource.clip = meowSFX;
+                    break;
+
+                case SFX.BARK:
+                    audioSource.clip = barkSFX;
+                    break;
             }
 
             audioSource.Play();

@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewSoundInteraction", menuName = "InteractionEvent")]
 public class SoundInteractionEvent : InteractionEvent
 {
-    [SerializeField] public AudioClip sound;
+    [SerializeField] public AudioManager.SFX sound;
 
     override public void Interact()
     {

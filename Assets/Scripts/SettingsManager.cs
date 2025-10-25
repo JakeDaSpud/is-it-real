@@ -20,9 +20,9 @@ public class SettingsManager : MonoBehaviour
 
     [Header("Sound Settings")]
     [SerializeField] public bool muteAudio = false;
-    [SerializeField] public int masterVolume = 80;
+    [SerializeField] public int masterVolume = 100;
     [SerializeField] public int musicVolume = 40;
-    [SerializeField] public int sfxVolume = 60;
+    [SerializeField] public int sfxVolume = 50;
     [SerializeField] public int uiVolume = 50;
 
 }
