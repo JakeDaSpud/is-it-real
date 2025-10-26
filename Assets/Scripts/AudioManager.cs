@@ -133,7 +133,12 @@ public class AudioManager : MonoBehaviour
 
     void HandleInteraction()
     {
-        
+
+    }
+    
+    public void SetSoundVolume(int volume)
+    {
+        mainAudioMixer.SetFloat("SFXVolume", VolumeToDecibels(volume));
     }
 
     public bool PlayMusic(Music music, bool forceChange = false)
@@ -146,14 +151,17 @@ public class AudioManager : MonoBehaviour
             switch (music)
             {
                 case Music.MENU:
+                    if (audioSource.clip == menuTheme) return false;
                     audioSource.clip = menuTheme;
                     break;
 
                 case Music.GAME:
+                    if (audioSource.clip == gameTheme) return false;
                     audioSource.clip = gameTheme;
                     break;
 
                 case Music.CREDITS:
+                    if (audioSource.clip == creditsTheme) return false;
                     audioSource.clip = creditsTheme;
                     break;
             }

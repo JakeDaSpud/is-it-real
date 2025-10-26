@@ -4,6 +4,7 @@ using UnityEngine;
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] UnityEngine.UI.Image loadingScreen;
+    [SerializeField] CanvasGroup creditsText;
     [SerializeField] Sprite[] allLoadingScreens;
     [SerializeField] float fadeInDuration = 2f;
     [SerializeField] float holdDuration = 2f;
@@ -54,6 +55,12 @@ public class LoadingScreen : MonoBehaviour
             return;
         }
 
+        // This means we're at the credits scene
+        if (dayNumber == allLoadingScreens.Length)
+        {
+            creditsText.gameObject.SetActive(true);
+        }
+
         ResetLoadingScreen();
         coroutineCancelled = false;
 
@@ -72,6 +79,14 @@ public class LoadingScreen : MonoBehaviour
         loadingScreen.color = color;
         loadingScreen.gameObject.SetActive(true);
 
+        // If the text is active, then we going to listen to the whole credits song
+        if (creditsText.gameObject.activeInHierarchy)
+        {
+            holdDuration = 80f - fadeInDuration;
+            AudioManager.Instance.SetSoundVolume(0);
+            AudioManager.Instance.PlayMusic(AudioManager.Music.CREDITS, true);
+        }
+
         // lerp alpha for fadeInDuration seconds
         timer = 0f;
         while (timer < fadeInDuration)
@@ -81,6 +96,12 @@ public class LoadingScreen : MonoBehaviour
             float t = timer / fadeInDuration;
             color.a = Mathf.Lerp(0f, 1f, t);
             loadingScreen.color = color;
+            
+            if (creditsText.gameObject.activeInHierarchy)
+            {
+                creditsText.alpha = Mathf.Lerp(0f, 1f, t);
+            }
+
             yield return null;
         }
 
@@ -91,6 +112,12 @@ public class LoadingScreen : MonoBehaviour
             if (coroutineCancelled) yield break;
             timer += Time.deltaTime;
             yield return null;
+        }
+
+        // Credits song finished, go to menu
+        if (creditsText.gameObject.activeInHierarchy)
+        {
+            UiManager.Instance.EnterMainMenuScene();
         }
 
         // lerp alpha for fadeOutDuration seconds

@@ -46,7 +46,7 @@ public class UiManager : MonoBehaviour
 
     public void HandlePause()
     {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.Instance.GamePaused && !GameManager.Instance.LoadingScreen)
         {
             DeactivateJournal();
             SetPauseMenuButtonActive(1);
